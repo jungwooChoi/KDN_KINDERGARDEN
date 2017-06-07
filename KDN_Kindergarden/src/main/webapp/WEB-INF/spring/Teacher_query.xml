@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+	
+<!--여러 도메인을 위한 쿼리 xml를 작성할 때  도메인을 식별하기 위해 
+    namespace 부여 
+=> sqlSession.쿼리메서드("식별자", paramdata);
+    식별자 =>  namespace.id
+  ex)sqlSession.selectOne("board.search", paramdata);    
+-->	
+<mapper namespace="teacher">
+	<select id ="search" parameterType="int" resultType="teacher">
+		select t_name, t_pw, t_gradu, to_char(t_birth, 'yyyy-mm-dd'), t_phone, t_address, t_img, t_status
+		from teacher
+		where t_id = #{t_id}
+	</select>
+
+	<update id="update" parameterType="teacher">
+		update teacher set  t_name = #{t_name:VARCHAR},
+						    t_pw = #{t_pw:VARCHAR}, 
+						    t_gradu = #{t_gradu:VARCHAR},
+						    t_birth = #{t_birth:DATE},
+						    t_phone = #{t_phone:VARCHAR},
+						    t_address = #{t_address:VARCHAR},
+						    t_img = #{t_img:VARCHAR},
+						    t_status = #{t_status:CHAR}
+		where t_id = #{t_id:INTEGER}	
+	</update>
+	
+</mapper>

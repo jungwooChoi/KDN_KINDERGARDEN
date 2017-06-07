@@ -62,9 +62,9 @@
 						<ul>
 							<li><a href="about.html">About us</a></li>
 							<li><a href="events.html">notice</a></li>
-							<li><a href="gallery.html">register</a></li>
+							<li><a href="gallery.do">register</a></li>
 							<li><a href="index.html">schedule</a></li>
-							<li><a href="index.html">photo</a></li>
+							<li><a href="gallery.do">photo</a></li>
 							<li><a href="index.html">menu</a></li>
 						</ul>
 					</div>

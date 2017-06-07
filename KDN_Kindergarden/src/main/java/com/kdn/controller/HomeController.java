@@ -23,4 +23,10 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping(value ="gallery.do", method = RequestMethod.GET)
+	public String gallery(Model model){
+		model.addAttribute("content", "gallery.jsp");
+		return "index";
+	}
+	
 }
