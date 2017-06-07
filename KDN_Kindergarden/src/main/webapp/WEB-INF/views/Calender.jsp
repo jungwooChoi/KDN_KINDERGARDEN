@@ -50,6 +50,7 @@ var dCurMonth = dDate.getMonth();
 var dCurDayOfMonth = dDate.getDate();
 var dCurYear = dDate.getFullYear();
 var objPrevElement = new Object();
+var wnd; // ÆË¾÷
 
 function fToggleColor(myElement) {
 	var toggleColor = "#B00101";
@@ -73,14 +74,17 @@ function fToggleColor(myElement) {
 	}
 }
 
-
 function fSetSelectedDay(myElement){
 	if (myElement.id == "calCell") {
 		if (!isNaN(parseInt(myElement.children["calDateText"].innerText))) {
 			//myElement.bgColor = "#c0c0c0";
 			//objPrevElement.bgColor = "#FFFFFF";
+			
 			var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";    //ÆË¾÷Ã¢ ¿É¼Ç(optoin)
-			window.open("searchBoard.do","",popOption);
+			if (wnd){
+				wnd.close();
+			}
+			wnd = window.open("searchBoard.do","",popOption);
 			document.all.calSelectedDate.value = parseInt(myElement.children["calDateText"].innerText);
 			objPrevElement = myElement;
 			if (document.all.calSelectedDate.value < 10) document.all.calSelectedDate.value = "0"+document.all.calSelectedDate.value;
