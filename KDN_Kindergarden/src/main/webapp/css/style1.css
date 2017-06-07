@@ -258,8 +258,43 @@ input.white[type=submit]:hover{
 	text-decoration: none;
 }
 
-div #login{
-	float: right;	
+body #login{
+	float: right;
+	overflow:hidden;
+	margin-right: 20%;
+	padding-top: 10px;	
+}
+
+body #login ul li a{
+	color: #ea6b6e;
+	font-family: 'Arvo', serif;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#frm p{
+	color: #ea6b6e;
+	font-family: 'Arvo', serif;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#frm input {
+	border: dashed #ea6b6e;
+	font-family: 'Arvo', serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #ea6b6e;
+	
+}
+
+#frm #submit{
+	color: #ea6b6e;
+	background-color: inherit;
+	font-family: 'Arvo', serif;
+	font-size: 20px;
+	font-weight: bold;
+	border: none;
 }
 
 #logo {

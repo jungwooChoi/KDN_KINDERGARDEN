@@ -8,9 +8,9 @@
 </head>
 <body>
 	<form action="login.do" method="post"  id="frm">
-		<p class="clr-7"> id &nbsp <input type="text" name="id" id="id"/></p> 
-		<p class="clr-7">pw &nbsp <input type="text" name="pw"  id="pw"/> </p>
-		<input type="submit" id = "submit" value="Login" class="clr-7"/>
+		<p> id &nbsp <input type="text" name="id" id="id"/>&nbsp&nbsp&nbsp&nbsp
+		pw &nbsp <input type="text" name="pw"  id="pw"/> &nbsp&nbsp
+		<input type="submit" id = "submit" value="Login"/></p>
 	</form>
 </body>
 </html>

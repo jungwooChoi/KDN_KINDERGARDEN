@@ -39,23 +39,23 @@
 	</script>
 </head>
 <body>
-			  <div id="login">
-			   		<ul>
-						<c:choose>
-					   	<c:when test="${empty id}">
-							<li><jsp:include page="member/login.jsp"/></li>
-					   	</c:when>
-					   	<c:otherwise>
-					    	 <li><a href="logout.do">logout&nbsp&nbsp</a><a href="myPage.do" class="clr-7">myPage</a></li>
-					   	</c:otherwise>
-						</c:choose>
-					</ul>
-				</div>
+	 <div id="login">
+		<ul>
+			<c:choose>
+		   	<c:when test="${empty id}">
+				<li><jsp:include page="member/login.jsp"/></li>
+		   	</c:when>
+		   	<c:otherwise>
+		    	 <li><a href="logout.do">logout&nbsp&nbsp</a><a href="myPage.do" class="clr-7">myPage</a></li>
+		   	</c:otherwise>
+			</c:choose>
+		</ul>
+	</div>
 	<div id="wrapper" class="homepage">
 		<div class="wrapper-holder">
 			<header id="header">
 				<div class="left-part"></div>
-				<a id="logo" href="index.html">Kid' school</a>
+				<a id="logo" href="index.html">KDN 어린이집</a>
 				<div class="bar-holder">
 					<a class="menu_trigger" href="#">menu</a>
 					<div id="nav">
