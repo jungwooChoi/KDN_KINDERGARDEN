@@ -257,6 +257,11 @@ input.white[type=submit]:hover{
 	color: #98785b;
 	text-decoration: none;
 }
+
+div #login{
+	float: right;	
+}
+
 #logo {
 	width: 142px;
 	height: 60px;
