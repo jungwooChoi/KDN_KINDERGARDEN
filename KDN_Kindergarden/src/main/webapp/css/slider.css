@@ -1,7 +1,9 @@
 /*--------- slider ---------*/
-#slide { position:relative; overflow:hidden; width:920px; padding:44px 40px 0 40px; z-index:2;}
+#slide { position:relative; overflow:hidden; width:920px; padding:44px 40px 0 40px; z-index:2;
+		  
+}
 
-.slider { width:920px; height:429px; margin:0 auto; position:relative; z-index:2; left: 30%}
+.slider { width:920px; height:429px; margin:0 auto; position:relative; z-index:2;}
 .items { display:none;}
 
 .pagination { display:none; }
