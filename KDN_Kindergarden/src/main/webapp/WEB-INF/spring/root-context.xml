@@ -55,6 +55,7 @@
 		<property name="mapperLocations">
 			<list>
 				<value>/WEB-INF/spring/Teacher_query.xml</value>
+				<value>/WEB-INF/spring/Board_query.xml</value>
 			</list>
 		</property>
 	</bean>

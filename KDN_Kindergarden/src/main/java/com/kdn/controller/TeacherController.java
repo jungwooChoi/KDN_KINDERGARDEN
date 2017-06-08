@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kdn.model.biz.TeacherService;
+import com.kdn.model.domain.Teacher;
 
 @Controller
 public class TeacherController {
@@ -36,6 +37,30 @@ public class TeacherController {
 	@RequestMapping(value = "logout.do", method = RequestMethod.GET)
 	public String logout(HttpSession session){
 		session.removeAttribute("id");
+		return "index";
+	}
+	
+	@RequestMapping(value="updateForm.do", method = RequestMethod.GET )
+	public String updateForm(Model model, HttpSession session){
+		Teacher teacher = teacherService.search((Integer)session.getAttribute("id"));
+		model.addAttribute("teacher", teacher);
+		model.addAttribute("content", "member/myPage.jsp");
+		model.addAttribute("myPage_content", "memberInfo.jsp");
+		return "index";
+	}
+	
+	@RequestMapping(value="myPage.do", method = RequestMethod.GET )
+	public String myPage(Model model, HttpSession session){
+		Teacher teacher = teacherService.search((Integer)session.getAttribute("id"));
+		model.addAttribute("teacher", teacher);
+		model.addAttribute("content", "member/myPage.jsp");
+		return "index";
+	}
+	
+	@RequestMapping(value = "update.do", method = RequestMethod.POST)
+	public String update(Teacher teacher,Model model){
+		teacherService.update(teacher);
+		model.addAttribute("content", "member/myPage.jsp");
 		return "index";
 	}
 }

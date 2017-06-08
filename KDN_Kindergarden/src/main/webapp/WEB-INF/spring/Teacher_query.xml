@@ -11,7 +11,7 @@
 -->	
 <mapper namespace="teacher">
 	<select id ="search" parameterType="int" resultType="teacher">
-		select t_name, t_pw, t_gradu, to_char(t_birth, 'yyyy-mm-dd'), t_phone, t_address, t_img, t_status
+		select t_id, t_name, t_pw, t_gradu, to_char(t_birth, 'yyyy-mm-dd') t_birth, t_phone, t_address, t_img, t_status
 		from teacher
 		where t_id = #{t_id}
 	</select>
