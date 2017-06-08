@@ -218,6 +218,17 @@ input.white[type=submit]:hover{
     display:table-row;
 }
 
+#font {
+	padding-top : 20px;
+	font-family : 'Arvo', serif;
+	font-size : 20px;
+	text-align: center;
+	color: #ea6b6e;
+	background: #ffffff;
+	height : 800px;
+	border : dashed #ea6b6e;
+}
+
 /* Header
 ------------------------------------------------------------------------------*/
 #header {

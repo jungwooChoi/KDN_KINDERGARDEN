@@ -1,7 +1,5 @@
 package com.kdn.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -26,6 +24,17 @@ public class HomeController {
 	@RequestMapping(value ="gallery.do", method = RequestMethod.GET)
 	public String gallery(Model model){
 		model.addAttribute("content", "gallery.jsp");
+		return "index";
+	}
+	
+	@RequestMapping(value="myPage.do", method = RequestMethod.GET )
+	public String myPage(Model model){
+		model.addAttribute("content", "member/myPage.jsp");
+		return "index";
+	}
+	
+	@RequestMapping(value="home.do", method = RequestMethod.GET )
+	public String home(){
 		return "index";
 	}
 	
