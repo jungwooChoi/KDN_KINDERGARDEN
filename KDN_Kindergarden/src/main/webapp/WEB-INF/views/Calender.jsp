@@ -11,38 +11,8 @@
 <head>
 <meta charset="EUC-KR">
 <title>::::: Calender :::::</title>
-<style>
-/* a:link, a:active, a:visited {
-	font-size: 9pt;
-	color: 666666;
-	text-decoration: none;
-	font-family: 돋움;
-}
-
-a:hover {
-	font-size: 9pt;
-	color: 666666;
-	text-decoration: none;
-	font-family: 돋움;
-}
-
-td {
-	text-align: center;
-	font-family: "굴림";
-	font-size: 9pt;
-	color: #666666;
-	line-height: 16px
-}
-
-.day {
-	color: B00101
-}
-
-.week {
-	color: ff3333
-} */
-</style>
 <script language="javascript" src="/js/datepicker.js"></script>
+<script type="text/javascript" src="/js/jquery-1.7.min.js"></script>
 <SCRIPT LANGUAGE="JavaScript">
 
 var dDate = new Date();
@@ -51,28 +21,6 @@ var dCurDayOfMonth = dDate.getDate();
 var dCurYear = dDate.getFullYear();
 var objPrevElement = new Object();
 var wnd; // 팝업
-
-function fToggleColor(myElement) {
-	var toggleColor = "#B00101";
-	if (myElement.id == "calDateText") {
-		
-		if (myElement.color.toUpperCase() == toggleColor) {
-			myElement.color = "";
-			} else {
-				myElement.color = toggleColor;
-				}
-	} else if (myElement.id == "calCell") {
-		for (var i in myElement.children) {
-			if (myElement.children[i].id == "calDateText") {
-				if (myElement.children[i].color.toUpperCase() == toggleColor) {
-					myElement.children[i].color = "";
-				} else {
-					myElement.children[i].color = toggleColor;
-				}				
-			}
-		}		
-	}
-}
 
 function fSetSelectedDay(myElement){
 	if (myElement.id == "calCell") {
@@ -118,7 +66,7 @@ function fSetSelectedDay(myElement){
 		var dPrevDate = new Date(iYear, iMonth, 0);
 		return dPrevDate.getDate();
 	}
-	function fBuildCal(iYear, iMonth, iDayStyle) {
+	function fBuildCal(iYear, iMonth) {
 		var aMonth = new Array();
 		aMonth[0] = new Array(7);
 		aMonth[1] = new Array(7);
@@ -132,39 +80,6 @@ function fSetSelectedDay(myElement){
 		var iDaysInMonth = fGetDaysInMonth(iMonth, iYear);
 		var iVarDate = 1;
 		var i, d, w;
-		if (iDayStyle == 1) {
-			aMonth[0][0] = "Sun";
-			aMonth[0][1] = "Mon";
-			aMonth[0][2] = "Tue";
-			aMonth[0][3] = "Wed";
-			aMonth[0][4] = "Thu";
-			aMonth[0][5] = "Fri";
-			aMonth[0][6] = "Sat";
-		} else if (iDayStyle == 2) {
-			aMonth[0][0] = "Sunday";
-			aMonth[0][1] = "Monday";
-			aMonth[0][2] = "Tuesday";
-			aMonth[0][3] = "Wednesday";
-			aMonth[0][4] = "Thursday";
-			aMonth[0][5] = "Friday";
-			aMonth[0][6] = "Saturday";
-		} else if (iDayStyle == 3) {
-			aMonth[0][0] = "일";
-			aMonth[0][1] = "월";
-			aMonth[0][2] = "화";
-			aMonth[0][3] = "수";
-			aMonth[0][4] = "목";
-			aMonth[0][5] = "금";
-			aMonth[0][6] = "토";
-		} else {
-			aMonth[0][0] = "Su";
-			aMonth[0][1] = "Mo";
-			aMonth[0][2] = "Tu";
-			aMonth[0][3] = "We";
-			aMonth[0][4] = "Th";
-			aMonth[0][5] = "Fr";
-			aMonth[0][6] = "Sa";
-		}
 		for (d = iDayOfFirst; d < 7; d++) {
 			aMonth[1][d] = iVarDate;
 			iVarDate++;
@@ -179,19 +94,19 @@ function fSetSelectedDay(myElement){
 		}
 		return aMonth;
 	}
-	function fDrawCal(iYear, iMonth, sDateTextSize, sDateTextWeight, iDayStyle) {
+	function fDrawCal(iYear, iMonth) {
 		var myMonth;
-		myMonth = fBuildCal(iYear, iMonth, iDayStyle);
+		myMonth = fBuildCal(iYear, iMonth);
 		// <div class="cell-wrap">
 
 		for (w = 1; w < 7; w++) {
 			document.write("<tr>");
 			for (d = 0; d < 7; d++) {
-				document.write("<td id=calCell onMouseOver='fToggleColor(this)' onMouseOut='fToggleColor(this)' onclick=fSetSelectedDay(this)>");
+				document.write("<td id=calCell onclick=fSetSelectedDay(this)>");
 				if (!isNaN(myMonth[w][d])) {
 					document.write("<div id=calDateText class='cell-wrap archival'>"+ myMonth[w][d] + "</div>");
 				} else {
-					document.write("<div id=calDateText class='cell-wrap' onMouseOver='fToggleColor(this)' onMouseOut='fToggleColor(this)' onclick=fSetSelectedDay(this)> </div>");
+					document.write("<div id=calDateText class='cell-wrap' onclick=fSetSelectedDay(this)> </div>");
 				}
 				document.write("</td>")
 			}
@@ -207,8 +122,11 @@ function fSetSelectedDay(myElement){
 			for (d = 0; d < 7; d++) {
 				if (!isNaN(myMonth[w][d])) {
 					calDateText[((7 * w) + d) - 7].innerText = myMonth[w][d];
+					$(calDateText[((7 * w) + d) - 7]).removeClass('archival').addClass('archival');
+					
 				} else {
 					calDateText[((7 * w) + d) - 7].innerText = " ";
+					$(calDateText[((7 * w) + d) - 7]).removeClass('archival')
 				}
 			}
 		}
@@ -221,6 +139,7 @@ function fSetSelectedDay(myElement){
 
 		thisday.innerText = dispYear + "년 " + dispMonth + "월";
 		fUpdateCal(dispYear, dispMonth);
+		
 	}
 
 	function beforeMonth() {
@@ -294,7 +213,7 @@ function fSetSelectedDay(myElement){
 								<tr>
 								<td><script language="JavaScript">
 								var dCurDate = new Date();
-								fDrawCal(dCurDate.getFullYear(), dCurDate.getMonth() + 1,"12px", "bold", 3);
+								fDrawCal(dCurDate.getFullYear(), dCurDate.getMonth() + 1);
 								</script></td>
 								</tr>
 								</tbody>

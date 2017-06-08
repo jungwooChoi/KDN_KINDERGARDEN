@@ -1019,10 +1019,13 @@ section #main{
 }
 .event-calendar .controls,
 .event-calendar .month{
+	font-family:'Binggrae';
 	height: 125px;
 	padding:0;
 	vertical-align: middle;
 	font-size: 24px;
+	font-weight: bold;
+	
 }
 .event-calendar .controls a{
 	display: block;
@@ -1800,5 +1803,6 @@ section #main{
 			background-size: 300px 135px;
 		}
 	}
+	@font-face{font-family:'Binggrae'; src:url('/font/Binggrae.ttf');}
 }
 
