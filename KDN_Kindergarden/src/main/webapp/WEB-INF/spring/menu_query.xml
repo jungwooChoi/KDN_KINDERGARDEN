@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+	
+<!--여러 도메인을 위한 쿼리 xml를 작성할 때  도메인을 식별하기 위해 
+    namespace 부여 
+=> sqlSession.쿼리메서드("식별자", paramdata);
+    식별자 =>  namespace.id
+  ex)sqlSession.selectOne("board.search", paramdata);    
+-->	
+<mapper namespace="menu">
+
+	<select id ="search" parameterType="string" resultType="menu">
+		select m_etc
+		from menu
+		where m_date = #{m_date} AND m_category = #{m_category};
+	</select>
+	
+	<insert id="insert" parameterType="menu">
+		insert into menu ( m_id, m_date, m_img, m_category, m_etc , m_t_id )
+		values( #{m_id:INTEGER}, #{m_date:VARCHAR}, #{m_img:VARCHAR}
+				,#{m_category:VARCHAR} ,#{m_etc:VARCHAR} ,#{m_t_id:INTEGER})
+	</insert>
+	
+	<update id="update" parameterType="menu">
+		update menu set m_id = #{m_id:INTEGER},
+						    m_date = #{m_date:VARCHAR}, 
+						    m_img = #{m_img:VARCHAR},
+						    m_category = #{m_category:VARCHAR},
+						    m_etc = #{m_etc:VARCHAR},
+						    m_t_id = #{m_t_id:INTEGER}
+		where m_id = #{m_id:INTEGER}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from menu where m_id = #{m_id:INTEGER}
+	</delete>
+	
+</mapper>
