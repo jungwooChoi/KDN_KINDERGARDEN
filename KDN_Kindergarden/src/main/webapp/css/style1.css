@@ -8,7 +8,7 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section, summary,
+footer, header, hgroup, menu, nav,nav2, section, summary,
 time, mark, audio, video {
 	margin: 0;
 	padding: 0;
@@ -20,7 +20,7 @@ time, mark, audio, video {
 }
 
 article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+footer, header, hgroup, menu, nav, nav2,section {
 	display: block;
 }
 
@@ -149,7 +149,7 @@ body {
 	font-family: 'Arvo', serif;
 	font-size: 15px;
 	color: #9e9994;
-	background: #ffd7d7;
+	background: #fffbf7;
 	-webkit-text-size-adjust: none; 
 }
 
@@ -158,7 +158,7 @@ input, textarea, select, button {
 	font-family: 'Arvo', serif;
 }
 
-nav { z-index:100; height:571px; overflow:hidden;
+nav, nav2 { z-index:100; height:571px; overflow:hidden;
 	  background:url(../images/slider-bg.png) 0 0 no-repeat; margin: 0 auto;
 	  width: 1000px;
 	 }
@@ -229,6 +229,11 @@ input.white[type=submit]:hover{
 	border : dashed #ea6b6e;
 }
 
+#font li a:hover{
+	color: #ff0000;
+	text-decoration:none;
+}
+
 /* Header
 ------------------------------------------------------------------------------*/
 #header {
@@ -264,18 +269,32 @@ input.white[type=submit]:hover{
 	top: 170px;
 	position: absolute;
 }
+.menu_trigger2{
+	width: 30px;
+	height: 31px;
+	padding-right: 50px;
+	line-height: 26px;
+	right:0;
+	color: #98785b;
+	background: url(../images/btn_mobile_menu.png) no-repeat 100% 0;
+/* 	text-indent: -9999em; */
+	display: none;
+	top: 170px;
+	position: absolute;
+}
 .menu_trigger:hover, .menu_trigger:visited, .menu_trigger:focus, .menu_trigger:active {
 	color: #98785b;
 	text-decoration: none;
 }
-
+.menu_trigger2:hover, .menu_trigger2:visited, .menu_trigger2:focus, .menu_trigger2:active {
+	color: #98785b;
+	text-decoration: none;
+}
 body #login{
 	float: right;
-	width: 1000px;
-	margin-right: 0 auto;
-	padding-top: 10px;
-	text-align: right;	
-	padding-right: 10%;
+	overflow:hidden;
+	margin-right: 20%;
+	padding-top: 10px;	
 }
 
 body #login ul li a{
@@ -283,6 +302,12 @@ body #login ul li a{
 	font-family: 'Arvo', serif;
 	font-size: 20px;
 	font-weight: bold;
+}
+
+body #login ul li a:hover{
+	
+	color: #ff0000;
+	text-decoration: none;
 }
 
 #frm p{
@@ -298,6 +323,7 @@ body #login ul li a{
 	font-size: 15px;
 	font-weight: bold;
 	color: #ea6b6e;
+	
 }
 
 #frm #submit{
@@ -345,7 +371,15 @@ body #login ul li a{
 .bar-holder {
 	width: 100%;
 }
+.bar-holder2 {
+	width: 100%;
+}
 .bar-holder:after {
+    content:'';
+    display:block;
+    clear:both;
+}
+.bar-holder2:after {
     content:'';
     display:block;
     clear:both;
@@ -365,6 +399,25 @@ body #login ul li a{
 	color: #98785b;
 }
 #nav ul a:hover, #nav ul a.active {
+	color: #ea6b6e;
+	text-decoration: none;
+}
+
+#nav2 ul {
+	margin: 0 auto;
+	text-align: center;
+}
+#nav2 ul li {
+	display: inline-block;
+	padding: 0 25px;
+	font-family: 'Gochi Hand', cursive;
+	font-size: 24px;
+	color: #ea6b6e;
+}
+#nav2 ul a {
+	color: #98785b;
+}
+#nav2 ul a:hover, #nav2 ul a.active {
 	color: #ea6b6e;
 	text-decoration: none;
 }
@@ -442,9 +495,6 @@ body #login ul li a{
 	background-size: 22px 22px;
 }
 
-section #main{
-	height : 1000px;
-}
 /* Main
 ------------------------------------------------------------------------------*/
 .homepage #main {
@@ -604,7 +654,7 @@ section #main{
 .event-calendar a{
 	text-decoration: none;
 }
-.event-calendar .ccccc a{
+.event-calendar .archival a{
 	color: #fff;
 }
 .event-calendar td .archival{
@@ -1249,6 +1299,15 @@ section #main{
 		padding: 0 15px;
 		float:none;
 	}
+	#nav2 ul {
+		text-align:center;
+		margin:0;
+	}
+	#nav2 ul li {
+		display:inline-block;
+		padding: 0 15px;
+		float:none;
+	}
 }
 
 @media only screen and (max-width : 900px) {
@@ -1372,7 +1431,11 @@ section #main{
 	.menu_trigger {
 		display: block;
 	}
+	.menu_trigger2 {
+		display: block;
+	}
 	.bar-holder {margin:0; width: auto;}
+	.bar-holder2 {margin:0; width: auto;}
 	#nav {
 		margin-top:30px;
 		display: none;
@@ -1386,6 +1449,24 @@ section #main{
 		padding: 8px 0;
 	}
 	#nav ul a:hover {
+		background:#98785b;
+		color: #fff;
+		text-decoration:none;
+	}
+
+	#nav2 {
+		margin-top:30px;
+		display: none;
+	}
+	#nav2 ul li {
+		display:block;
+		padding: 0;	
+	}
+	#nav2 ul a {
+		display:block;
+		padding: 8px 0;
+	}
+	#nav2 ul a:hover {
 		background:#98785b;
 		color: #fff;
 		text-decoration:none;

@@ -17,6 +17,17 @@
     <script src="js/jquery-1.7.min.js"></script>
     <script src="js/jquery.easing.1.3.js"></script>
     <script src="js/tms-0.4.1.js"></script>
+    <style type="text/css">
+    .bar-holder2{
+	width: 100%;
+	height: 50px;
+	background-color: #484848;
+	margin-top: -240px;
+	z-index:9004; 
+	position: fixed; 
+	line-height: 50px;
+	}
+    </style>
     <script>
 		$(document).ready(function(){				   	
 			$('.slider')._TMS({
@@ -35,6 +46,25 @@
 				waitBannerAnimation:false,
 				progressBar:false
 			})		
+		});
+		
+		$(document).ready(function(){
+		    $(window).scroll(function(){
+		    	//$("#menupopup").hide();
+		      if($(window).scrollTop()>100){
+		    	 
+		    	  $('.bar-holder2').fadeIn('slow'); // 100 픽셀을 초과하여 스크롤 된 다음 표시
+		    	  $('.bar-holder').hide('fast');
+		      }
+		      else {
+		    	  $('.bar-holder2').fadeOut('fast'); // 100 픽셀 이하인 경우 숨김
+		    	  $('.bar-holder').show('fast');
+		      }
+		    });
+
+		});
+		$(function(){
+			$(".bar-holder2").hide();
 		});
 	</script>
 </head>
@@ -61,10 +91,23 @@
 					<div id="nav">
 						<ul>
 							<li><a href="about.html">About us</a></li>
-							<li><a href="events.html">notice</a></li>
+							<li><a href="listBoard.do">notice</a></li>
 							<li><a href="gallery.do">register</a></li>
 							<li><a href="index.html">schedule</a></li>
 							<li><a href="gallery.do">photo</a></li>
+							<li><a href="index.html">menu</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="bar-holder2">
+					<a class="menu_trigger2" href="#">menu</a>
+					<div id="nav2">
+						<ul>
+							<li><a href="about.html">About us</a></li>
+							<li><a href="listBoard.do">notice</a></li>
+							<li><a href="gallery.html">register</a></li>
+							<li><a href="index.html">schedule</a></li>
+							<li><a href="index.html">photo</a></li>
 							<li><a href="index.html">menu</a></li>
 						</ul>
 					</div>

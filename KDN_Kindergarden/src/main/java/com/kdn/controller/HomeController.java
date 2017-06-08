@@ -27,11 +27,6 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping(value="myPage.do", method = RequestMethod.GET )
-	public String myPage(Model model){
-		model.addAttribute("content", "member/myPage.jsp");
-		return "index";
-	}
 	
 	@RequestMapping(value="home.do", method = RequestMethod.GET )
 	public String home(){
