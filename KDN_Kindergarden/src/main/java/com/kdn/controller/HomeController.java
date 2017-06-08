@@ -27,6 +27,12 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping(value ="menu.do", method = RequestMethod.GET)
+	public String menu(Model model){
+		model.addAttribute("content", "menu/menu.jsp");
+		return "index";
+	}
+	
 	
 	@RequestMapping(value="home.do", method = RequestMethod.GET )
 	public String home(){
