@@ -12,7 +12,7 @@
 		 <typeAlias type="com.kdn.model.domain.Board" alias = "board"/>
 		 <typeAlias type="com.kdn.model.domain.Teacher" alias = "teacher"/>
 		 <typeAlias type="com.kdn.model.domain.PageBean" alias = "pagebean"/>
-		  <typeAlias type="com.kdn.model.domain.Menu" alias = "menu"/>
+		 <typeAlias type="com.kdn.model.domain.Menu" alias = "menu"/>
 	</typeAliases>
 	<mappers>
 	<!-- sql 쿼리를 작성한 xml 파일 경로 설정 

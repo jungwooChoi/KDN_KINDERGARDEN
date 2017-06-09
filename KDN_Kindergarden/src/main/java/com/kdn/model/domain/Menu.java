@@ -22,6 +22,7 @@ public class Menu
 		this.m_t_id = m_t_id;
 	}
 
+
 	public Menu(String m_date, String m_category, String m_etc, int m_t_id) 
 	{
 		this.m_date = m_date;
@@ -95,6 +96,14 @@ public class Menu
 		this.m_t_id = m_t_id;
 	}
 	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Menu [m_id=").append(m_id).append(", m_date=")
+				.append(m_date).append(", m_img=").append(m_img)
+				.append(", m_category=").append(m_category).append(", m_etc=")
+				.append(m_etc).append(", m_t_id=").append(m_t_id).append("]");
+		return builder.toString();
+	}
 	
-
 }
