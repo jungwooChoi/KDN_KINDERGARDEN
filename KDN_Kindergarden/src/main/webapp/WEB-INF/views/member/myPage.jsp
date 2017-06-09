@@ -27,7 +27,7 @@ $(function(){
 			<ul id = "font">
 				<li><a href="updateForm.do">정보 수정</a></li>
 				<li><a href="#" id="bot-1_li2">상담 관리</a></li>
-				<li><a href="#" id="bot-1_li3">입학 관리</a></li>
+				<li><a href="insertKidForm.do" id="bot-1_li3">입학 관리</a></li>
 			</ul>
 		</div>
 		<div class="grid_9">
