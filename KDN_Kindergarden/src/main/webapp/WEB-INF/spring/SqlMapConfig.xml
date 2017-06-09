@@ -16,6 +16,7 @@
 		  <typeAlias type="com.kdn.model.domain.Menu" alias = "menu"/>
 		  <typeAlias type="com.kdn.model.domain.Active" alias = "active"/>
 		  <typeAlias type="com.kdn.model.domain.ActiveFile" alias = "activefile"/>
+		   <typeAlias type="com.kdn.model.domain.Kid" alias = "kid"/>
 	</typeAliases>
 	<mappers>
 	<!-- sql 쿼리를 작성한 xml 파일 경로 설정 
