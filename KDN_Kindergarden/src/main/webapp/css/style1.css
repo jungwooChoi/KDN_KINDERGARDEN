@@ -691,10 +691,13 @@ body #login ul li a:hover{
 	color: #4e87a0;
 	background-image: url(../images/bg_td-tooltip.png);
 	background-size: cover;
+	style="cursor:pointer";
+	
 }
 .event-calendar .upcoming:hover a,
 .event-calendar .archival:hover a {
 	color: #4e87a0;
+	style="cursor:pointer";
 }
 .event-calendar .tooltip{
 	width: 448px;
@@ -1115,7 +1118,7 @@ div.gallery2  div  a  img:hover{
 	height: 125px;
 	padding:0;
 	vertical-align: middle;
-	font-size: 24px;
+	font-size: 20px;
 	font-weight: bold;
 	
 }

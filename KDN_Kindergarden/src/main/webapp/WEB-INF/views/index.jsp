@@ -23,7 +23,8 @@
 	height: 50px;
 	background-color: #484848;
 	margin-top: -240px;
-	z-index:9004; 
+	margin-left: -500px;
+	z-index:9004;
 	position: fixed; 
 	line-height: 50px;
 	}

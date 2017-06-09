@@ -23,6 +23,7 @@
 	<resources mapping="/upload/**"  	location="/upload/" />
 	<resources mapping="/active/**"  	location="/active/" />
 	<resources mapping="/images/**"  	location="/images/" />
+	<resources mapping="/font/**"  		location="/font/" />
 
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->

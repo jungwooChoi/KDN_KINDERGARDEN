@@ -56,8 +56,9 @@
 			<list>
 				<value>/WEB-INF/spring/Teacher_query.xml</value>
 				<value>/WEB-INF/spring/Board_query.xml</value>
-				<value>/WEB-INF/spring/menu_query.xml</value>
+				<value>/WEB-INF/spring/Schedule_query.xml</value>
 				<value>/WEB-INF/spring/Active_query.xml</value>
+				<value>/WEB-INF/spring/Menu_query.xml</value>
 			</list>
 		</property>
 	</bean>

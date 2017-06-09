@@ -11,6 +11,7 @@
 		 -->
 		 <typeAlias type="com.kdn.model.domain.Board" alias = "board"/>
 		 <typeAlias type="com.kdn.model.domain.Teacher" alias = "teacher"/>
+		 <typeAlias type="com.kdn.model.domain.Schedule" alias = "schedule"/>
 		 <typeAlias type="com.kdn.model.domain.PageBean" alias = "pagebean"/>
 		  <typeAlias type="com.kdn.model.domain.Menu" alias = "menu"/>
 		  <typeAlias type="com.kdn.model.domain.Active" alias = "active"/>

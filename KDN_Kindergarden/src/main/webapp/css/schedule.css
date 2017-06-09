@@ -1,0 +1,37 @@
+@CHARSET "UTF-8";
+#layout {
+	background : url(images/bg_01.gif) repeat;
+	width : 365px;
+	height: 435px;
+	border: 2px solid #4D80AF;
+	padding: 10px;	
+}
+
+#outline {
+	background-color: #FFFFFF;
+	width: 340px;
+	height: 380px;
+	border: 1px solid #B1CFEA;
+	border-right: 2px solid #B1CFEA;
+	border-bottom: 2px solid #B1CFEA;
+	padding: 10px;
+	vertical-align: top;
+}
+
+.tbl_cell1 { border:1px solid red;
+	color: #5286A9;
+	font-weight: bold;
+	background : url(images/bg_corner1.gif) no-repeat;
+	width: 70px;
+	text-align: center;
+	vertical-align: top;	
+}
+.tbl_cell2 {
+	color: #5286A9;
+	font-weight: bold;
+	background : url(images/bg_corner1.gif) no-repeat;
+	width: 70px;
+	height: 250px;
+	text-align: center;
+	vertical-align: top;
+}
