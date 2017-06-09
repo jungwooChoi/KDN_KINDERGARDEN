@@ -14,7 +14,7 @@ public class MenuDaoImpl implements MenuDao
 	private SqlSessionTemplate session;
 
 	@Override
-	public Menu search(String m_date, String m_category) 
+	public Menu search(int m_date) 
 	{
 		return null;
 	}

@@ -12,8 +12,7 @@ public class MenuServiceImple implements MenuService
 {
 	@Autowired
 	@Qualifier("menuDao")
-	
-	private MenuService dao;
+	private MenuDao dao;
 
 	@Override
 	public void update(Menu menu) 

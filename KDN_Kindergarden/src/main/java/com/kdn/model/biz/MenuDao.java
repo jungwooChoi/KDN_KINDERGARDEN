@@ -7,7 +7,7 @@ import com.kdn.model.domain.PageBean;
 
 public interface MenuDao 
 {
-	public Menu search(String m_date, String m_category);
+	public Menu search(int m_date);
 	public void update(Menu menu);
 	public void 	add(Menu menu);
 	public void remove(int m_id);

@@ -840,6 +840,40 @@ body #login ul li a:hover{
 	color: #c0bab4;
 }
 
+/*Gallery*/
+div.gallery2{
+	margin: 0 auto;
+	width: 1050px;
+	padding: 5px;
+	height: 700px;
+}
+
+div.gallery2  div  a  img{
+	display : inline-block;
+	width: 200px;
+	height : 120px;
+	transition : .1s trnasform;
+	transform:translateZ(0);
+	background: #fff;
+	box-shadow : 0 1px 2px rgba(0,0,0,.3);
+}
+
+div.gallery2  div a{
+	position : relative;
+	float:left;
+	padding:5px;
+}
+
+div.gallery2  div  a:hover{
+	z-index:1;
+}
+
+div.gallery2  div  a  img:hover{
+	transform:scale(1.7,1.7);
+	transition: .3s transform;
+}
+
+
 /* Events - page
 ------------------------------------------------------------------------------*/
 .events #main {

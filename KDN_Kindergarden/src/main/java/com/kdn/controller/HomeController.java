@@ -21,12 +21,6 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping(value ="gallery.do", method = RequestMethod.GET)
-	public String gallery(Model model){
-		model.addAttribute("content", "gallery.jsp");
-		return "index";
-	}
-	
 	@RequestMapping(value ="menu.do", method = RequestMethod.GET)
 	public String menu(Model model){
 		model.addAttribute("content", "menu/menu.jsp");
