@@ -21,6 +21,9 @@ var dCurDayOfMonth = dDate.getDate();
 var dCurYear = dDate.getFullYear();
 var objPrevElement = new Object();
 var wnd; // 팝업
+var yy;
+var mm;
+var dd;
 
 function fSetSelectedDay(myElement){
 	if (myElement.id == "calCell") {
@@ -28,18 +31,27 @@ function fSetSelectedDay(myElement){
 			//myElement.bgColor = "#c0c0c0";
 			//objPrevElement.bgColor = "#FFFFFF";
 			
-			var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
-			if (wnd){
-				wnd.close();
-			}
-			wnd = window.open("searchBoard.do","",popOption);
 			document.all.calSelectedDate.value = parseInt(myElement.children["calDateText"].innerText);
 			objPrevElement = myElement;
 			if (document.all.calSelectedDate.value < 10) document.all.calSelectedDate.value = "0"+document.all.calSelectedDate.value;
 			// alert("cal value = " +document.frmCalendarSample.tbSelYear.value+"-"+document.frmCalendarSample.tbSelMonth.value+"-"+document.all.calSelectedDate.value);
 			//var finalDate = document.frmCalendarSample.tbSelYear.value+"-"+document.frmCalendarSample.tbSelMonth.value+"-"+document.all.calSelectedDate.value;
 			//var finalDay = document.all.calSelectedDate.value;
-			var finalDate = thisday.innerText.substring(0,4)+thisday.innerText.substring(6,8)+document.all.calSelectedDate.value;
+			var finalDate = thisday.innerText.substring(0,4)+"-"+thisday.innerText.substring(6,8)+"-"+document.all.calSelectedDate.value;
+			var popOption = "width=380, height=480, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+			if (wnd){
+				wnd.close();
+			}		
+			var url = 'pop.do?finalDate= '+finalDate; 
+			wnd = window.open(url,"",popOption); 
+			/* var url = 'pop.do?finalDate= '+finalDate;
+			var vReturn = window.showModalDialog(url, window,  popOptions ); 			  
+
+			if (vReturn == 'ok'){
+			// (모달창에서 버튼 이벤트 실행 또는 닫기 후)모달창이 닫혔을 때 부모창에서 실행 할 함수
+			location.reload(); 
+			} */
+			
 			var finalDay = document.all.calSelectedDate.value;
 			// eval("opener.document."+this.fieldName.value+".value="+finalValue);
 			// eval("opener.document.form1.start.value="+finalValue);
@@ -104,7 +116,7 @@ function fSetSelectedDay(myElement){
 			for (d = 0; d < 7; d++) {
 				document.write("<td id=calCell onclick=fSetSelectedDay(this)>");
 				if (!isNaN(myMonth[w][d])) {
-					document.write("<div id=calDateText class='cell-wrap archival'>"+ myMonth[w][d] + "</div>");
+					document.write("<div id=calDateText class='cell-wrap archival'>"+ myMonth[w][d] + "</div>");					
 				} else {
 					document.write("<div id=calDateText class='cell-wrap' onclick=fSetSelectedDay(this)> </div>");
 				}

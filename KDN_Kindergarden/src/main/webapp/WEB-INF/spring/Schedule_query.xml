@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+	
+
+<mapper namespace="schedule">
+	<select id="search" parameterType="int" resultType="schedule">
+		select s_id, to_char(s_date,'yyyy-mm-dd') s_date, s_title 
+				, s_contents , s_etc , s_t_id , s_o_id
+		from schedule
+		where s_id=#{s_id}
+	</select>
+	<select id="searchDate" parameterType="String" resultType="schedule">
+		select s_id, to_char(s_date,'yyyy-mm-dd') s_date, s_title 
+				, s_contents , s_etc , s_t_id , s_o_id
+		from schedule
+		where s_date=#{s_date}
+	</select>  
+	
+	<select id="searchAll" parameterType="pagebean" resultType="schedule">
+		select s_id, to_char(s_date,'yyyy-mm-dd') s_date, s_title 
+				, s_contents , s_etc , s_t_id , s_o_id
+		from schedule
+		<where>
+			<if test="word != null">
+				<choose>
+					<when test="key == 'title'">
+						s_title like '%'|| #{word} || '%'
+					</when>
+					<when test="key == 'contents'">
+						s_contents like '%'|| #{word} || '%'
+					</when>
+				</choose>
+			</if>
+		</where>
+		order by s_id desc
+	</select>
+	
+	<select id="getCount" parameterType="pagebean" resultType="int">
+		select count(*)
+		from schedule
+		<where>
+			<if test="word != null">
+				<choose>
+					<when test="key == 'title'">
+						s_title like '%'|| #{word} || '%'
+					</when>
+					<when test="key == 'contents'">
+						s_contents like '%'|| #{word} || '%'
+					</when>
+				</choose>
+			</if>
+		</where>
+	</select>
+	
+	<select id="getScheduleNo" resultType="int">
+		select s_seq.nextval from dual
+	</select>
+	
+	<insert id="insert" parameterType="schedule">
+		insert into schedule ( s_id, s_date, s_title 
+							, s_contents , s_etc , s_t_id, s_o_id )
+		values( #{s_id:INTEGER}
+				,#{s_date:VARCHAR}
+				,#{s_title:VARCHAR}
+				,#{s_contents:VARCHAR}
+				,#{s_etc:VARCHAR}
+				,#{s_t_id:INTEGER}
+				,#{s_o_id:INTEGER}
+			)
+	</insert>
+	<update id="update" parameterType="schedule">
+		update schedule set s_date=#{s_date:VARCHAR}
+				,s_title=#{s_title:VARCHAR}
+				,s_contents=#{b_contents:VARCHAR}
+				,s_etc=#{s_etc:VARCHAR}
+				,s_t_id=#{s_t_id:INTEGER}
+				,s_o_id=#{s_o_id:INTEGER}
+		where s_id=#{s_id:INTEGER}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from schedule where s_id = #{s_id}
+	</delete>
+</mapper>
