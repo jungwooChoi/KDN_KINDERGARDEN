@@ -366,6 +366,14 @@ body #login ul li a:hover{
 	margin: 0 auto;
 }
 
+.table{width:1000px; color : #000; margin-bottom: 6px; margin : 0 auto; font-family:'Binggrae';}
+.table tr{border-top:#d6d6d6 1px solid;}
+.table tr th {width:145px; text-align: left; font-weight: bold; padding-bottom: 13px;}
+.table tr th.last {width: 125px;}
+.table tr:first-child {border-top:none;}
+.table tr td {padding:8px 0 13px 0;}
+.table tr td span{display:block;}
+
 /* Navigation
 ------------------------------------------------------------------------------*/
 .bar-holder {
