@@ -291,10 +291,11 @@ input.white[type=submit]:hover{
 	text-decoration: none;
 }
 body #login{
-	float: right;
-	overflow:hidden;
-	margin-right: 20%;
-	padding-top: 10px;	
+	position : absolute;
+	z-index: 1;
+	left: 50%;
+	overflow : hidden;
+	width: 700px;
 }
 
 body #login ul li a{
@@ -310,14 +311,14 @@ body #login ul li a:hover{
 	text-decoration: none;
 }
 
-#frm p{
+#loginfrm p{
 	color: #ea6b6e;
 	font-family: 'Arvo', serif;
 	font-size: 15px;
 	font-weight: bold;
 }
 
-#frm input {
+#loginfrm input {
 	border: dashed #ea6b6e;
 	font-family: 'Arvo', serif;
 	font-size: 15px;
@@ -326,7 +327,7 @@ body #login ul li a:hover{
 	
 }
 
-#frm #submit{
+#loginfrm #submit{
 	color: #ea6b6e;
 	background-color: inherit;
 	font-family: 'Arvo', serif;
@@ -334,6 +335,7 @@ body #login ul li a:hover{
 	font-weight: bold;
 	border: none;
 }
+
 
 #logo {
 	width: 142px;
@@ -379,9 +381,7 @@ body #login ul li a:hover{
 .bar-holder {
 	width: 100%;
 }
-.bar-holder2 {
-	width: 100%;
-}
+
 .bar-holder:after {
     content:'';
     display:block;
@@ -849,6 +849,7 @@ div.gallery2{
 	width: 1050px;
 	padding: 5px;
 	height: 700px;
+	margin-top : 20px;
 }
 
 div.gallery2  div  a  img{
@@ -874,6 +875,12 @@ div.gallery2  div  a:hover{
 div.gallery2  div  a  img:hover{
 	transform:scale(1.7,1.7);
 	transition: .3s transform;
+}
+
+div .bottom center{
+	position: absolute;
+	height: 20px;
+	left : 50%;
 }
 
 

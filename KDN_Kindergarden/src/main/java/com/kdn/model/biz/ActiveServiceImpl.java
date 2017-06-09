@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.kdn.model.domain.Active;
 import com.kdn.model.domain.ActiveFile;
-import com.kdn.model.domain.PageBean;
+import com.kdn.model.domain.PageBeanGallery;
 import com.kdn.model.domain.UpdateException;
 import com.kdn.util.PageUtility;
 
@@ -21,17 +21,15 @@ public class ActiveServiceImpl implements ActiveService {
 	@Qualifier("activeDao")
 	private ActiveDao dao;
 	@Override
-	public void add(Active active, String dir) {
+	public void add(Active active, String dir, int a_t_id) {
 		// TODO Auto-generated method stub
 		File[] files = null;
 		int size = 0;
 		try {
 			int a_id = dao.getBoardNo();
 			active.setA_id(a_id);
-			active.setA_t_id(1);
-			active.setA_o_id(1);
-			active.setA_etc("");
-			System.out.println(active);
+			active.setA_t_id(a_t_id);
+//			System.out.println(active);
 			dao.add(active);
 			
 			MultipartFile[] fileup = active.getFileup();
@@ -101,7 +99,7 @@ public class ActiveServiceImpl implements ActiveService {
 	}
 
 	@Override
-	public List<Active> searchAll(PageBean bean) {
+	public List<Active> searchAll(PageBeanGallery bean) {
 		// TODO Auto-generated method stub
 		try {
 			int total = dao.getCount(bean);
@@ -116,9 +114,12 @@ public class ActiveServiceImpl implements ActiveService {
 	}
 
 	@Override
-	public List<ActiveFile> searchImg(PageBean bean) {
+	public List<ActiveFile> searchImg(PageBeanGallery bean) {
 		// TODO Auto-generated method stub
 		try{
+			int total = dao.getCount(bean);
+			PageUtility bar = new PageUtility(bean.getInterval(), total, bean.getPageNo(), "images/");
+			bean.setPagelink(bar.getPageBar());
 			return dao.searchImg(bean);
 		}catch(Exception e){
 			e.printStackTrace();

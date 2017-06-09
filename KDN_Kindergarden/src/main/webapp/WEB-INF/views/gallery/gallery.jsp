@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:useBean 	id="pageBean"         class="com.kdn.model.domain.PageBean" 
+<jsp:useBean 	id="pageBeanGallery"         class="com.kdn.model.domain.PageBeanGallery" 
 				scope="request"/>
 <!DOCTYPE html>
 <html>
@@ -28,7 +28,11 @@
 </script>
 </head>
 <body>
+	<form id="frm" >
 	  	<a href="insertGalleryForm.do" >글쓰기</a>
+	  	<input type="hidden" id="pageNo"  name="pageNo"  value="1"/>
+		<input type="hidden" id="no"  name="no"/>
+	  	<div class="bottom"><center>${pageBeanGallery.pagelink }</center></div>
 		<div class="gallery2">
 				<c:forEach var ="p" items='${activelist}'>
 				<div>	
@@ -38,7 +42,6 @@
 				</div>
 				</c:forEach>
 		</div>
-		<br/>
-				<div class="bottom">${pageBean.pagelink }</div>
+	</form>
 </body>
 </html>

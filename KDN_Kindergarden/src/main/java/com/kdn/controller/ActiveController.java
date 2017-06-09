@@ -16,8 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.kdn.model.biz.ActiveService;
 import com.kdn.model.domain.Active;
 import com.kdn.model.domain.ActiveFile;
-import com.kdn.model.domain.Board;
-import com.kdn.model.domain.PageBean;
+import com.kdn.model.domain.PageBeanGallery;
 
 @Controller
 public class ActiveController {
@@ -32,7 +31,7 @@ public class ActiveController {
 	}
 	
 	@RequestMapping(value ="gallery.do", method = RequestMethod.GET)
-	public String gallery(PageBean bean, Model model){
+	public String gallery(PageBeanGallery bean, Model model){
 		List<ActiveFile> list = activeService.searchImg(bean);
 		model.addAttribute("activelist", list);
 		model.addAttribute("content", "gallery/gallery.jsp");
@@ -57,9 +56,9 @@ public class ActiveController {
 	}
 	
 	@RequestMapping(value="insertGallery.do", method=RequestMethod.POST)
-	public String insertBoard(Active active, HttpServletRequest request){
+	public String insertBoard(Active active, HttpServletRequest request, HttpSession session){
 		String dir = request.getRealPath("active/");
-		activeService.add(active, dir);
+		activeService.add(active, dir, (Integer)session.getAttribute("id"));
 		return "redirect:gallery.do";
 	}
 }

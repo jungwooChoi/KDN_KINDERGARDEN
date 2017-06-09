@@ -20,13 +20,13 @@
     <style type="text/css">
     .bar-holder2{
 	width: 100%;
+	margin : 0 auto;
 	height: 50px;
 	background-color: #484848;
-	margin-top: -240px;
-	margin-left: -500px;
 	z-index:9004;
 	position: fixed; 
 	line-height: 50px;
+	margin-top : -17%;
 	}
     </style>
     <script>
@@ -77,7 +77,7 @@
 				<li><jsp:include page="member/login.jsp"/></li>
 		   	</c:when>
 		   	<c:otherwise>
-		    	 <li><a href="logout.do">logout&nbsp&nbsp</a><a href="myPage.do" class="clr-7">myPage</a></li>
+		    	 <li><a href="logout.do">logout&nbsp&nbsp</a><a href="myPage.do" >myPage</a></li>
 		   	</c:otherwise>
 			</c:choose>
 		</ul>

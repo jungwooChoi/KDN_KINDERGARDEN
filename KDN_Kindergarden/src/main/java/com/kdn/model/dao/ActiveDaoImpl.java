@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.kdn.model.biz.ActiveDao;
 import com.kdn.model.domain.Active;
 import com.kdn.model.domain.ActiveFile;
-import com.kdn.model.domain.PageBean;
+import com.kdn.model.domain.PageBeanGallery;
 
 @Repository("activeDao")
 public class ActiveDaoImpl implements ActiveDao {
@@ -41,14 +41,14 @@ public class ActiveDaoImpl implements ActiveDao {
 	}
 
 	@Override
-	public List<Active> searchAll(PageBean bean) {
+	public List<Active> searchAll(PageBeanGallery bean) {
 		// TODO Auto-generated method stub
 		RowBounds rows = new RowBounds(bean.getStart()-1, bean.getInterval());
 		return session.selectList("active.searchAll", bean, rows);
 	}
 
 	@Override
-	public int getCount(PageBean bean) {
+	public int getCount(PageBeanGallery bean) {
 		// TODO Auto-generated method stub
 		return session.selectOne("active.getCount", bean);
 	}
@@ -75,7 +75,7 @@ public class ActiveDaoImpl implements ActiveDao {
 	}
 
 	@Override
-	public List<ActiveFile> searchImg(PageBean bean) {
+	public List<ActiveFile> searchImg(PageBeanGallery bean) {
 		// TODO Auto-generated method stub
 		RowBounds rows = new RowBounds(bean.getStart()-1, bean.getInterval());
 		return session.selectList("active.searchImg", bean, rows);
