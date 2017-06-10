@@ -12,6 +12,11 @@ public interface MenuDao
 	public void remove(int m_id);
 	public Menu search(int m_id);
 	public List<Menu> search();
+	public int isHasMenu(Menu menu);
+	public List<Menu> searchCategoryOne();
+	public List<Menu> searchCategoryTwo();
+	public List<Menu> searchCategoryThree();
+	public List<Menu> searchCategoryFour();
 	
 }
 

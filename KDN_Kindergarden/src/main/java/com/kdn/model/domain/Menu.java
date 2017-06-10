@@ -21,12 +21,12 @@ public class Menu
 	}
 
 
-	public Menu(String m_date, String m_category, String m_etc, int m_t_id) 
+	public Menu(int m_id, String m_date, String m_category, String m_etc) 
 	{
+		this.m_id = m_id;
 		this.m_date = m_date;
 		this.m_category = m_category;
 		this.m_etc = m_etc;
-		this.m_t_id = m_t_id;
 	}
 	
 

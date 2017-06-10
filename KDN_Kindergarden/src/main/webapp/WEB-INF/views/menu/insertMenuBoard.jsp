@@ -76,10 +76,16 @@ $(function(){
 			<table align="center" width="300">
 					<tr><th colspan="2"> 메뉴 작성 </th></tr>
 					<tr height="50"><td><label for="title">날짜</label></td>
-					    <td><input type="text" name="m_date" id="m_date"/></td>
+					    <td><input type="date" name="m_date" id="m_date"/></td>
 					</tr>
 					<tr height="50"><td><label for="title">시간</label></td>
-					    <td><input type="text" name="m_category" id="m_category"/></td>
+					    <td><select name="m_category" id="m_category">
+							    <option value="1" selected="selected">오전 간식</option>
+							    <option value="2">점심</option>
+							    <option value="3">오후 간식</option>
+							    <option value="4">저녁</option>
+							</select>
+							</td>
 					</tr>
 					<tr height="50"><td><label for="title">선생님아이디</label></td>
 					    <td><input type="text" name="m_t_id" id="m_t_id"  value="${id}" readonly="readonly"/></td>
