@@ -11,25 +11,30 @@
 -->	
 <mapper namespace="menu">
 
-	<select id ="search"  parameterType="string" resultType="menu">
-		select m_etc
-		from menu
-		order by m_date
+	<select id ="search"  parameterType="int" resultType="menu">
+		SELECT  m_id, to_char(m_date,'yyyy-mm-dd') m_date, m_category, m_etc , m_t_id
+		FROM MENU
+		WHERE m_id = ${m_id}
+	</select>
+	
+	<select id ="week"  resultType="menu">
+		SELECT  m_id, to_char(m_date,'yyyy-mm-dd') m_date, m_category, m_etc , m_t_id
+		FROM MENU
+		WHERE m_date BETWEEN TO_CHAR(TRUNC(SYSDATE,'day')+1,'yyyymmdd') AND TO_CHAR(TRUNC(SYSDATE,'day')+5,'yyyymmdd')
+		ORDER BY m_date,m_category
 	</select>
 	
 	<insert id="insert" parameterType="menu">
-		insert into menu ( m_id, m_date, m_img, m_category, m_etc , m_t_id )
-		values( m_seq.nextval, #{m_date:VARCHAR}, #{m_img:VARCHAR}
+		insert into menu ( m_id, m_date, m_category, m_etc , m_t_id )
+		values( m_seq.nextval, #{m_date:VARCHAR}
 				,#{m_category:VARCHAR} ,#{m_etc:VARCHAR} ,#{m_t_id:INTEGER} )
 	</insert>
 	
 	<update id="update" parameterType="menu">
 		update menu set m_id = #{m_id:INTEGER},
 						    m_date = #{m_date:VARCHAR}, 
-						    m_img = #{m_img:VARCHAR},
 						    m_category = #{m_category:VARCHAR},
 						    m_etc = #{m_etc:VARCHAR},
-						    m_t_id = #{m_t_id:INTEGER}
 		where m_id = #{m_id:INTEGER}
 	</update>
 	

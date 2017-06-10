@@ -52,19 +52,10 @@ public class MenuController {
 		/*return "redirect:listmenuBoard.do";*/
 		return "redirect:menu.do";
 	}
-	
-	/*@RequestMapping(value="listmenuBoard.do", method=RequestMethod.GET)
-	public String listBoard(PageBean bean, Model model){
-		List<Board> list = menuService.searchAll(bean);
-		model.addAttribute("list", list);
-		model.addAttribute("content", "board/listBoard.jsp");
-		return "index";
-	}*/
+
 	
 	@RequestMapping(value="searchmenuBoard.do", method=RequestMethod.GET)
 	public String searchmenuBoard(int m_id, Model model, HttpSession session){
-		//model.addAttribute("id", session.getAttribute("id"));
-		System.out.println(m_id);
 		model.addAttribute("menu", menuService.search(m_id));
 		model.addAttribute("content", "menu/menu.jsp");
 		return "index";
@@ -84,7 +75,11 @@ public class MenuController {
 		return "redirect:listmenuBoard.do";
 	}
 	
+	@RequestMapping(value ="menu.do", method = RequestMethod.GET)
+	public String menu(Model model){
+		model.addAttribute("menu", menuService.search());
+		model.addAttribute("content", "menu/menu.jsp");
+		return "index";
+	}
+	
 }
-
-
-

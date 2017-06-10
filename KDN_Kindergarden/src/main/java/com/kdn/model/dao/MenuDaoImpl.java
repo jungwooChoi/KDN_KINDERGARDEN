@@ -1,5 +1,7 @@
 package com.kdn.model.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -12,12 +14,6 @@ public class MenuDaoImpl implements MenuDao
 {
 	@Autowired
 	private SqlSessionTemplate session;
-
-/*	@Override
-	public Menu search(String m_date, String m_category) 
-	{
-		return session.select
-	}*/
 
 	@Override
 	public void update(Menu menu) 
@@ -41,6 +37,12 @@ public class MenuDaoImpl implements MenuDao
 	public Menu search(int m_id) 
 	{
 		return session.selectOne("menu.search",m_id);
+	}
+
+	@Override
+	public List<Menu> search() {
+		// TODO Auto-generated method stub
+		return session.selectList("menu.week");
 	}
 
 }

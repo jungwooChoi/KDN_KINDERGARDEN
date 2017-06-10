@@ -291,11 +291,13 @@ input.white[type=submit]:hover{
 	text-decoration: none;
 }
 body #login{
-	position : absolute;
-	z-index: 1;
-	left: 50%;
 	overflow : hidden;
-	width: 700px;
+	width: 100%;
+	margin-top: 10px;
+}
+
+body #login ul{
+	float : right;
 }
 
 body #login ul li a{
@@ -368,7 +370,7 @@ body #login ul li a:hover{
 	margin: 0 auto;
 }
 
-.table{width:1000px; color : #000; margin-bottom: 6px; margin : 0 auto; font-family:'Binggrae';}
+.table{color : #000; margin-bottom: 6px; margin : 0 auto; font-family:'Binggrae';}
 .table tr{border-top:#d6d6d6 1px solid;}
 .table tr th {width:145px; text-align: left; font-weight: bold; padding-bottom: 13px;}
 .table tr th.last {width: 125px;}
@@ -560,6 +562,7 @@ body #login ul li a:hover{
 }
 
 .top-pink-border{
+	margin-top : 50px;
 	height: 27px;
 	background: url(../images/bg_pink-border-top.png) repeat-x;
 }

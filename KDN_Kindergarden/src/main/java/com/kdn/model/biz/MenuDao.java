@@ -3,7 +3,6 @@ package com.kdn.model.biz;
 import java.util.List;
 
 import com.kdn.model.domain.Menu;
-import com.kdn.model.domain.PageBean;
 
 public interface MenuDao 
 {
@@ -12,6 +11,8 @@ public interface MenuDao
 	public void 	add(Menu menu);
 	public void remove(int m_id);
 	public Menu search(int m_id);
+	public List<Menu> search();
+	
 }
 
 

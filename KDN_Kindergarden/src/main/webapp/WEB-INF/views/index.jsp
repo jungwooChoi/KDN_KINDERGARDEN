@@ -26,7 +26,7 @@
 	z-index:9004;
 	position: fixed; 
 	line-height: 50px;
-	margin-top : -17%;
+	top:0px;
 	}
     </style>
     <script>

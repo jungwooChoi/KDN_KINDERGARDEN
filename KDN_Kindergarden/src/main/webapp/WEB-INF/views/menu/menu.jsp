@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,35 +26,29 @@
 				<th>Thursday</th>
 				<th>Friday</th>
 			</tr>
-			<tr>
-				<td><span>오전 간식</span><span>과자</span></td>
-				<td><span>오전 간식</span><span>과자</span></td>
-				<td><span>오전 간식</span><span>과자</span></td>
-				<td><span>오전 간식</span><span>과자</span></td>
-				<td><span>오전 간식</span><span>과자</span></td>
-			</tr>
-			<tr>
-				<td><span>점심</span><span>과자</span>
-				<td><span>점심</span><span>과자</span>
-				<td><span>점심</span><span>과자</span>
-				<td><span>점심</span><span>과자</span>
-				<td><span>점심</span><span>과자</span>
-			</tr>
-			<tr>
-				<td><span>오후 간식</span><span>과자</span>
-				<td><span>오후 간식</span><span>과자</span>
-				<td><span>오후 간식</span><span>과자</span>
-				<td><span>오후 간식</span><span>과자</span>
-				<td><span>오후 간식</span><span>과자</span>
-			</tr>
-			<tr>
-				<td><span>저녁</span><span>과자</span>
-				<td><span>저녁</span><span>과자</span>
-				<td><span>저녁</span><span>과자</span>
-				<td><span>저녁</span><span>과자</span>
-				<td><span>저녁</span><span>과자</span>
-			</tr>
+			<c:forEach var="m" items="${menu}" varStatus="status">
+				<tr>
+					<c:choose >
+						<c:when test="${fn:trim(m.m_category) eq '1'}">
+							<td><span>오전 간식</span><span>${m.m_etc }</span></td>
+						</c:when>
+						<c:when test="${fn:trim(m.m_category) eq '2'}">
+							<td><span>점심</span><span>${m.m_etc }</span></td>
+						</c:when>
+						<c:when test="${fn:trim(m.m_category) eq '3'}">
+							<td><span>오후 간식</span><span>${m.m_etc }</span></td>
+						</c:when>
+						<c:when test="${fn:trim(m.m_category) eq '4'}">
+							<td><span>저녁</span><span>${m.m_etc }</span></td>
+						</c:when>
+						<c:otherwise>
+							<td><span>  &nbsp </span><span> &nbsp </span></td>
+						</c:otherwise>
+					</c:choose>
+				</tr>
+			</c:forEach>
 		</table>
+</div>
 </div>
 
 </body>

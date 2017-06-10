@@ -69,4 +69,14 @@ public class MenuServiceImple implements MenuService
 			throw new UpdateException("메뉴 추가 중 오류 발생");
 		}
 	}
+
+	@Override
+	public List<Menu> search() {
+		try {
+			return dao.search();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new UpdateException("메뉴 검색 중 오류 발생");
+		}
+	}
 }
