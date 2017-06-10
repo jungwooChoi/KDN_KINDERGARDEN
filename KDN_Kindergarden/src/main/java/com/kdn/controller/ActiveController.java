@@ -40,8 +40,8 @@ public class ActiveController {
 	}
 	
 	@RequestMapping(value ="searchGallery.do", method = RequestMethod.GET)
-	public String searchgallery(int a_id, Model model){
-		model.addAttribute("board", activeService.search(a_id));
+	public String searchgallery(int no, Model model){
+		model.addAttribute("board", activeService.search(no));
 		model.addAttribute("contnet", "gallery/searchGallery.jsp");
 		
 		return "index";

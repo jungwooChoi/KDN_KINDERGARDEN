@@ -91,12 +91,12 @@
 					<a class="menu_trigger" href="#">menu</a>
 					<div id="nav">
 						<ul>
-							<li><a href="about.html">About us</a></li>
-							<li><a href="listBoard.do">notice</a></li>
-							<li><a href="gallery.do">register</a></li>
-							<li><a href="index.html">schedule</a></li>
-							<li><a href="gallery.do">photo</a></li>
-							<li><a href="menu.do">menu</a></li>
+							<li><a href="about.html">어린이집 소개</a></li>
+							<li><a href="listBoard.do">공지 사항</a></li>
+							<li><a href="gallery.do">입학신청관리</a></li>
+							<li><a href="index.html">상담신청관리</a></li>
+							<li><a href="gallery.do">사진관리</a></li>
+							<li><a href="menu.do">식단관리</a></li>
 						</ul>
 					</div>
 				</div>
@@ -104,12 +104,12 @@
 					<a class="menu_trigger2" href="#">menu</a>
 					<div id="nav2">
 						<ul>
-							<li><a href="about.html">About us</a></li>
-							<li><a href="listBoard.do">notice</a></li>
-							<li><a href="gallery.html">register</a></li>
-							<li><a href="index.html">schedule</a></li>
-							<li><a href="gallery.do">photo</a></li>
-							<li><a href="menu.do">menu</a></li>
+							<li><a href="about.html">어린이집 소개</a></li>
+							<li><a href="listBoard.do">공지 사항</a></li>
+							<li><a href="gallery.html">입학신청관리</a></li>
+							<li><a href="index.html">상담신청관리</a></li>
+							<li><a href="gallery.do">사진관리</a></li>
+							<li><a href="menu.do">식단관리</a></li>
 						</ul>
 					</div>
 				</div>

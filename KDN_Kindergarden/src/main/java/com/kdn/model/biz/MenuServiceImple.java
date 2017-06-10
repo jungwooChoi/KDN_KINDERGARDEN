@@ -35,6 +35,7 @@ public class MenuServiceImple implements MenuService
 	public Menu search(int m_id) 
 	{
 		try {
+			System.out.println(m_id);
 			return dao.search(m_id);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -60,7 +61,12 @@ public class MenuServiceImple implements MenuService
 	{
 		try 
 		{ 
-			dao.add(menu);
+			int check = dao.isHasMenu(menu);
+			if(check == 0){
+				dao.add(menu);
+			}else{
+				throw new UpdateException("해당 일에는 메뉴가 존재합니다.");
+			}
 		} 
 		
 		catch (Exception e) 
@@ -74,6 +80,56 @@ public class MenuServiceImple implements MenuService
 	public List<Menu> search() {
 		try {
 			return dao.search();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new UpdateException("메뉴 검색 중 오류 발생");
+		}
+	}
+
+	@Override
+	public int isHasMenu(Menu menu) {
+		try {
+			return dao.isHasMenu(menu);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new UpdateException("메뉴 검색 중 오류 발생");
+		}
+	}
+
+	@Override
+	public List<Menu> searchCategoryOne() {
+		try {
+			return dao.searchCategoryOne();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new UpdateException("메뉴 검색 중 오류 발생");
+		}
+	}
+
+	@Override
+	public List<Menu> searchCategoryTwo() {
+		try {
+			return dao.searchCategoryTwo();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new UpdateException("메뉴 검색 중 오류 발생");
+		}
+	}
+
+	@Override
+	public List<Menu> searchCategoryThree() {
+		try {
+			return dao.searchCategoryThree();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new UpdateException("메뉴 검색 중 오류 발생");
+		}
+	}
+
+	@Override
+	public List<Menu> searchCategoryFour() {
+		try {
+			return dao.searchCategoryFour();
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new UpdateException("메뉴 검색 중 오류 발생");

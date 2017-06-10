@@ -41,13 +41,14 @@ public class MenuController {
 	@RequestMapping(value="insertmenuBoardForm.do", method=RequestMethod.GET)
 	public String insertmenuBoardForm(Model model)
 	{
-		model.addAttribute("content", "menu/insertmenuBoard.jsp");
+		model.addAttribute("content", "menu/insertMenuBoard.jsp");
 		return "index";
 	}
 	
 	@RequestMapping(value="insertmenuBoard.do", method=RequestMethod.POST)
 	public String insertmenuBoard(Menu menu)
 	{
+		
 		menuService.add(menu);	
 		/*return "redirect:listmenuBoard.do";*/
 		return "redirect:menu.do";
@@ -65,19 +66,30 @@ public class MenuController {
 	public String deletemenuBoard(int m_id)
 	{
 		menuService.remove(m_id);
-		return "redirect:listmenuBoard.do";
+		return "redirect:menu.do";
+	}
+	
+	@RequestMapping(value="updatemenuBoardForm.do", method=RequestMethod.GET)
+	public String updatemenuBoardForm(int m_id, Model model)
+	{
+		model.addAttribute("board", menuService.search(m_id));
+		model.addAttribute("content", "menu/updateMenuBoard.jsp");
+		return "index";
 	}
 	
 	@RequestMapping(value="updatemenuBoard.do", method=RequestMethod.GET)
 	public String updatemenuBoard(Menu menu)
 	{
 		menuService.update(menu);
-		return "redirect:listmenuBoard.do";
+		return "redirect:menu.do";
 	}
 	
 	@RequestMapping(value ="menu.do", method = RequestMethod.GET)
 	public String menu(Model model){
-		model.addAttribute("menu", menuService.search());
+		model.addAttribute("one", menuService.searchCategoryOne());
+		model.addAttribute("two", menuService.searchCategoryTwo());
+		model.addAttribute("three", menuService.searchCategoryThree());
+		model.addAttribute("four", menuService.searchCategoryFour());
 		model.addAttribute("content", "menu/menu.jsp");
 		return "index";
 	}

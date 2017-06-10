@@ -14,7 +14,7 @@
 	<select id ="search"  parameterType="int" resultType="menu">
 		SELECT  m_id, to_char(m_date,'yyyy-mm-dd') m_date, m_category, m_etc , m_t_id
 		FROM MENU
-		WHERE m_id = ${m_id}
+		WHERE m_id = #{m_id}
 	</select>
 	
 	<select id ="week"  resultType="menu">
@@ -24,22 +24,83 @@
 		ORDER BY m_date,m_category
 	</select>
 	
+	<select id = "isHasMenu" parameterType = "menu" resultType="int">
+		select count(*) from menu
+		where #{m_date} = to_char(m_date, 'yyyy-mm-dd') and m_category = ${m_category}
+	</select>
+	
 	<insert id="insert" parameterType="menu">
 		insert into menu ( m_id, m_date, m_category, m_etc , m_t_id )
-		values( m_seq.nextval, #{m_date:VARCHAR}
+		values( m_seq.nextval, #{m_date:DATE}
 				,#{m_category:VARCHAR} ,#{m_etc:VARCHAR} ,#{m_t_id:INTEGER} )
 	</insert>
 	
 	<update id="update" parameterType="menu">
 		update menu set m_id = #{m_id:INTEGER},
-						    m_date = #{m_date:VARCHAR}, 
+						    m_date = #{m_date:DATE}, 
 						    m_category = #{m_category:VARCHAR},
-						    m_etc = #{m_etc:VARCHAR},
+						    m_etc = #{m_etc:VARCHAR}
 		where m_id = #{m_id:INTEGER}
 	</update>
 	
 	<delete id="delete" parameterType="int">
 		delete from menu where m_id = #{m_id:INTEGER}
 	</delete>
+	
+	<select id = "searchCategory1" resultType = "menu">
+		SELECT m_id, m_date , m_category, m_etc, m_t_id
+		FROM (SELECT  m_id, to_char(m_date,'yyyy-mm-dd') day, m_category, m_etc , m_t_id
+		FROM MENU
+		WHERE m_category = '1' 
+		ORDER BY m_date)a, 
+		(SELECT TO_CHAR(TRUNC(SYSDATE,'day')+ LEVEL,'yyyy-mm-dd') AS m_date
+		 FROM dual
+		 CONNECT BY LEVEL 
+		 <![CDATA[<]]>= 5)b
+		WHERE m_date = day(+)
+		order by m_date
+	</select>
+	
+		<select id = "searchCategory2" resultType = "menu">
+		SELECT m_id, m_date , m_category, m_etc, m_t_id
+		FROM (SELECT  m_id, to_char(m_date,'yyyy-mm-dd') day, m_category, m_etc , m_t_id
+		FROM MENU
+		WHERE m_category = '2' 
+		ORDER BY m_date)a, 
+		(SELECT TO_CHAR(TRUNC(SYSDATE,'day')+ LEVEL,'yyyy-mm-dd') AS m_date
+		 FROM dual
+		 CONNECT BY LEVEL 
+		 <![CDATA[<]]>= 5)b
+		WHERE m_date = day(+)
+		order by m_date
+	</select>
+	
+		<select id = "searchCategory3" resultType = "menu">
+		SELECT m_id, m_date , m_category, m_etc, m_t_id
+		FROM (SELECT  m_id, to_char(m_date,'yyyy-mm-dd') day, m_category, m_etc , m_t_id
+		FROM MENU
+		WHERE m_category = '3' 
+		ORDER BY m_date)a, 
+		(SELECT TO_CHAR(TRUNC(SYSDATE,'day')+ LEVEL,'yyyy-mm-dd') AS m_date
+		 FROM dual
+		 CONNECT BY LEVEL 
+		 <![CDATA[<]]>= 5)b
+		WHERE m_date = day(+)
+		order by m_date
+	</select>
+	
+		<select id = "searchCategory4" resultType = "menu">
+		SELECT m_id, m_date , m_category, m_etc, m_t_id
+		FROM (SELECT  m_id, to_char(m_date,'yyyy-mm-dd') day, m_category, m_etc , m_t_id
+		FROM MENU
+		WHERE m_category = '4' 
+		ORDER BY m_date)a, 
+		(SELECT TO_CHAR(TRUNC(SYSDATE,'day')+ LEVEL,'yyyy-mm-dd') AS m_date
+		 FROM dual
+		 CONNECT BY LEVEL 
+		 <![CDATA[<]]>= 5)b
+		WHERE m_date = day(+)
+		order by m_date
+	</select>
 	
 </mapper>

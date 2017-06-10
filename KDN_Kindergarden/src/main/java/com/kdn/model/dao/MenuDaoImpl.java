@@ -45,4 +45,31 @@ public class MenuDaoImpl implements MenuDao
 		return session.selectList("menu.week");
 	}
 
+	@Override
+	public int isHasMenu(Menu menu) {
+		// TODO Auto-generated method stub
+		return session.selectOne("menu.isHasMenu", menu);
+	}
+
+	@Override
+	public List<Menu> searchCategoryOne() {
+		// TODO Auto-generated method stub
+		return session.selectList("menu.searchCategory1");
+	}
+
+	@Override
+	public List<Menu> searchCategoryTwo() {
+		return session.selectList("menu.searchCategory2");
+	}
+
+	@Override
+	public List<Menu> searchCategoryThree() {
+		return session.selectList("menu.searchCategory3");
+	}
+
+	@Override
+	public List<Menu> searchCategoryFour() {
+		return session.selectList("menu.searchCategory4");
+	}
+
 }
