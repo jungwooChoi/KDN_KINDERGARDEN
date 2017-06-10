@@ -38,12 +38,25 @@ function fSetSelectedDay(myElement){
 			//var finalDate = document.frmCalendarSample.tbSelYear.value+"-"+document.frmCalendarSample.tbSelMonth.value+"-"+document.all.calSelectedDate.value;
 			//var finalDay = document.all.calSelectedDate.value;
 			var finalDate = thisday.innerText.substring(0,4)+"-"+thisday.innerText.substring(6,8)+"-"+document.all.calSelectedDate.value;
+			
 			var popOption = "width=380, height=480, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
 			if (wnd){
 				wnd.close();
 			}		
 			var url = 'pop.do?finalDate= '+finalDate; 
-			wnd = window.open(url,"",popOption); 
+			wnd = window.open(url,"",popOption);
+			
+			var myModal = new Example.Modal({
+			    id: "schpop" 
+			});
+			myModal.show(); // 모달창 보여주기
+
+			
+			$(document).ready(function(){
+			$("#schpop").modal();
+			});
+
+			
 			/* var url = 'pop.do?finalDate= '+finalDate;
 			var vReturn = window.showModalDialog(url, window,  popOptions ); 			  
 
@@ -193,46 +206,68 @@ function fSetSelectedDay(myElement){
 		fUpdateCal(dispYear, dispMonth);
 	}
 </script>
+<style type="text/css">
+#schpop {
+	display: none;
+	margin: 50 auto;
+	width: 200px;
+	height: 100px;
+	background: blue;
+	color: #fff
+}
+</style>
 </head>
-</HEAD>
-
 <!-- STEP TWO: Copy this code into the BODY of your HTML document  -->
 
 <body topmargin=0 leftmargin=0 marginwidth=0 marginheight=0>
 	<form name="frmCalendarSample" method="post" action="">
 		<input type="hidden" name="calSelectedDate" value="">
-			<table class="event-calendar">
-								<col><col><col><col><col><col><col>
-								<thead>
-								<tr>
-									<th scope="col" class="controls"><span class="prev-mn"><a href="javascript:beforeYear()"></a></span></th>
-									<th scope="col" class="controls"><span class="prev-mn"><a href="javascript:beforeMonth()"></a></span></th>
-									<th scope="col" colspan="3" class="month"><font id="thisday"></font></th>
-									<th scope="col" class="controls"><span class="next-mn"><a href="javascript:nextMonth()"></a></span></th>
-									<th scope="col" class="controls"><span class="next-mn"><a href="javascript:nextYear()"></a></span></th>
-								</tr>
-								<tr>
-									<th scope="col" title="Monday">Mon</th>
-									<th scope="col" title="Tuesday">Tue</th>
-									<th scope="col" title="Wednesday">Wed</th>
-									<th scope="col" title="Thursday">Thu</th>
-									<th scope="col" title="Friday">Fri</th>
-									<th scope="col" title="Saturday">Sat</th>
-									<th scope="col" title="Sunday">Sun</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr>
-								<td><script language="JavaScript">
-								var dCurDate = new Date();
-								fDrawCal(dCurDate.getFullYear(), dCurDate.getMonth() + 1);
-								</script></td>
-								</tr>
-								</tbody>
-							</table>
+		<table class="event-calendar">
+			<col>
+			<col>
+			<col>
+			<col>
+			<col>
+			<col>
+			<col>
+			<thead>
+				<tr>
+					<th scope="col" class="controls"><span class="prev-mn"><a
+							href="javascript:beforeYear()"></a></span></th>
+					<th scope="col" class="controls"><span class="prev-mn"><a
+							href="javascript:beforeMonth()"></a></span></th>
+					<th scope="col" colspan="3" class="month"><font id="thisday"></font></th>
+					<th scope="col" class="controls"><span class="next-mn"><a
+							href="javascript:nextMonth()"></a></span></th>
+					<th scope="col" class="controls"><span class="next-mn"><a
+							href="javascript:nextYear()"></a></span></th>
+				</tr>
+				<tr>
+					<th scope="col" title="Monday">Mon</th>
+					<th scope="col" title="Tuesday">Tue</th>
+					<th scope="col" title="Wednesday">Wed</th>
+					<th scope="col" title="Thursday">Thu</th>
+					<th scope="col" title="Friday">Fri</th>
+					<th scope="col" title="Saturday">Sat</th>
+					<th scope="col" title="Sunday">Sun</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><script language="JavaScript">
+						var dCurDate = new Date();
+						fDrawCal(dCurDate.getFullYear(),
+								dCurDate.getMonth() + 1);
+					</script></td>
+				</tr>
+			</tbody>
+		</table>
 	</form>
-
-	<script language="JavaScript" for=window event=onload>
+	<div id="schpop" >
+				<p>모달</p>
+	</div>
+</body>
+<script language="JavaScript" for=window event=onload>
 	<!-- Begin
 		var dCurDate = new Date();
 		var dMonth = dCurDate.getMonth() + 1;

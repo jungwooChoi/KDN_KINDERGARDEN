@@ -25,7 +25,25 @@
 		frm.action="searchGallery.do";
 		frm.submit();
 	}
+	$(document).ready(function(){
+		 $("#pop").click(function(){
+		  $("#modal_content").modal(); 
+		 });
+		 $("#m_close").click(function(){
+		  $.modal.close();
+		 });
+		}); 
 </script>
+<style type="text/css">
+#pop {
+	display: none;
+	margin: 50 auto;
+	width: 200px;
+	height: 100px;
+	background: blue;
+	color: #fff
+}
+</style>
 </head>
 <body>
 	<form id="frm" >
@@ -37,7 +55,7 @@
 				<c:forEach var ="p" items='${activelist}'>
 				<div>	
 					<a href="#" onclick="getBoard(${p.af_id})">
-						<img src="active/${p.af_sfilename}" />
+						<img src="active/${p.af_sfilename}" /><input type="button" value="팝업" id="open">
 					</a> 
 				</div>
 				</c:forEach>
@@ -45,3 +63,6 @@
 	</form>
 </body>
 </html>
+<div id="modal_content">
+ <img src="active/${p.af_sfilename}"/><input type="button" value="닫기" id="m_close">
+</div>

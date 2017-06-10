@@ -94,7 +94,7 @@
 							<li><a href="about.html">About us</a></li>
 							<li><a href="listBoard.do">notice</a></li>
 							<li><a href="gallery.do">register</a></li>
-							<li><a href="index.html">schedule</a></li>
+							<li><a href="listRequest.do">상담</a></li>
 							<li><a href="gallery.do">photo</a></li>
 							<li><a href="menu.do">menu</a></li>
 						</ul>
@@ -107,7 +107,7 @@
 							<li><a href="about.html">About us</a></li>
 							<li><a href="listBoard.do">notice</a></li>
 							<li><a href="gallery.html">register</a></li>
-							<li><a href="index.html">schedule</a></li>
+							<li><a href="listRequest.do">상담</a></li>
 							<li><a href="gallery.do">photo</a></li>
 							<li><a href="menu.do">menu</a></li>
 						</ul>
