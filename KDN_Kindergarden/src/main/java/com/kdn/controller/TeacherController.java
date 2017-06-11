@@ -1,5 +1,6 @@
 package com.kdn.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,9 +59,9 @@ public class TeacherController {
 	}
 	
 	@RequestMapping(value = "update.do", method = RequestMethod.POST)
-	public String update(Teacher teacher,Model model){
-		teacherService.update(teacher);
-		model.addAttribute("content", "member/myPage.jsp");
-		return "index";
+	public String update(Teacher teacher, HttpServletRequest request){
+		String dir=request.getRealPath("uploadTeacher/");
+		teacherService.update(teacher,dir);
+		return "redirect:myPage.do";
 	}
 }

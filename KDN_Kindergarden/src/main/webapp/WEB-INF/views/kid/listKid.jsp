@@ -52,7 +52,7 @@ function pagelist(cpage){
 	frm.action="listKid.do";
 	frm.submit();
 }
-function getBoard(k_id){
+function getKid(k_id){
 	//input 양식의 hidden으로 선언된 page에 요청된 페이지 정보 셋팅 
 	document.getElementById("k_id").value=k_id;
 	var frm = document.getElementById("frm");
@@ -94,7 +94,7 @@ $(function(){
 	  	</tr>
 	  	<c:forEach  var="kid" items="${list}">
 	  	  	<c:forTokens var="khostimage" items="${kid.k_id}" delims="," begin="0" end="0">
-				<div class="hosting_main_photo" style="float: left; width: 280px; height: 180px; border: 0px solid gray; margin-top: 20px; margin-left: 20px;"><img style="width: 280px; height: 180px;" alt="" src="upload/${kid.k_img}"></div>
+				<div class="hosting_main_photo" style="float: left; width: 280px; height: 180px; border: 0px solid gray; margin-top: 20px; margin-left: 20px;"><img style="width: 280px; height: 180px;" src="uploadKid/${kid.k_img}"></div>
 				<div class="hosting_content" style="float: right; width: 460px; height: 180px; margin-top: 20px; margin-right: 20px; border: 0px solid gray;">
 					<div class="hosting_kitchen_name" style="font-weight: bold; font-size: 14pt; color: #4B4B4B; margin-top: 30px;">${kid.k_name}</div>
 					<div class="hosting_kitchen_name" style="font-weight: bold; font-size: 14pt; color: #4B4B4B; margin-top: 30px;">${kid.k_date}</div>

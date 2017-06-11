@@ -2,6 +2,8 @@ package com.kdn.model.domain;
 
 import java.io.Serializable;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Teacher implements Serializable{
 	private int t_id;
 	private String t_name;
@@ -12,6 +14,7 @@ public class Teacher implements Serializable{
     private String t_address;
     private String t_img;
     private String t_status;
+    private MultipartFile t_uploadimg;
 	
     public Teacher(){
     	
@@ -114,6 +117,14 @@ public class Teacher implements Serializable{
 
 	public void setT_status(String t_status) {
 		this.t_status = t_status;
+	}
+
+	public MultipartFile getT_uploadimg() {
+		return t_uploadimg;
+	}
+
+	public void setT_uploadimg(MultipartFile t_uploadimg) {
+		this.t_uploadimg = t_uploadimg;
 	}
 
 	@Override

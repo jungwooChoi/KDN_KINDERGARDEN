@@ -1,8 +1,11 @@
 package com.kdn.model.biz;
 
+import java.io.File;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.kdn.model.domain.Teacher;
 import com.kdn.model.domain.UpdateException;
@@ -12,9 +15,18 @@ public class TeacherServiceImpl implements TeacherService {
 	@Autowired
 	@Qualifier("teacherDao")
 	private TeacherDao dao;
-	public void update(Teacher teacher) {
+	public void update(Teacher teacher, String dir) {
 		// TODO Auto-generated method stub
+		String fileName=null;
 		try {
+			MultipartFile fileinfo=teacher.getT_uploadimg();
+			if(fileinfo!=null){
+				String t_img=String.format("%d%s", System.currentTimeMillis(),fileinfo.getOriginalFilename());
+				fileName=String.format("%s/%s", dir, t_img);
+				teacher.setT_img(t_img);
+				File file=new File(fileName);
+				fileinfo.transferTo(file);
+			}
 			dao.update(teacher);
 		} catch (Exception e) {
 			e.printStackTrace();

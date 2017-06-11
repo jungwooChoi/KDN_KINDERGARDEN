@@ -6,7 +6,7 @@ import com.kdn.model.domain.Kid;
 import com.kdn.model.domain.PageBean;
 
 public interface KidService {
-	public void update(Kid kid);
+	public void update(Kid kid, String dir);
 	public void remove(int no);
 	public Kid search(int no);
 	public void add(Kid kid, String dir);

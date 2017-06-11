@@ -21,9 +21,18 @@ public class KidServiceImpl implements KidService {
 	private KidDao dao;
 	
 	@Override
-	public void update(Kid kid) {
+	public void update(Kid kid, String dir) {
 		// TODO Auto-generated method stub
+		String fileName=null;
 		try {
+			MultipartFile fileinfo=kid.getK_uploadimg();
+			if(fileinfo!=null){
+				String k_img=String.format("%d%s", System.currentTimeMillis(),fileinfo.getOriginalFilename());
+				fileName=String.format("%s/%s", dir, k_img);
+				kid.setK_img(k_img);
+				File file=new File(fileName);
+				fileinfo.transferTo(file);
+			}
 			dao.update(kid);
 		} catch (Exception e) {
 			e.printStackTrace();

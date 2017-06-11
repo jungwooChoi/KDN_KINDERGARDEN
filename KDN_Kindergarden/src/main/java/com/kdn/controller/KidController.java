@@ -40,9 +40,9 @@ public class KidController {
 	
 	@RequestMapping(value="insertKid.do", method=RequestMethod.POST)
 	public String insertKid(Kid kid, HttpServletRequest request){
-		String dir=request.getRealPath("upload/");
+		String dir=request.getRealPath("uploadKidKid/");
 		kidService.add(kid, dir);
-		return "redirect:myPage.do";
+		return "redirect:listKid.do";
 	}
 	@RequestMapping(value="listKid.do", method=RequestMethod.GET)
 	public String listKid(PageBean bean, Model model){
@@ -65,9 +65,10 @@ public class KidController {
 		return "redirect:listKid.do";
 	}
 	
-	@RequestMapping(value="updateKid.do", method=RequestMethod.GET)
-	public String updateKid(Kid kid){
-		kidService.update(kid);
+	@RequestMapping(value="updateKid.do", method=RequestMethod.POST)
+	public String updateKid(Kid kid, HttpServletRequest request){
+		String dir=request.getRealPath("uploadKid/");
+		kidService.update(kid, dir);
 		return "redirect:listKid.do";
 	}
 }
