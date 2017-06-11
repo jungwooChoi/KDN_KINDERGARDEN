@@ -26,6 +26,7 @@ $(function(){
 		<div class="grid_3 bot-1">
 			<ul id = "font">
 				<li><a href="updateForm.do">정보 수정</a></li>
+				<li><a href="listMyClass.do" id="bot-1_li3">나의 클래스 관리</a></li>
 				<li><a href="#" id="bot-1_li2">상담 관리</a></li>
 				<li><a href="insertKidForm.do" id="bot-1_li3">입학 관리</a></li>
 			</ul>

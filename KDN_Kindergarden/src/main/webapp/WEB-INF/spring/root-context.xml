@@ -61,6 +61,10 @@
 				<value>/WEB-INF/spring/Menu_query.xml</value>
 				<value>/WEB-INF/spring/Kid_query.xml</value>
 				<value>/WEB-INF/spring/Request_query.xml</value>
+				<value>/WEB-INF/spring/Open_query.xml</value>
+				<value>/WEB-INF/spring/Class_query.xml</value>
+				<value>/WEB-INF/spring/Belong_query.xml</value>
+				<value>/WEB-INF/spring/Parent_query.xml</value>
 			</list>
 		</property>
 	</bean>

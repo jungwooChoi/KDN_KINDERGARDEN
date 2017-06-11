@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+	
+
+<mapper namespace="belong">
+
+	<select id="searchAll" parameterType="int" resultType="int">
+		SELECT b_k_id
+		FROM belong
+		WHERE b_o_id=#{b_o_id}
+	</select> 
+	
+	<select id="getCount" parameterType="int" resultType="int">
+		select count(*)
+		from belong
+		where b_o_id=#{b_o_id}
+	</select>
+</mapper>

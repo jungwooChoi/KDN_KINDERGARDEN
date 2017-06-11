@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+	
+
+<mapper namespace="open">
+
+	 <select id="search" parameterType="int" resultType="open">
+		SELECT o_id, TO_CHAR(o_date,'yyyy-mm-dd') o_date, o_t_id, o_c_id
+		FROM (select o_id, o_date, o_t_id, o_c_id,RANK() OVER(ORDER BY o_id desc) rank
+	 		 from open
+	 		 where o_t_id=#{o_t_id} and TO_CHAR(o_date,'yyyy')='2017' )
+		WHERE rank=1
+	</select> 
+
+</mapper>
