@@ -83,7 +83,7 @@ $(function(){
 <div class="container_12">
 	<div class="grid_3 bot-1">
 		<ul class = "font">
-			<li><a href="introducekindergarden.do" id="nav_int_menu_li2">유치원 소개</a></li>
+			<li><a href="introducekindergarden.do" id="nav_int_menu_li2">어린이집 소개</a></li>
 			<li><a href="introduceteacher.do" id="nav_int_menu_li2">선생님 소개</a></li>
 			<li><a href="introduceclass.do" id="nav_int_menu_li2">학급 소개</a></li>
 		</ul>

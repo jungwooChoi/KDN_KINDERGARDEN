@@ -83,6 +83,56 @@ $(function(){
 <div class="container_12">
 	<div class="grid_3 bot-1">
 		<ul class = "font">
+			<li><a href="introducekindergarden.do" id="nav_int_menu_li2">어린이집 소개</a></li>
+			<li><a href="introduceteacher.do" id="nav_int_menu_li2">선생님 소개</a></li>
+			<li><a href="introduceclass.do" id="nav_int_menu_li2">학급 소개</a></li>
+		</ul>
+	</div>
+
+	<div class="grid_9">
+		<form id="frm" method="post" action="introducekindergarden.do">
+
+			<table width="800" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					
+					<td width="450" ><font size="4" face="맑은고딕" color="black"></br> 
+					<strong>KDN 어린이집 홈페이지 방문을 환영합니다.</strong>	</br></br>	</font>
+					
+					<font size="3" face="맑은고딕"> 
+					본원은 2014년에 본사를 나주로 이전하고 나서 </br>
+					개원하여 역사는 짧지만,			</br></br>
+					다른 어린이집과 다르게 원생의 세밀한 케어와 관리로 </br>
+					원생들의 정서함양과 성장에 더욱 힘쓰고 있습니다. </br></br>
+					앞으로도 우리 어린이집에서는 원생들의 정서안정과 </br>
+					사회적응력 향상에 힘쓰도록 하겠습니다. </br></br></br> </br></br> </font> 
+					
+					<font size="4" face="맑은고딕" color="black"> 
+					<strong>     KDN 어린이집 원장 임수경</strong>	</br></br></br></br></br></br></br></br>	</font>
+					
+					</td>
+					<td width="30">&nbsp;</td>
+					<td width="350" ><img src="images/introducekindegarden.jpg" width="350" height="350"></td>
+				</tr>
+				
+				<tr>
+					<td width="52">&nbsp;</td>
+					<td></td>
+				</tr>
+			</table>
+			
+			
+			
+		</form>
+	</div>
+	
+</div>
+</body>
+</html>
+
+
+<!-- <div class="container_12">
+	<div class="grid_3 bot-1">
+		<ul class = "font">
 			<li><a href="introducekindergarden.do" id="nav_int_menu_li2">유치원 소개</a></li>
 			<li><a href="introduceteacher.do" id="nav_int_menu_li2">선생님 소개</a></li>
 			<li><a href="introduceclass.do" id="nav_int_menu_li2">학급 소개</a></li>
@@ -91,6 +141,17 @@ $(function(){
 
 	<div class="grid_9">
 		<form id="frm" method="post" action="introducekindergarden.do">
+		
+		
+		<table width="800" height="800" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td colspan=2><img src="images/introduce01.jpg" width="300" height="50"></td>
+				</tr>
+				<tr></tr>
+				<tr></tr>
+				<tr></tr>
+				<tr></tr>
+				
 			<p>
 				KDN 어린이집 홈페이지 방문을 환영합니다.							</br>
 				우리 어린이집은 2014년에 본사를 나주로 이전하고 나서 개원하여 역사는 짧지만,			</br>
@@ -100,12 +161,13 @@ $(function(){
 			
 			<p align="center"><img src="images/test.jpg"/></br></br></br></p>
 			
-			<strong>원장 최정우</strong>
+			<strong>원장 임수경</strong>
 			
 		</form>
 	</div>
+
 	
-	<!-- <div class="container">
+	<div class="container">
             <div class="row">
                 Section Header
                 <div class="col-md-12 col-sm-12 col-xs-12 section-header wow fadeInDown">
@@ -141,8 +203,8 @@ $(function(){
                     </div>
                 </div>
             </div> 
-        </div> -->
+        </div>
 	
 </div>
 </body>
-</html>
+</html> -->

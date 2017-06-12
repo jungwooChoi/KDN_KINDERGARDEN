@@ -83,7 +83,7 @@ $(function(){
 <div class="container_12">
 	<div class="grid_3 bot-1">
 		<ul class = "font">
-			<li><a href="introducekindergarden.do" id="nav_int_menu_li2">유치원 소개</a></li>
+			<li><a href="introducekindergarden.do" id="nav_int_menu_li2">어린이집 소개</a></li>
 			<li><a href="introduceteacher.do" id="nav_int_menu_li2">선생님 소개</a></li>
 			<li><a href="introduceclass.do" id="nav_int_menu_li2">학급 소개</a></li>
 		</ul>
@@ -93,8 +93,11 @@ $(function(){
 		<form id="frm" method="post" action="introduceteacher.do">
 			<table align="center">
 			  	<tr align="center" height="30">
-			  	  <td width="100">교사 이름</td><td width="100">학력</td><td  width="200">전화번호</td>
-			  	  <td width="100">지역</td><td  width="100">재직여부</td>
+			  	  <td width="100"><font size="3" face="맑은고딕" color="black"><strong>교사 이름</strong></font></td>
+			  	  <td width="100"><font size="3" face="맑은고딕" color="black"><strong>학력</strong></font></td>
+			  	  <td  width="200"><font size="3" face="맑은고딕" color="black"><strong>전화번호</strong></font></td>
+			  	  <td width="100"><font size="3" face="맑은고딕" color="black"><strong>지역</strong></font></td>
+			  	  <td  width="100"><font size="3" face="맑은고딕" color="black"><strong>재직여부</strong></font></td>
 			  	  
 			  	  <c:forEach  var="introduce" items="${teacherList}">
 			  	  <tr align="center">
