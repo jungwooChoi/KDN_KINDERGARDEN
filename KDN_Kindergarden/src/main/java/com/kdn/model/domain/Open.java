@@ -5,6 +5,7 @@ public class Open {
     private String o_date;
     private int o_t_id; //teacher 포린키
     private int o_c_id; //class 포린키
+    private String c_name;
     
     public Open() {	}
 
@@ -14,6 +15,22 @@ public class Open {
 		this.o_date = o_date;
 		this.o_t_id = o_t_id;
 		this.o_c_id = o_c_id;
+	}
+
+	public Open(int o_id, String o_date, int o_t_id, int o_c_id, String c_name) {
+		this.o_id = o_id;
+		this.o_date = o_date;
+		this.o_t_id = o_t_id;
+		this.o_c_id = o_c_id;
+		this.c_name = c_name;
+	}
+
+	public String getC_name() {
+		return c_name;
+	}
+
+	public void setC_name(String c_name) {
+		this.c_name = c_name;
 	}
 
 	@Override

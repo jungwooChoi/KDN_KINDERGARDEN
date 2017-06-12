@@ -28,9 +28,9 @@ public class ScheduleServiceImpl implements ScheduleService {
 	}
 
 	@Override
-	public void remove(int no) {
+	public void remove(String date) {
 		try {
-			dao.remove(no);
+			dao.remove(date);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new UpdateException("게시글 삭제 중 오류 발생");
@@ -50,6 +50,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 	@Override
 	public void add(Schedule schedule) {
 		try {
+			System.out.println(schedule);
 			int sdno = dao.getScheduleNo();
 			schedule.setS_id(sdno);
 			dao.add(schedule);
@@ -81,7 +82,18 @@ public class ScheduleServiceImpl implements ScheduleService {
 	@Override
 	public Schedule searchDate(String date) {
 		try {
+			System.out.println(date);
 			return dao.searchDate(date);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new UpdateException("게시글 검색 중 오류 발생");
+		}
+	}
+
+	@Override
+	public Schedule searchSch(int no) {
+		try {
+			return dao.searchSch(no);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new UpdateException("게시글 검색 중 오류 발생");

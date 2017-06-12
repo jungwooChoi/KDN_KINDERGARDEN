@@ -61,7 +61,7 @@
 	<insert id="insert" parameterType="schedule">
 		insert into schedule ( s_id, s_date, s_title 
 							, s_contents , s_etc , s_t_id, s_o_id )
-		values( #{s_id:INTEGER}
+		values( s_seq.nextval
 				,#{s_date:VARCHAR}
 				,#{s_title:VARCHAR}
 				,#{s_contents:VARCHAR}
@@ -70,7 +70,7 @@
 				,#{s_o_id:INTEGER}
 			)
 	</insert>
-	<update id="update" parameterType="schedule">
+	<!-- <update id="update" parameterType="schedule">
 		update schedule set s_date=#{s_date:VARCHAR}
 				,s_title=#{s_title:VARCHAR}
 				,s_contents=#{b_contents:VARCHAR}
@@ -78,9 +78,9 @@
 				,s_t_id=#{s_t_id:INTEGER}
 				,s_o_id=#{s_o_id:INTEGER}
 		where s_id=#{s_id:INTEGER}
-	</update>
+	</update> -->
 	
-	<delete id="delete" parameterType="int">
-		delete from schedule where s_id = #{s_id}
+	<delete id="delete" parameterType="String">
+		delete from schedule where s_date = #{s_date:VARCHAR}
 	</delete>
 </mapper>

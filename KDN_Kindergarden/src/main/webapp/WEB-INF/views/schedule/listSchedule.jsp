@@ -18,11 +18,26 @@ html, body {
 }
 </style>
 <script type="text/javascript">
-	
+function getDel(date){
+	//input 양식의 hidden으로 선언된 no(게시글 번호)에 요청된 게시글 번호를 셋팅
+	document.getElementById("date").value =date;
+	var frm = document.getElementById("frm");
+	frm.action="deleteSchedule.do";
+	frm.submit();
+}
+function getIn(date){
+	//input 양식의 hidden으로 선언된 no(게시글 번호)에 요청된 게시글 번호를 셋팅
+	document.getElementById("date").value =date;
+	var frm = document.getElementById("frm");
+	frm.action="insertScheduleForm.do";
+	frm.submit();
+}
 </script>
 </head>
 <body leftmargin="0px" rightmargin="0px" topmargin="0px"
 	bottomMargin="0px" bgcolor="#FFFFFF" onLoad="winResize();" />
+	<form id="frm" >
+		<input type="hidden" id="date"  name="date"/>
 <div id="layout">
 	<div id="outline">
 		<table cellpadding="0" cellspacing="0" class="tbl_sc">
@@ -61,11 +76,24 @@ html, body {
 			</tbody>
 		</table>
 	</div>
-	<div style="text-align: center; margin-top: 5px;">
-		<a href="javascript:self.close();"><img
-			src="images/btn_close.gif" alt="닫기"
-			border="0" /></a>
+		<c:choose>
+			<c:when test="${!empty schedule.s_date}">
+				<div style="text-align: center; margin-top: 5px;">
+					<a href="#" onclick="getDel('${finalDate}')">삭제</a>
+				</div>
+			</c:when>
+			<c:otherwise>
+				<div style="text-align: center; margin-top: 5px;">
+					<a href="#" onclick="getIn('${finalDate}')">추가</a>
+				</div>
+			</c:otherwise>
+		</c:choose>
+		<div style="text-align: center; margin-top: 5px;">
+			<a href="javascript:self.close();"><img
+				src="images/btn_close.gif" alt="닫기" border="0" /></a>
+		</div>
 	</div>
 </div>
+</form>
 </body>
 </html>
