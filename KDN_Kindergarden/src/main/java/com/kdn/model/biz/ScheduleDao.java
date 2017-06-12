@@ -10,7 +10,7 @@ public interface ScheduleDao {
 
 	public void update(Schedule schedule);
 
-	public void remove(int no);
+	public void remove(String date);
 
 	public Schedule search(int no);
 	
@@ -21,4 +21,6 @@ public interface ScheduleDao {
 	public int getCount(PageBean bean);
 	
 	public int getScheduleNo();
+
+	public Schedule searchSch(int no);
 }

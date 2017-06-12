@@ -1,6 +1,7 @@
 package com.kdn.model.biz;
 
 import java.io.File;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -45,7 +46,8 @@ public class TeacherServiceImpl implements TeacherService {
 	}
 
 	@Override
-	public boolean login(int id, String password) {
+	public boolean login(int id, String password) 
+	{
 		Teacher teacher = null;
 			try {
 				teacher = dao.search(id);
@@ -62,6 +64,22 @@ public class TeacherServiceImpl implements TeacherService {
 			}
 
 			return true;
+	}
+	
+	@Override
+	public List<Teacher> searchAll() 
+	{
+		try 
+		{
+			return dao.searchAll();
+		} 
+		
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			throw new UpdateException("교사 검색 중 오류 발생");
 		}
+	}
+	
 }
 

@@ -55,7 +55,7 @@
 	<insert id="insert" parameterType="request">
 		insert into request ( r_id,r_status, to_char(r_date,'yyyy-mm-dd') r_date, to_char(r_edate,'yyyy-mm-dd') r_edate, r_title 
 				, r_contents , r_t_id, r_p_id, r_k_id)
-		values( #{r_id:INTEGER}
+		values( r_seq.nextval
 				,#{r_status:CHAR}
 				,sysdate
 				,#{r_edate:DATE}

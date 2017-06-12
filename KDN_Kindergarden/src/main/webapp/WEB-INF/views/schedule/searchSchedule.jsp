@@ -10,31 +10,31 @@
 <link  rel="stylesheet" type="text/css" href="css/basic.css"  />
 <script type="text/javascript">
 	function init(){
-		var writeRequest = document.getElementById("writeRequest");
-		writeRequest.style.display="none";
-		var viewRequest = document.getElementById("viewRequest");
-		viewRequest.style.display="";
+		var writeBoard = document.getElementById("writeBoard");
+		writeBoard.style.display="none";
+		var viewBoard = document.getElementById("viewBoard");
+		viewBoard.style.display="";
 	}
 	function updateForm(){
-		var writeRequest = document.getElementById("writeRequest");
-		writeRequest.style.display="";
-		document.getElementById("viewRequest").style.display="none";
+		var writeBoard = document.getElementById("writeBoard");
+		writeBoard.style.display="";
+		document.getElementById("viewBoard").style.display="none";
 	}
-	function updateRequest(){
+	function updateBoard(){
 		var frm = document.getElementById("updatefrm");
-		frm.action="updateRequest.do";
+		frm.action="updateBoard.do";
 		frm.submit();
 	}
-	function deleteRequest(r_id){
-		document.getElementById("r_id").value=r_id;
+	function deleteBoard(s_id){
+		document.getElementById("s_id").value=s_id;
 		var frm = document.getElementById("frm");
-		frm.action="deleteRequest.do";
+		frm.action="deleteBoard.do";
 		frm.submit();
 	}
-	function listRequest(){
-		location.href="listRequest.do?<%=request.getQueryString()%>";
+	function listBoard(){
+		location.href="listBoard.do?<%=request.getQueryString()%>";
 	}
-	function resetRequest(){
+	function resetBoard(){
 		var frm = document.getElementById("updatefrm");
 		frm.title.value="";
 		frm.content.value="";
@@ -50,8 +50,8 @@
 <div class="container_12">
 	<div class="grid_3 bot-1">
 		<ul class = "font">
-			<li><a href="listRequest.do" id="nav_int_menu_li1">게시글 목록</a></li>
-			<li><a href="insertRequestForm.do" id="nav_int_menu_li2">글쓰기</a></li>
+			<li><a href="listBoard.do" id="nav_int_menu_li1">게시글 목록</a></li>
+			<li><a href="insertBoardForm.do" id="nav_int_menu_li2">글쓰기</a></li>
 		</ul>
 	</div>
 
@@ -59,27 +59,27 @@
     <c:if test="${msg != null }"> 
     	<script type="text/javascript">  alert('${msg}');</script>
     </c:if>
-	<div class="main" id="viewRequest" style="display:none">
+	<div class="main" id="viewBoard" style="display:none">
 	 	<form id="frm"  >
-	 	    <input type ="hidden" name="r_id"  id="r_id" />
+	 	    <input type ="hidden" name="s_id"  id="s_id" />
 	 	    
 			<table border="1" align="center">
 				<tbody>
 					<tr><td><label for="title">제목</label></td>
-					    <td>${request.r_title}</td>
+					    <td>${board.s_title}</td>
 					</tr>
-					<tr><td colspan="2">내용 &nbsp;&nbsp;글쓴이:${request.r_t_id}
-										&nbsp;&nbsp; 게시일:${request.r_date}</td></tr>
+					<tr><td colspan="2">내용 &nbsp;&nbsp;글쓴이:${board.s_t_id}
+										&nbsp;&nbsp; 게시일:${board.s_date}</td></tr>
 					<tr><td colspan="2"  valign="top" height="200">
-						<pre>${request.r_contents }</pre>							
+						<pre>${board.s_contents }</pre>							
 						</td></tr>
 				</tbody>
 				<tfoot>
 					<tr><td colspan="2" align="center">
-						<a href="#" onclick="listRsequest('frm')">목록</a>
-						<c:if test="${request.r_t_id == id }">
-							<a href="#" onclick="updateForm(${request.r_id})">수정</a>
-							<a href="#" onclick="deleteRequest(${request.r_id})">삭제</a>
+						<a href="#" onclick="listBoard('frm')">목록</a>
+						<c:if test="${board.s_t_id == id }">
+							<a href="#" onclick="updateForm(${board.s_id})">수정</a>
+							<a href="#" onclick="deleteBoard(${board.s_id})">삭제</a>
 						</c:if>
 						</td>
 					</tr>
@@ -87,28 +87,28 @@
 			</table>
 		</form>
 	</div>
-	<div class="main" id="writeRequest" style="display:none">
+	<div class="main" id="writeBoard" style="display:none">
 	 	<form  id="updatefrm">
-	 	    <input type ="hidden" name="r_id"  id="r_id"  value="${request.r_id}"/>
-	 	    <input type ="hidden" name="r_t_id"  id="r_t_id"  value="${request.r_t_id}"/>
+	 	    <input type ="hidden" name="s_id"  id="s_id"  value="${board.s_id}"/>
+	 	    <input type ="hidden" name="s_t_id"  id="s_t_id"  value="${board.s_t_id}"/>
 			<table border="1" align="center">
 				<caption>게시글 작성</caption>
 				<tbody>
 					<tr><td><label for="title">제목</label></td>
-					    <td><input type="text" name="r_title" id="r_title" value="${request.r_title}"/></td>
+					    <td><input type="text" name="s_title" id="s_title" value="${board.s_title}"/></td>
 					</tr>
 					<tr><td colspan="2">내용</td></tr>
 					<tr><td colspan="2">
-						<textarea name="r_contents" id="r_contents" cols="30" rows="10">
-							${request.r_contents}
+						<textarea name="s_contents" id="s_contents" cols="30" rows="10">
+							${board.s_contents}
 						</textarea>
 						</td></tr>
 				</tbody>
 				<tfoot>
 					<tr><td colspan="2" align="center">
-						<a href="#" onclick="updateRequest()"> 수정 </a> 
-						<a href="#" onclick="resetRequest()"> 다시 쓰기</a> 
-						<a href="#" onclick="listRequest()">목 록</a>
+						<a href="#" onclick="updateBoard()"> 수정 </a> 
+						<a href="#" onclick="resetBoard()"> 다시 쓰기</a> 
+						<a href="#" onclick="listBoard()">목 록</a>
 						</td>
 					</tr>
 				</tfoot>

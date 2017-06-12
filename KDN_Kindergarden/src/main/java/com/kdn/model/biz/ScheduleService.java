@@ -8,7 +8,7 @@ import com.kdn.model.domain.Schedule;
 public interface ScheduleService {
 	public void update(Schedule schedule);
 
-	public void remove(int no);
+	public void remove(String date);
 
 	public Schedule search(int no);
 	
@@ -17,4 +17,6 @@ public interface ScheduleService {
 	public void add(Schedule schedule);
 
 	public List<Schedule> searchAll(PageBean bean);
+
+	public Schedule searchSch(int no);
 }
