@@ -66,12 +66,10 @@ $(function(){
 <body>
 	<div class="row">
 		<div class="col-lg-3 col-md-3 col-sm-4">
-			<div class="list-group table-of-contents">
 				<a class="list-group-item" href="menu.do">주간 메뉴</a> 
 				<a class="list-group-item" href="insertmenuBoardForm.do">메뉴 작성</a>
-			</div>
 		</div>
- 	<div class="col-lg-8">
+ 	<div class="col-lg-9">
 	<div class="well bs-component">
 		<form method="post" action="insertmenuBoard.do"  >
 			<table class="table table-striped table-hover">
@@ -108,7 +106,7 @@ $(function(){
 					</td></tr>
 			</table>
 				<div class="form-group">
-					<div class="col-lg-10 col-lg-offset-2">
+					<div class="col-lg-10">
 					 <center>
 						<button type="submit" class="btn btn-primary">작성</button>
 						<button type="reset" class="btn btn-default">재설정</button>

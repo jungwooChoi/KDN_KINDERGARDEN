@@ -75,7 +75,7 @@ $(function(){
 	<div class="grid_9">
 		<form method="post" action="insertRequest.do"  >
 			<table align="center" width="300">
-					<tr><th colspan="2"> 게시글 작성 </th></tr>
+					<tr><th colspan="2"> 상담글 작성 </th></tr>
 					<tr height="50"><td><label for="title">제목</label></td>
 					    <td><input type="text" name="r_title" id="r_title"/></td>
 					</tr>

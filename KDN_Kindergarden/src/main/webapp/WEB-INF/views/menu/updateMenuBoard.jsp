@@ -39,6 +39,18 @@
 		frm.title.value = "";
 		frm.content.value = "";
 	}
+	
+	function setRadioCl(e){
+		var srcEl = getSrc(e);
+		var ra = srcEl.form[srcEl.name];
+		for(var i = 0; i < ra.length; i++){
+			if(ra[i].checked) ra[i].onpropertychange = function(e){getSrc(e).click()}
+			else ra[i].onclick = function(){return false};
+		}
+	}
+	function getSrc(e){
+			return e? e.target || e.srcElement:event.srcElement;
+	}
 </script>
 </head>
 <body onload="init()">
@@ -49,12 +61,11 @@
 	</c:if>
 	<div id ="viewBoard" style="display: none" class="row">
 		<div class="col-lg-3 col-md-3 col-sm-4">
-			<div class="list-group table-of-contents">
 				<a class="list-group-item" href="menu.do">주간 메뉴</a> <a
-					class="list-group-item" href="insertmenuBoardForm.do">메뉴 작성</a>
-			</div>
+				class="list-group-item" href="insertmenuBoardForm.do">메뉴 작성</a>
 		</div>
-			<form id="frm" style="margin: 10px auto; width: 50%; background: white; height: 700px; padding-left: 14%">
+		<div class="col-lg-9">
+			<form id="frm">
 				<input type="hidden" name="m_id" id="m_id" value="${board.m_id}" />
 				<input type="hidden" name="no" id="no" /> <input type="hidden"
 					name="query" id="query" />
@@ -75,21 +86,24 @@
 						</tr>
 					</tbody>
 				</table>
-					<a href="#"
+				
+					<div align="center">
+						<a href="#"
 						onclick="listBoard('frm')" class="btn btn-default">목록</a> <c:if
 						test="${board.m_t_id == id }">
 						<a href="#" onclick="updateForm()" class="btn btn-primary">수정</a>
 						<a href="#" onclick="deleteBoard()" class="btn btn-danger">삭제</a></c:if>
+					</div>
 			</form>
+			</div>
 		</div>
 		<div class="row" id="writeBoard" style="display: none">
 					<div class="col-lg-3 col-md-3 col-sm-4">
-			<div class="list-group table-of-contents">
 				<a class="list-group-item" href="menu.do">주간 메뉴</a> <a
 					class="list-group-item" href="insertmenuBoardForm.do">메뉴 작성</a>
-			</div>
 		</div>
-			<form id="updatefrm" style="margin: 10px auto; width: 50%; background: white; height: 700px;">
+		<div class="col-lg-9">
+			<form id="updatefrm">
 				<input type="hidden" name="m_id" id="m_id" value="${board.m_id}" />
 				<input type="hidden" name="m_t_id" id="m_t_id"
 					value="${board.m_t_id}" />
@@ -110,15 +124,15 @@
 						<tr>
 							<td><input type="radio" name='m_category' id='m_category'
 								value='1'
-								<c:if test="${fn:trim(board.m_category) eq '1'}">checked="checked"</c:if>>오전
+								<c:if test="${fn:trim(board.m_category) eq '1'}">checked="checked"</c:if> onfocus="setRadioCl(event)">오전
 								간식 <input type="radio" name='m_category' id='m_category'
 								value='2'
-								<c:if test="${fn:trim(board.m_category) eq '2'}">checked="checked"</c:if>>점심
+								<c:if test="${fn:trim(board.m_category) eq '2'}">checked="checked"</c:if> onfocus="setRadioCl(event)">점심
 								<input type="radio" name='m_category' id='m_category' value='3'
-								<c:if test="${fn:trim(board.m_category) eq '3'}">checked="checked"</c:if>>오후
+								<c:if test="${fn:trim(board.m_category) eq '3'}">checked="checked"</c:if> onfocus="setRadioCl(event)">오후
 								간식 <input type="radio" name='m_category' id='m_category'
 								value='4'
-								<c:if test="${fn:trim(board.m_category) eq '4'}">checked="checked"</c:if>>저녁
+								<c:if test="${fn:trim(board.m_category) eq '4'}">checked="checked"</c:if> onfocus="setRadioCl(event)">저녁
 							</td>
 						</tr>
 						<tr>
@@ -141,6 +155,7 @@
 					</tfoot>
 				</table>
 			</form>
+			</div>
 		</div>
 </body>
 </html>

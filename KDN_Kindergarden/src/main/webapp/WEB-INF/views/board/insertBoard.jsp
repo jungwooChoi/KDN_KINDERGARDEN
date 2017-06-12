@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>공지사항 작성</title>
 <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<link href="css/bootstrap.css" rel="stylesheet">
 <style type="text/css">
 .whole {
 	position: relative;
@@ -64,36 +65,40 @@ $(function(){
 </script>
 </head>
 <body>
-<div class="container_12">
-	<div class="grid_3 bot-1">
-		<ul class = "font">
-			<li><a href="listBoard.do" id="nav_int_menu_li2">게시글 목록</a></li>
-			<li><a href="#" id="nav_int_menu_li1">글쓰기</a></li>
-		</ul>
-	</div>
+	<div class="row">
+		<div class="col-lg-3 col-md-3 col-sm-4">
+				<a class="list-group-item" href="listBoard.do">게시글 목록</a> 
+				<a class="list-group-item" href="insertBoardForm.do">글 쓰기</a>
+		</div>
 
-	<div class="grid_9">
+	<div class="col-lg-9">
 		<form method="post" action="insertBoard.do"  >
-			<table align="center" width="300">
-					<tr><th colspan="2"> 게시글 작성 </th></tr>
-					<tr height="50"><td><label for="title">제목</label></td>
-					    <td><input type="text" name="b_title" id="b_title"/></td>
+			<table class="table table-striped table-hover">
+					<tr><th colspan="2"><h1> 게시글 작성 </h1></th></tr>
+					<tr height="50" class="form-group"><td><label for="col-lg-2 control-label">제목</label></td>
+					    <td>
+					    <div class="col-lg-10">
+					    <input type="text" name="b_title" id="b_title"/>
+					    </div></td>
 					</tr>
-					<tr height="50"><td><label for="title">아이디</label></td>
-					    <td><input type="text" name="b_t_id" id="b_t_id"/></td>
+					<tr height="50" class="form-group"><td><label for="col-lg-2 control-label">아이디</label></td>
+					    <td><div class="col-lg-10"><input type="text" name="b_t_id" id="b_t_id" value = "${id}" readonly="readonly"/></div></td>
 					</tr>
-					<tr><td colspan="2"><label for="contents">내용</label></td></tr>
-					<tr><td colspan="2" align="center">
-					    <textarea name="b_contents" id="b_contents" cols="30" rows="5"></textarea>
-					</td></tr>
-					<tr><td colspan="2" align="center">
-						<input type="submit" value="작성"/>
-						<input type="reset" value="취소"/>
+					<tr><td colspan="2" class="form-group"><label for="contents">내용</label></td></tr>
+					<tr><td colspan="2" align="center"><div class="col-lg-10">
+					    <textarea name="b_contents" id="b_contents" cols="30" rows="5" class="form-control"></textarea></div>
 					</td></tr>
 			</table>
+				<div class="form-group">
+					<div class="col-lg-10">
+					 <center>
+						<button type="submit" class="btn btn-primary">작성</button>
+						<button type="reset" class="btn btn-default">재설정</button>
+					</center>
+					</div>
+				</div>
 		</form>
 	</div>
-	
 </div>
 </body>
 </html>

@@ -12,14 +12,12 @@
 <div class="page-header" id="banner">
       <div class="row">
           <div class="col-lg-3 col-md-3 col-sm-4">
-            <div class="list-group table-of-contents">
               <a class="list-group-item"  href="introducekindergarden.do">어린이집 소개</a>
               <a class="list-group-item"  href="introduceteacher.do">교사 소개</a>
               <a class="list-group-item"  href="introduceclass.do">학급 소개</a>
-            </div>
           </div>
           
-       	<div class="col-lg-8">
+       	<div class="col-lg-9">
 	<div class="well bs-component">
           		
           		<form id="frm" method="post" action="introduce.do">
