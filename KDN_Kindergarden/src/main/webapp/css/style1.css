@@ -177,16 +177,11 @@ a, a:visited, a:focus, a:active {
 a:hover {
 	text-decoration: underline;
 }
-a.btn,
-input.btn[type=submit] {
-	display: block;
-	width: 140px;
-	height: 52px;
-	font-family: 'Gochi Hand', cursive;
-	font-size: 20px;
-	line-height: 52px;
-	text-align: center;
+
+a.btn{
+	font-family: 'Binggrae';
 }
+
 a.btn:hover {
 	text-decoration: none;
 }
@@ -358,6 +353,44 @@ body #login ul li a:hover{
 	margin: 0 auto;
 }
 
+/***table2*****/
+.table2{
+	text-align: left;
+	line-height: 40px;
+	border-collapse: separate;
+	border-spacing : 0;
+	border: 2px solid #ed1c40;
+	margin : 0px auto;
+	border-radius : .25rem;
+	font-family:'Binggrae';
+	width:800px;
+	margin-bottom : 20px
+}
+
+.table2 tr th{
+	background: #ea6b6e;
+	color:#fff;
+	border:none;
+	font-size: 30px;
+	text-align: center;
+	font-weight: bold;
+	height: 60px;
+}
+
+.table2 tr td span{
+	display: block;
+	font-size: 20px;
+	height:50px;
+	border-bottom:3px solid #ddd;
+}
+
+.table2 tr : hover{
+	text-decoration: none;
+}
+
+.table tr td span:hover{
+	background-color : rgba(237, 28, 64, .1);
+}
 /* Navigation
 ------------------------------------------------------------------------------*/
 .bar-holder {
