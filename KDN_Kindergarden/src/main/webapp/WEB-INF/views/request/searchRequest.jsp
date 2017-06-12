@@ -76,7 +76,7 @@
 				</tbody>
 				<tfoot>
 					<tr><td colspan="2" align="center">
-						<a href="#" onclick="listrequest('frm')">목록</a>
+						<a href="#" onclick="listRsequest('frm')">목록</a>
 						<c:if test="${request.r_t_id == id }">
 							<a href="#" onclick="updateForm(${request.r_id})">수정</a>
 							<a href="#" onclick="deleteRequest(${request.r_id})">삭제</a>

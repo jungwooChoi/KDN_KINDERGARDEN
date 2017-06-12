@@ -66,8 +66,8 @@ public class RequestController {
 	}
 	
 	@RequestMapping(value="deleteRequest.do", method=RequestMethod.GET)
-	public String deleteRequest(int b_id){
-		requestService.remove(b_id);
+	public String deleteRequest(int r_id){
+		requestService.remove(r_id);
 		return "redirect:listRequest.do";
 	}
 	

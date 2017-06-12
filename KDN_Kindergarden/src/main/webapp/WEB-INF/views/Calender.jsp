@@ -39,31 +39,12 @@ function fSetSelectedDay(myElement){
 			//var finalDay = document.all.calSelectedDate.value;
 			var finalDate = thisday.innerText.substring(0,4)+"-"+thisday.innerText.substring(6,8)+"-"+document.all.calSelectedDate.value;
 			
-			var popOption = "width=380, height=480, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+			var popOption = "width=420, height=500, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
 			if (wnd){
 				wnd.close();
 			}		
 			var url = 'pop.do?finalDate= '+finalDate; 
 			wnd = window.open(url,"",popOption);
-			
-			var myModal = new Example.Modal({
-			    id: "schpop" 
-			});
-			myModal.show(); // 모달창 보여주기
-
-			
-			$(document).ready(function(){
-			$("#schpop").modal();
-			});
-
-			
-			/* var url = 'pop.do?finalDate= '+finalDate;
-			var vReturn = window.showModalDialog(url, window,  popOptions ); 			  
-
-			if (vReturn == 'ok'){
-			// (모달창에서 버튼 이벤트 실행 또는 닫기 후)모달창이 닫혔을 때 부모창에서 실행 할 함수
-			location.reload(); 
-			} */
 			
 			var finalDay = document.all.calSelectedDate.value;
 			// eval("opener.document."+this.fieldName.value+".value="+finalValue);
@@ -123,7 +104,10 @@ function fSetSelectedDay(myElement){
 		var myMonth;
 		myMonth = fBuildCal(iYear, iMonth);
 		// <div class="cell-wrap">
-
+		
+		var fdat;
+		fdat = iYear+"0"+iMonth;
+		
 		for (w = 1; w < 7; w++) {
 			document.write("<tr>");
 			for (d = 0; d < 7; d++) {
@@ -263,9 +247,6 @@ function fSetSelectedDay(myElement){
 			</tbody>
 		</table>
 	</form>
-	<div id="schpop" >
-				<p>모달</p>
-	</div>
 </body>
 <script language="JavaScript" for=window event=onload>
 	<!-- Begin

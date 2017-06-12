@@ -31,8 +31,8 @@ public class ScheduleDaoImpl implements ScheduleDao {
 	}
 
 	@Override
-	public void remove(int no) {
-		session.delete("schedule.delete", no);
+	public void remove(String date) {
+		session.delete("schedule.delete", date);
 
 	}
 
@@ -54,12 +54,17 @@ public class ScheduleDaoImpl implements ScheduleDao {
 
 	@Override
 	public int getScheduleNo() {
-		return session.selectOne("schedule.getBoardNo");
+		return session.selectOne("schedule.getScheduleNo");
 	}
 
 	@Override
 	public Schedule searchDate(String date) {
 		return session.selectOne("schedule.searchDate", date);
+	}
+
+	@Override
+	public Schedule searchSch(int no) {
+		return session.selectOne("schedule.searchSch", no);
 	}
 
 }

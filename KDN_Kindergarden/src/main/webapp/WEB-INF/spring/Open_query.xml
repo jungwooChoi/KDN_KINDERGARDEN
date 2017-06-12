@@ -10,8 +10,35 @@
 		SELECT o_id, TO_CHAR(o_date,'yyyy-mm-dd') o_date, o_t_id, o_c_id
 		FROM (select o_id, o_date, o_t_id, o_c_id,RANK() OVER(ORDER BY o_id desc) rank
 	 		 from open
-	 		 where o_t_id=#{o_t_id} and TO_CHAR(o_date,'yyyy')='2017' )
+	 		 where o_t_id=#{o_t_id} and TO_CHAR(o_date,'yyyy')= TO_CHAR(sysdate,'YYYY') )
 		WHERE rank=1
+	</select> 
+	
+	
+	<!-- <resultMap type="class" id="classmap">
+		<id column="c_id"	property="c_id"/>
+		<result column="c_name" property="c_name"/>
+	</resultMap>
+	
+	<resultMap type="open" id="openmap">
+		<id column="o_id" property="o_id"/>
+		<result column="o_date" property="o_date"/>
+		<result column="o_title" property="o_title"/>
+		<result column="o_t_id" property="o_t_id"/>
+		<result column="o_c_id" property="o_c_id"/>
+		<collection property="openJ" ofType="class" resultMap="classmap"></collection>
+	</resultMap>	 -->
+	
+	<select id="searchAll" parameterType="String" resultType="open">
+		SELECT o_id, TO_CHAR(o_date,'yyyy-mm-dd') o_date, o_t_id, o_c_id, c_name
+		FROM OPEN o, CLASS c
+		where TO_CHAR(o_date,'YYYY')=SUBSTR('20170608',0,4) AND o.o_c_id = c.c_id
+	</select> 
+	
+	<select id="thisYearSearch" resultType="open">
+		SELECT o_id, TO_CHAR(o_date,'yyyy-mm-dd') o_date, o_t_id, o_c_id
+		FROM open
+		WHERE TO_CHAR(o_date,'yyyy')= TO_CHAR(sysdate,'YYYY')
 	</select> 
 
 </mapper>
