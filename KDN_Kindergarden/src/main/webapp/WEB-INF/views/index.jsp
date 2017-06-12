@@ -70,8 +70,9 @@
 	</script>
 </head>
 <body>
+
 	<div class="bar-holder2">
-					<a class="menu_trigger2" href="#">menu</a>
+			<a class="menu_trigger2" href="#">menu</a>
 					<div id="nav2">
 						<ul>
 							<li><a href="test.do">어린이집 소개</a></li>
@@ -83,6 +84,7 @@
 						</ul>
 					</div>
 				</div>
+<div class="container">
 	 <div id="login">
 		<ul>
 			<c:choose>
@@ -136,6 +138,6 @@
 			</div>
 		</footer>	
 	</div>
-	
+	</div>
 </body>
 </html>

@@ -18,7 +18,8 @@
 	            </div>
           </div>
           
-	       <div style="margin: 10px auto; width: 50%; background : white; height: 950px ">
+	    	<div class="col-lg-8">
+	<div class="well bs-component">
 	          		
 	          		<form id="frm" method="post" action="introduceteacher.do">
 						<table align="center">
@@ -72,6 +73,7 @@
 					</form>
 	          		
 	        </div>
+        </div>
         </div>
 </div>
 </body>

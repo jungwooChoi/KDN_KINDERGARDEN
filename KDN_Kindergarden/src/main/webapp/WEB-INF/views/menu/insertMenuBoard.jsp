@@ -71,7 +71,8 @@ $(function(){
 				<a class="list-group-item" href="insertmenuBoardForm.do">메뉴 작성</a>
 			</div>
 		</div>
-	<div style="margin: 10px auto; width: 50%; background: white; height: 700px">
+ 	<div class="col-lg-8">
+	<div class="well bs-component">
 		<form method="post" action="insertmenuBoard.do"  >
 			<table class="table table-striped table-hover">
 					<tr><th colspan="2"><h1> 메뉴 작성 </h1></th></tr>
@@ -115,6 +116,7 @@ $(function(){
 					</div>
 				</div>
 			</form>
+			</div>
 	</div>
 </div>
 

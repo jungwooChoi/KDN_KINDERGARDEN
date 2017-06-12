@@ -58,7 +58,7 @@
 				<input type="hidden" name="m_id" id="m_id" value="${board.m_id}" />
 				<input type="hidden" name="no" id="no" /> <input type="hidden"
 					name="query" id="query" />
-				<table border="1" align="center">
+				<table class="table table-striped table-hover">
 					<tbody>
 						<tr>
 							<td colspan="2"><div style="width:500px; font-size : 20px; font-family:'Binggrae'; font-weight: bold">글쓴이: &nbsp;${board.m_t_id}</div></td>
