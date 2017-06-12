@@ -22,7 +22,8 @@
             </div>
           </div>
 
-<div style="margin: 10px auto; width: 50%; background : white; height: 950px ">
+ 	<div class="col-lg-8">
+	<div class="well bs-component">
 		<form id="frm" method="post" action="introduceclass.do">
 		
 			<table width="800" border="0" cellpadding="0" cellspacing="0">
@@ -114,6 +115,7 @@
 				</tr>
 			</table>
 		</form>
+ </div>
  </div>
         </div>
       </div>

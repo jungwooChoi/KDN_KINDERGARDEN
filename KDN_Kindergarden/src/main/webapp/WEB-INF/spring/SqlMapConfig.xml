@@ -24,6 +24,7 @@
 		 <typeAlias type="com.kdn.model.domain.Belong" alias = "belong"/>
 		 <typeAlias type="com.kdn.model.domain.Parent" alias = "parent"/>
 		 <typeAlias type="com.kdn.model.domain.Introduce" alias = "introduce"/>
+		 <typeAlias type="com.kdn.model.domain.Enter" alias = "enter"/>
 	</typeAliases>
 	<mappers>
 	<!-- sql 쿼리를 작성한 xml 파일 경로 설정 

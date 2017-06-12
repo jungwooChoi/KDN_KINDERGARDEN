@@ -59,7 +59,8 @@
 				<a class="list-group-item" href="insertGalleryForm.do">사진 올리기</a>
 			</div>
 		</div>
-		<div style="margin: 10px auto; width: 50%; background: white; height: 700px">
+ 	<div class="col-lg-8">
+	<div class="well bs-component">
 		<form id="frm">
 			<input type="hidden"
 				id="pageNo" name="pageNo" value="1" /> <input type="hidden" id="no"
@@ -77,6 +78,7 @@
 				</c:forEach>
 			</div>
 		</form>
+		</div>
 	</div>
 	</div>
 </body>

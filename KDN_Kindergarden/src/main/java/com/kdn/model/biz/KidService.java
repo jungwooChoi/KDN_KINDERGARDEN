@@ -11,5 +11,5 @@ public interface KidService {
 	public Kid search(int no);
 	public void add(Kid kid, String dir);
 	public List<Kid> searchAll(PageBean bean);
-
+	public List<Kid> searchMyKid(int k_p_id);
 }

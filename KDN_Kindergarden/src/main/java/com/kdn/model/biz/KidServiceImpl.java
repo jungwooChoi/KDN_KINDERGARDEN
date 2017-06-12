@@ -115,7 +115,18 @@ public class KidServiceImpl implements KidService {
 			return dao.searchAll(bean);
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new UpdateException("게시글 검색 중 오류 발생");
+			throw new UpdateException("searchAll 중 오류 발생");
+		}
+	}
+	
+	@Override
+	public List<Kid> searchMyKid(int k_p_id) {
+		// TODO Auto-generated method stub
+		try {
+			return dao.searchMyKid(k_p_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new UpdateException("searchmykid 검색 중 오류 발생");
 		}
 	}
 

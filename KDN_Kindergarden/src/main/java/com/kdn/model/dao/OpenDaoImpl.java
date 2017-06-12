@@ -27,4 +27,7 @@ public class OpenDaoImpl implements OpenDao {
 		return session.selectList("open.searchAll", date);
 	}
 
+	public List<Open> thisYearSearch() {
+		return session.selectList("open.thisYearSearch");
+	}
 }

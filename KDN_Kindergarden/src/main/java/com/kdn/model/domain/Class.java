@@ -5,15 +5,18 @@ public class Class {
     private String c_name;
     private int c_total ;
     private String c_time;
+    private String c_age;
 	
     public Class() {}
 
-	public Class(int c_id, String c_name, int c_total, String c_time) {
+	public Class(int c_id, String c_name, int c_total, String c_time,
+			String c_age) {
 		super();
 		this.c_id = c_id;
 		this.c_name = c_name;
 		this.c_total = c_total;
 		this.c_time = c_time;
+		this.c_age = c_age;
 	}
 
 	@Override
@@ -21,7 +24,8 @@ public class Class {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Class [c_id=").append(c_id).append(", c_name=")
 				.append(c_name).append(", c_total=").append(c_total)
-				.append(", c_time=").append(c_time).append("]");
+				.append(", c_time=").append(c_time).append(", c_age=")
+				.append(c_age).append("]");
 		return builder.toString();
 	}
 
@@ -56,7 +60,13 @@ public class Class {
 	public void setC_time(String c_time) {
 		this.c_time = c_time;
 	}
-    
-    
-    
+
+	public String getC_age() {
+		return c_age;
+	}
+
+	public void setC_age(String c_age) {
+		this.c_age = c_age;
+	}
+
 }
