@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<link href="css/bootstrap.css" rel="stylesheet">
+<title>사진 올리기</title>
 <script type="text/javascript">
 $(function(){
 	$("#addFile").click(addFileForm);
@@ -27,6 +27,13 @@ function removeForm(count){
 </script>
 </head>
 <body>
+	<div class="row">
+		<div class="col-lg-3 col-md-3 col-sm-4">
+			<div class="list-group table-of-contents">
+				<a class="list-group-item" href="gallery.do">사진 관리</a>
+				<a class="list-group-item" href="insertGalleryForm.do">사진 올리기</a>
+			</div>
+		</div>
 <form method="post" action="insertGallery.do" enctype="multipart/form-data" >
 	<table align="center" width="300">
 			<tr><th colspan="2"> 게시글 작성 </th></tr>
@@ -53,5 +60,6 @@ function removeForm(count){
 			</td></tr>
 	</table>
 </form>
+</div>
 </body>
 </html>

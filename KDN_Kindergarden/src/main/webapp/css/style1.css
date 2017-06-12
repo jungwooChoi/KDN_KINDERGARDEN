@@ -328,7 +328,8 @@ body #login ul li a:hover{
 	height: 200px;
 	padding-top: 72px;
 	margin-left: -71px;
-	font-family: 'Gochi Hand', cursive;
+	font-family: 'Binggrae';
+	font-weight: bold;
 	font-size: 21px;
 	color: #ea6b6e;
 	text-align: center;
@@ -375,6 +376,7 @@ body #login ul li a:hover{
 	text-align: center;
 	font-weight: bold;
 	height: 60px;
+	line-height: 60px;
 }
 
 .table2 tr td span{
@@ -382,6 +384,7 @@ body #login ul li a:hover{
 	font-size: 20px;
 	height:50px;
 	border-bottom:3px solid #ddd;
+	margin-left: 10px;
 }
 
 .table2 tr : hover{
@@ -414,7 +417,8 @@ body #login ul li a:hover{
 #nav ul li {
 	display: inline-block;
 	padding: 0 25px;
-	font-family: 'Gochi Hand', cursive;
+	font-family: 'Binggrae';
+	font-weight: bold;
 	font-size: 24px;
 	color: #ea6b6e;
 }
@@ -433,7 +437,8 @@ body #login ul li a:hover{
 #nav2 ul li {
 	display: inline-block;
 	padding: 0 25px;
-	font-family: 'Gochi Hand', cursive;
+	font-family: 'Binggrae';
+	font-weight: bold;
 	font-size: 24px;
 	color: #ea6b6e;
 }
@@ -894,9 +899,7 @@ div.gallery2  div  a  img:hover{
 }
 
 div .bottom center{
-	position: absolute;
-	height: 20px;
-	left : 50%;
+	    margin-right: 25%;
 }
 
 
