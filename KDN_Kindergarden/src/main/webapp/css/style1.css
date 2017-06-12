@@ -80,8 +80,15 @@ input[type=submit]::-moz-focus-inner {
 	height: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
 	font-weight: normal;
+}
+
+h1{
+  font-size: 2em;
+  margin: 0.67em 0;
+  padding-left: 50%;
+  font-weight: bold;
 }
 
 .ie7 .clearfix {
@@ -165,8 +172,6 @@ nav, nav2 { z-index:100; height:571px; overflow:hidden;
 
 a, a:visited, a:focus, a:active {
 	text-decoration: none;
-/* 	color: #98785b; */
-	color: #ea6b6e;
 }
 
 a:hover {
@@ -216,22 +221,6 @@ input.white[type=submit]:hover{
 .wrapper-holder {
 	width:100%;
     display:table-row;
-}
-
-#font {
-	padding-top : 20px;
-	font-family : 'Arvo', serif;
-	font-size : 20px;
-	text-align: center;
-	color: #ea6b6e;
-	background: #ffffff;
-	height : 800px;
-	border : dashed #ea6b6e;
-}
-
-#font li a:hover{
-	color: #ff0000;
-	text-decoration:none;
 }
 
 /* Header
@@ -341,14 +330,13 @@ body #login ul li a:hover{
 
 #logo {
 	width: 142px;
-	height: 60px;
+	height: 200px;
 	padding-top: 72px;
 	margin-left: -71px;
 	font-family: 'Gochi Hand', cursive;
 	font-size: 21px;
 	color: #ea6b6e;
 	text-align: center;
-/* 	text-indent: -9999px; */
 	overflow: hidden;
 	display: block;
 	position: absolute;
@@ -369,14 +357,6 @@ body #login ul li a:hover{
 	max-width: 1170px;
 	margin: 0 auto;
 }
-
-.table{color : #000; margin-bottom: 6px; margin : 0 auto; font-family:'Binggrae';}
-.table tr{border-top:#d6d6d6 1px solid;}
-.table tr th {width:145px; text-align: left; font-weight: bold; padding-bottom: 13px;}
-.table tr th.last {width: 125px;}
-.table tr:first-child {border-top:none;}
-.table tr td {padding:8px 0 13px 0;}
-.table tr td span{display:block;}
 
 /* Navigation
 ------------------------------------------------------------------------------*/

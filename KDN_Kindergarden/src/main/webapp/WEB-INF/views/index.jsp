@@ -5,6 +5,8 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link href="css/bootstrap.css" rel="stylesheet">    
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="format-detection" content="telephone=no">
@@ -70,6 +72,7 @@
 	</script>
 </head>
 <body>
+	
 	 <div id="login">
 		<ul>
 			<c:choose>
@@ -91,7 +94,7 @@
 					<a class="menu_trigger" href="#">menu</a>
 					<div id="nav">
 						<ul>
-							<li><a href="about.html">어린이집 소개</a></li>
+							<li><a href="test.do">어린이집 소개</a></li>
 							<li><a href="listBoard.do">공지 사항</a></li>
 							<li><a href="gallery.do">입학신청관리</a></li>
 							<li><a href="listRequest.do">상담신청관리</a></li>
@@ -104,7 +107,7 @@
 					<a class="menu_trigger2" href="#">menu</a>
 					<div id="nav2">
 						<ul>
-							<li><a href="about.html">어린이집 소개</a></li>
+							<li><a href="test.do">어린이집 소개</a></li>
 							<li><a href="listBoard.do">공지 사항</a></li>
 							<li><a href="gallery.html">입학신청관리</a></li>
 							<li><a href="listRequest.do">상담신청관리</a></li>
@@ -136,5 +139,8 @@
 			</div>
 		</footer>	
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
