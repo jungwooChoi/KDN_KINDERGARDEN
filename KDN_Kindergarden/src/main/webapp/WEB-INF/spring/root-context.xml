@@ -66,6 +66,7 @@
 				<value>/WEB-INF/spring/Belong_query.xml</value>
 				<value>/WEB-INF/spring/Parent_query.xml</value>
 				<value>/WEB-INF/spring/Introduce_query.xml</value>
+				<value>/WEB-INF/spring/Enter_query.xml</value>
 			</list>
 		</property>
 	</bean>

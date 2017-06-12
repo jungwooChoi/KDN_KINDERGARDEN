@@ -34,5 +34,16 @@ public class OpenServiceImpl implements OpenService {
 			throw new UpdateException("게시글 검색 중 오류 발생");
 		}
 	}
+	
+	@Override
+	public List<Open> thisYearSearch() {
+		// TODO Auto-generated method stub
+		try {
+			return dao.thisYearSearch();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new UpdateException("thisYearSearch 중 오류 발생");
+		}
+	}
 
 }

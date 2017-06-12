@@ -13,6 +13,7 @@ public interface KidDao {
 	public List<Kid> searchAll(PageBean bean);
 	public int 		getCount(PageBean bean);
 	public int 		getKidNo();
+	public List<Kid> searchMyKid(int k_p_id);
 }
 
 

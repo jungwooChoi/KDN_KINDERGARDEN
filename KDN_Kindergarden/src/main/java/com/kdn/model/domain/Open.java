@@ -5,7 +5,7 @@ public class Open {
     private String o_date;
     private int o_t_id; //teacher 포린키
     private int o_c_id; //class 포린키
-    private String c_name;
+    private String c_name; //class 의 c_name
     
     public Open() {	}
 

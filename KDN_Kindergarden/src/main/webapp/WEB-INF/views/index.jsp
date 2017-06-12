@@ -108,7 +108,20 @@
 						<ul>
 							<li><a href="introduce.do">어린이집 소개</a></li>
 							<li><a href="listBoard.do">공지 사항</a></li>
-							<li><a href="enterForm.do">입학신청관리</a></li>
+							<li><a href="insertEnterForm.do">입학신청관리</a></li>
+							<li><a href="listRequest.do">상담신청관리</a></li>
+							<li><a href="gallery.do">사진관리</a></li>
+							<li><a href="menu.do">식단관리</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="bar-holder2">
+					<a class="menu_trigger2" href="#">menu</a>
+					<div id="nav2">
+						<ul>
+							<li><a href="introduce.do">어린이집 소개</a></li>
+							<li><a href="listBoard.do">공지 사항</a></li>
+							<li><a href="insertEnterForm.do">입학신청관리</a></li>
 							<li><a href="listRequest.do">상담신청관리</a></li>
 							<li><a href="gallery.do">사진관리</a></li>
 							<li><a href="menu.do">식단관리</a></li>
