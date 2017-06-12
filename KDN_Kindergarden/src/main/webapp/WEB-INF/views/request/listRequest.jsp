@@ -81,8 +81,8 @@ $(function(){
 
 	<div class="row">
 		<div class="col-lg-3 col-md-3 col-sm-4">
-			<a class="list-group-item" href="listBoard.do">게시글 목록</a> <a
-				class="list-group-item" href="insertBoardForm.do">글 쓰기</a>
+			<a class="list-group-item" href="listRequest.do">게시글 목록</a> <a
+				class="list-group-item" href="insertRequestForm.do">글 쓰기</a>
 		</div>
 		<div class="col-lg-9">
 			<form id="frm">
