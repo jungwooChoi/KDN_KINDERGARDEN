@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <link href="css/bootstrap.css" rel="stylesheet">
 <title>식단 입력</title>
-<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
 <style type="text/css">
 .whole {
 	position: relative;

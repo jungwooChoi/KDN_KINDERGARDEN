@@ -7,8 +7,8 @@
 <mapper namespace="active">
 	<resultMap type="activefile" id="filemap">
 		<id column="af_id"	property="af_id"/>
-		<result column="af_sfilename" property="af_sfilename"/>
 		<result column="af_rfilename" property="af_rfilename"/>
+		<result column="af_sfilename" property="af_sfilename"/>
 		<result column="af_a_id" property="af_a_id"/>
 	</resultMap>
 	
@@ -102,8 +102,8 @@
 	<insert id ="insertFile" parameterType="activefile">
 		insert into activefile(af_id, af_rfilename, af_sfilename, af_a_id)
 		values( af_seq.nextval
-				,#{af_sfilename:VARCHAR}
 				,#{af_rfilename:VARCHAR}
+				,#{af_sfilename:VARCHAR}
 				,#{af_a_id:INTEGER}
 				)
 	</insert>
