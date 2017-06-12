@@ -91,7 +91,7 @@
 					<a class="menu_trigger" href="#">menu</a>
 					<div id="nav">
 						<ul>
-							<li><a href="about.html">어린이집 소개</a></li>
+							<li><a href="introduce.do">어린이집 소개</a></li>
 							<li><a href="listBoard.do">공지 사항</a></li>
 							<li><a href="gallery.do">입학신청관리</a></li>
 							<li><a href="listRequest.do">상담신청관리</a></li>
@@ -104,7 +104,7 @@
 					<a class="menu_trigger2" href="#">menu</a>
 					<div id="nav2">
 						<ul>
-							<li><a href="about.html">어린이집 소개</a></li>
+							<li><a href="introduce.do">어린이집 소개</a></li>
 							<li><a href="listBoard.do">공지 사항</a></li>
 							<li><a href="gallery.html">입학신청관리</a></li>
 							<li><a href="listRequest.do">상담신청관리</a></li>
