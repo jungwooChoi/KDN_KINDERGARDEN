@@ -41,7 +41,7 @@
 						</div>
 						<div class="widget-calendar">
 							<jsp:include page="Calender.jsp"/>
-							<div class="legend"><span class="upcoming">Upcoming event</span><span class="archival">Archival event</span> </div>
+							<div class="legend"><span class="upcoming">Upcoming event</span><!-- <span class="archival">Archival event</span> --> </div>
 						</div>
 					</div>
 				</div>

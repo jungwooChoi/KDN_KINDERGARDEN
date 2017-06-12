@@ -1,6 +1,6 @@
 <!-- default page directive -->
 <%@page session="true" contentType="text/html; charset=KSC5601"%>
-
+<%@taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- import section -->
 
 <!-- error page section -->
@@ -39,7 +39,7 @@ function fSetSelectedDay(myElement){
 			//var finalDay = document.all.calSelectedDate.value;
 			var finalDate = thisday.innerText.substring(0,4)+"-"+thisday.innerText.substring(6,8)+"-"+document.all.calSelectedDate.value;
 			
-			var popOption = "width=420, height=500, resizable=no, scrollbars=no, status=no;";    //扑诀芒 可记(optoin)
+			var popOption = "width=388. height=460, resizable=no, scrollbars=no, status=no;";    //扑诀芒 可记(optoin)
 			if (wnd){
 				wnd.close();
 			}		
@@ -100,47 +100,73 @@ function fSetSelectedDay(myElement){
 		}
 		return aMonth;
 	}
-	function fDrawCal(iYear, iMonth) {
-		var myMonth;
-		myMonth = fBuildCal(iYear, iMonth);
-		// <div class="cell-wrap">
-		
-		var fdat;
-		fdat = iYear+"0"+iMonth;
-		
-		for (w = 1; w < 7; w++) {
-			document.write("<tr>");
-			for (d = 0; d < 7; d++) {
-				document.write("<td id=calCell onclick=fSetSelectedDay(this)>");
-				if (!isNaN(myMonth[w][d])) {
-					document.write("<div id=calDateText class='cell-wrap archival'>"+ myMonth[w][d] + "</div>");					
-				} else {
-					document.write("<div id=calDateText class='cell-wrap' onclick=fSetSelectedDay(this)> </div>");
-				}
-				document.write("</td>")
-			}
-			document.write("</tr>");
-		}
-		document.write("</table>")
-	}
-	function fUpdateCal(iYear, iMonth) {
-		myMonth = fBuildCal(iYear, iMonth);
-		objPrevElement.bgColor = "";
-		document.all.calSelectedDate.value = "";
-		for (w = 1; w < 7; w++) {
-			for (d = 0; d < 7; d++) {
-				if (!isNaN(myMonth[w][d])) {
-					calDateText[((7 * w) + d) - 7].innerText = myMonth[w][d];
-					$(calDateText[((7 * w) + d) - 7]).removeClass('archival').addClass('archival');
-					
-				} else {
-					calDateText[((7 * w) + d) - 7].innerText = " ";
-					$(calDateText[((7 * w) + d) - 7]).removeClass('archival')
-				}
-			}
-		}
-	}
+	
+	var schedule = new Array(31);
+	var count =0;
+</script>
+<c:choose>
+	<c:when test="${!empty schedulelist}">
+		<c:forEach var="schedule"  items="${schedulelist}">
+		<script type="text/javascript">
+			schedule[count] = ${schedule.s_date};
+		</script>
+		</c:forEach>
+	</c:when>
+</c:choose>
 
+<script type="text/javascript">
+		function fDrawCal(iYear, iMonth) {
+			//console.log(schedule);
+			var myMonth;
+			myMonth = fBuildCal(iYear, iMonth);
+			// <div class="cell-wrap">
+			
+			for (w = 1; w < 7; w++) {
+				document.write("<tr>");
+				for (d = 0; d < 7; d++) {
+					document.write("<td id=calCell onclick=fSetSelectedDay(this)>");
+					if (!isNaN(myMonth[w][d])) {
+						var hasSchedule=false;
+						for(var i=0; i<=count; i++){
+							if(schedule[i] == ''+myMonth[w][d]){
+								hasSchedule=true;
+							}
+						}
+						if(hasSchedule){
+							document.write("<div id=calDateText class='cell-wrap upcoming'>"+ myMonth[w][d] + "</div>");
+						}else{
+							document.write("<div id=calDateText class='cell-wrap archival'>"+ myMonth[w][d] + "</div>");
+						}
+					} else {
+						document.write("<div id=calDateText class='cell-wrap' onclick=fSetSelectedDay(this)> </div>");
+					}
+					document.write("</td>")
+				}
+				document.write("</tr>");
+			}
+			document.write("</table>")
+		}
+		function fUpdateCal(iYear, iMonth) {
+			myMonth = fBuildCal(iYear, iMonth);
+			
+			objPrevElement.bgColor = "";
+			document.all.calSelectedDate.value = "";
+			
+			for (w = 1; w < 7; w++) {
+				for (d = 0; d < 7; d++) {
+					if (!isNaN(myMonth[w][d])) {
+						calDateText[((7 * w) + d) - 7].innerText = myMonth[w][d];
+						$(calDateText[((7 * w) + d) - 7]).removeClass('archival').addClass('archival');
+						$(calDateText[((7 * w) + d) - 7]).removeClass('upcoming');
+						
+					} else {
+						calDateText[((7 * w) + d) - 7].innerText = " ";
+						$(calDateText[((7 * w) + d) - 7]).removeClass('archival');
+						$(calDateText[((7 * w) + d) - 7]).removeClass('upcoming');
+					}
+				}
+			}//location.href = "schedule.do?year="+iYear+"&month="+iMonth;
+		}
 	function beforeYear() {
 		var dispYear = eval(thisday.innerText.substring(0, 4)) - 1;
 		var dispMonth = eval(thisday.innerText.substring(6, 8));
@@ -240,8 +266,7 @@ function fSetSelectedDay(myElement){
 				<tr>
 					<td><script language="JavaScript">
 						var dCurDate = new Date();
-						fDrawCal(dCurDate.getFullYear(),
-								dCurDate.getMonth() + 1);
+						fDrawCal('${year}','${month}');
 					</script></td>
 				</tr>
 			</tbody>

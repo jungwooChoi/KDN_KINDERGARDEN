@@ -67,4 +67,9 @@ public class ScheduleDaoImpl implements ScheduleDao {
 		return session.selectOne("schedule.searchSch", no);
 	}
 
+	@Override
+	public List<Schedule> searchMonth(String date) {
+		return session.selectList("schedule.searchMonth", date);
+	}
+
 }

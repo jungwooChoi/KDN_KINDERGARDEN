@@ -7,9 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>어린이집</title>
-<link rel="stylesheet" media="screen" href="css/schedule.css"
-	type="text/css" />
-<style>
+<link  rel="stylesheet" type="text/css" href="css/schedule.css"  />
+<style type="text/css">
 html, body {
 	margin: 0px;
 	font-size: 12px;

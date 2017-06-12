@@ -11,6 +11,14 @@
 		from schedule
 		where s_id=#{s_id}
 	</select>
+	
+	<select id="searchMonth" parameterType="string" resultType="schedule">
+		select s_id, to_char(s_date,'dd') s_date, s_title 
+				, s_contents , s_etc , s_t_id , s_o_id
+		from schedule
+		where to_char(s_date,'yyyymm')=#{s_date}
+	</select>
+	
 	<select id="searchDate" parameterType="String" resultType="schedule">
 		select s_id, to_char(s_date,'yyyy-mm-dd') s_date, s_title 
 				, s_contents , s_etc , s_t_id , s_o_id

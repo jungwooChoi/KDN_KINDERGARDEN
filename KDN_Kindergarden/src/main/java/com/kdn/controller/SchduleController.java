@@ -45,16 +45,17 @@ public class SchduleController {
 		return "schedule/listSchedule";
 	}
 	
-	
-	/*@RequestMapping(value="schedule.do", method=RequestMethod.GET)
-	public String schedule(Model model,String finalDate){
-		Schedule schedule = scheduleService.searchDate(finalDate);
-		model.addAttribute("schedule", schedule);
-		model.addAttribute("finalDate", finalDate);
-		//System.out.println(finalDate);
+	@RequestMapping(value="schedule.do", method=RequestMethod.GET)
+	public String schedule(Model model, String year, String month){
+		String finalDate = year+month;
 		
-		return"index";
-	}*/
+		List<Schedule> schedule = scheduleService.searchMonth(finalDate);
+		System.out.println(schedule);
+		model.addAttribute("schedulelist", schedule);
+		model.addAttribute("year", year);
+		model.addAttribute("month", month);
+		return "index";
+	}
 	
 	@RequestMapping(value="insertScheduleForm.do", method=RequestMethod.GET)
 	public String insertScheduleForm(Model model, HttpSession session, String date){
