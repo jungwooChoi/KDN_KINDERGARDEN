@@ -22,12 +22,10 @@
 <body>
 	<div class="row">
 		<div class="col-lg-3 col-md-3 col-sm-4">
-			<div class="list-group table-of-contents">
 				<a class="list-group-item" href="menu.do">주간 메뉴</a> 
 				<a class="list-group-item" href="insertmenuBoardForm.do">메뉴 작성</a>
-			</div>
 		</div>
-		<div style="margin: 10px auto; width: 50%; background: white; height: 700px">
+		<div class="col-lg-9">
 			<form id="frm">
 				<input type="hidden" id="m_id" name="m_id" />
 				<table class="table2">

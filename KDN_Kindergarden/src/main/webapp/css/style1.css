@@ -86,8 +86,6 @@ h2, h3, h4, h5, h6 {
 
 h1{
   font-size: 2em;
-  margin: 0.67em 0;
-  padding-left: 50%;
   font-weight: bold;
 }
 
@@ -325,12 +323,12 @@ body #login ul li a:hover{
 
 #logo {
 	width: 142px;
-	height: 200px;
+	height: 100%;
 	padding-top: 72px;
 	margin-left: -71px;
 	font-family: 'Binggrae';
 	font-weight: bold;
-	font-size: 21px;
+	font-size: 18px;
 	color: #ea6b6e;
 	text-align: center;
 	overflow: hidden;

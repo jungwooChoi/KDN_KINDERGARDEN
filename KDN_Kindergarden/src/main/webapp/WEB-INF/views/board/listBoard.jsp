@@ -80,13 +80,10 @@ $(function(){
 <body>
 	<div class="row">
 		<div class="col-lg-3 col-md-3 col-sm-4">
-			<div class="list-group table-of-contents">
 				<a class="list-group-item" href="listBoard.do">게시글 목록</a> 
 				<a class="list-group-item" href="insertBoardForm.do">글 쓰기</a>
-			</div>
 		</div>
-	<div class="col-lg-8">
-		<div class="well bs-component">
+	<div class="col-lg-9">
 			<form id="frm">
 				<input type="hidden" id="pageNo" name="pageNo" value="1" /> <input
 					type="hidden" id="b_id" name="b_id" />
@@ -95,24 +92,20 @@ $(function(){
 						<th colspan="3"><h1>게시글 목록</h1></th>
 					</tr>
 					<tr>
-						<td colspan="3" height="100">
+						<td colspan="2" height="100" align="center">
 							<div class="form-group">
-								<div class="col-lg-4">
 									<select name="key" id="key" class="form-control">
 										<option value="all">-----all-----</option>
 										<option value="title" <%=pageBean.getKey("title")%>>제목</option>
 										<option value="contents" <%=pageBean.getKey("contents")%>>내용</option>
 									</select>
-								</div>
-								<div class="col-lg-4">
 									<input type="text" id="word" name="word"
 										value="${pageBean.word}" class="form-control" />
-								</div>
-								<div class="col-lg-2">
-									<a href="#" onclick="pagelist(1)" class="btn btn-default">검색</a>
-								</div>
 							</div>
-						</td>
+							</td>
+							<td height="100">
+									<a href="#" onclick="pagelist(1)" class="btn btn-default">검색</a>
+							</td>
 					</tr>
 					<tr align="center">
 						<td width="100">번호</td>
@@ -135,6 +128,5 @@ $(function(){
 			</form>
 		</div>
 		</div>
-	</div>
 </body>
 </html>
