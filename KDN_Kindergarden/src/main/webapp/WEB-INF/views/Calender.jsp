@@ -15,10 +15,6 @@
 <script type="text/javascript" src="/js/jquery-1.7.min.js"></script>
 <SCRIPT LANGUAGE="JavaScript">
 
-var dDate = new Date();
-var dCurMonth = dDate.getMonth();
-var dCurDayOfMonth = dDate.getDate();
-var dCurYear = dDate.getFullYear();
 var objPrevElement = new Object();
 var wnd; // ÆË¾÷
 var yy;
@@ -101,7 +97,7 @@ function fSetSelectedDay(myElement){
 		return aMonth;
 	}
 	
-	var schedule = new Array(31);
+	var schedule = new Array();
 	var count =0;
 </script>
 <c:choose>
@@ -130,13 +126,14 @@ function fSetSelectedDay(myElement){
 						for(var i=0; i<=count; i++){
 							if(schedule[i] == ''+myMonth[w][d]){
 								hasSchedule=true;
-							}
+							}		
 						}
 						if(hasSchedule){
 							document.write("<div id=calDateText class='cell-wrap upcoming'>"+ myMonth[w][d] + "</div>");
 						}else{
 							document.write("<div id=calDateText class='cell-wrap archival'>"+ myMonth[w][d] + "</div>");
 						}
+						
 					} else {
 						document.write("<div id=calDateText class='cell-wrap' onclick=fSetSelectedDay(this)> </div>");
 					}

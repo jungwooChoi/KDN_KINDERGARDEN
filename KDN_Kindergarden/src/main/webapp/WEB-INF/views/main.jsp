@@ -27,15 +27,41 @@
 				<div class="event-wrap">
 					<div class="block-event">
 						<div class="upcoming-event">
-							<h2>April’s upcoming event</h2>
+							<h2>upcoming event</h2>
 							<div class="event-description">
-								${date}
-								<h3><a href="#"></a></h3>
+							<c:choose>
+							<c:when test="${!empty date.s_date}">
+								<tr>
+									<td class="tbl_cell1" width="80">날짜</td>
+									<td style="font-size: 12px;">${date.s_date}</td>
+								</tr>
+								<tr>
+									<td class="tbl_cell1">제목</td>
+									<td style="font-size: 12px;">${date.s_title}</td>
+								</tr>
+								<tr>
+									<td class="tbl_cell2">내용</td>
+									<td>
+										<div
+											style="overflow: auto; overflow-y: auto; overflow-x: auto; width: 100%; height: 265px; text-align: left; font-size: 12px; line-height: 160%">
+											${date.s_contents}</div>
+									</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<tr>
+									<td class="tbl_cell1" width="80">일정이 없습니다.</td>
+								</tr>
+							</c:otherwise>
+							</c:choose>
+							<h3>
+									<a href="#"></a>
+								</h3>
 								<div class="metadata">
 									<time></time>
 								</div>
 								<p></p>
-							</div>
+					</div>
 						</div>
 						<div class="widget-calendar">
 							<jsp:include page="Calender.jsp"/>
