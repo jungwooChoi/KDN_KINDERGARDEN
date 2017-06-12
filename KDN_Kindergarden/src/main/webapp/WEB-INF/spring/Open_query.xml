@@ -6,6 +6,36 @@
 
 <mapper namespace="open">
 
+	<resultMap type="class" id="classmap">
+	    <!-- primary key 인경우 id 태그로 설정  -->
+		<id  	column="c_id"    	property="c_id"/>
+		<!-- primary key가 아닌 다른 column -->
+		<result	column="c_name" 	property="c_name"/>
+		<result	column="c_total" 	property="c_total"/>
+		<result	column="c_time" 	property="c_time"/>
+		<result	column="c_age" 	property="c_age"/>
+	</resultMap>
+
+
+	<resultMap type="open" id="openmap">
+		<id		column="o_id"		property="o_id"/>
+		<result	column="o_date"		property="o_date"/>
+		<result	column="o_t_id"		property="o_t_id"/>
+		<result	column="o_c_id"	    property="o_c_id"/>
+		<result	column="c_name"	    property="c_name"/>
+		
+		<!-- join data 처리 
+			 1 : 1     association  태그 사용
+			 1 : N     collection   태그 사용
+			 속성 
+			 property  객체에 매핑되는 속성명
+			 ofType    join 매핑되는 실제 타입
+			 resultMap join 매핑되는 resultMap id
+			 
+		 -->
+	<collection property="openclass" 		ofType="class"  
+					resultMap="classmap"/>
+	</resultMap>
 	 <select id="search" parameterType="int" resultType="open">
 		SELECT o_id, TO_CHAR(o_date,'yyyy-mm-dd') o_date, o_t_id, o_c_id
 		FROM (select o_id, o_date, o_t_id, o_c_id,RANK() OVER(ORDER BY o_id desc) rank
@@ -36,9 +66,9 @@
 	</select> 
 	
 	<select id="thisYearSearch" resultType="open">
-		SELECT o_id, TO_CHAR(o_date,'yyyy-mm-dd') o_date, o_t_id, o_c_id
-		FROM open
-		WHERE TO_CHAR(o_date,'yyyy')= TO_CHAR(sysdate,'YYYY')
+		SELECT o.o_id, TO_CHAR(o.o_date,'yyyy-mm-dd') o_date, o.o_t_id, o.o_c_id, c.c_name
+		FROM OPEN o, CLASS c
+		WHERE TO_CHAR(o.o_date,'yyyy')= TO_CHAR(sysdate,'YYYY') AND c.c_id= o.o_c_id
 	</select> 
 
 </mapper>
