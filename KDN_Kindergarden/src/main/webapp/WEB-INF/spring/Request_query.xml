@@ -68,13 +68,8 @@
 	</insert>
 	<update id="update" parameterType="request">
 		update request set r_date=sysdate
-				,r_status=#{r_status:CHAR}
-				,r_edate=#{r_edate:DATE}
 				,r_title=#{r_title:VARCHAR}
 				,r_contents=#{r_contents:VARCHAR}
-				,r_t_id=#{r_t_id:INTEGER}
-				,r_p_id=#{r_p_id:INTEGER}
-				,r_k_id=#{r_k_id:INTEGER}
 		where r_id=#{r_id:INTEGER}
 	</update>
 	
