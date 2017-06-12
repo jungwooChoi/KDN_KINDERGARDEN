@@ -28,4 +28,9 @@
 		where t_id = #{t_id:INTEGER}	
 	</update>
 	
+	<select id="searchAll" resultType="teacher">
+		select t_name, t_gradu, t_phone, t_address, t_status
+		from teacher
+	</select>
+	
 </mapper>

@@ -57,7 +57,7 @@ public class ActiveController {
 	
 	@RequestMapping(value="insertGallery.do", method=RequestMethod.POST)
 	public String insertBoard(Active active, HttpServletRequest request, HttpSession session){
-		String dir = request.getRealPath("active/");
+		String dir = request.getRealPath("upload_active/");
 		activeService.add(active, dir, (Integer)session.getAttribute("id"));
 		return "redirect:gallery.do";
 	}
