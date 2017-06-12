@@ -19,4 +19,6 @@ public interface ScheduleService {
 	public List<Schedule> searchAll(PageBean bean);
 
 	public Schedule searchSch(int no);
+	
+	public List<Schedule> searchNow();
 }
