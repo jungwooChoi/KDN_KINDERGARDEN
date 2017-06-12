@@ -23,4 +23,6 @@ public interface ScheduleDao {
 	public int getScheduleNo();
 
 	public Schedule searchSch(int no);
+	
+	public List<Schedule> searchNow();
 }

@@ -7,6 +7,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<link href="css/bootstrap.css" rel="stylesheet">
 	<title>KDN 어린이집  활동 Gallery</title>
 	<script type="text/javascript" src="/js/bPopup.js"></script>
 	<script type="text/javascript">
@@ -51,23 +52,32 @@
 </style>
 </head>
 <body>
-	<form id="frm" >
-	  	<a href="insertGalleryForm.do" >글쓰기</a>
-	  	<input type="hidden" id="pageNo"  name="pageNo"  value="1"/>
-		<input type="hidden" id="no"  name="no"/>
-	  	<div class="bottom"><center>${pageBeanGallery.pagelink }</center></div>
-		<div class="gallery2">
-				<c:forEach var ="p" items='${activelist}'>
-				<div>	
-					<a href="#" onclick="getBoard(${p.af_id})">
-						<img src="active/${p.af_sfilename}" />
-					</a> 
-				</div>
-				</c:forEach>
+	<div class="row">
+		<div class="col-lg-3 col-md-3 col-sm-4">
+			<div class="list-group table-of-contents">
+				<a class="list-group-item" href="gallery.do">사진 관리</a>
+				<a class="list-group-item" href="insertGalleryForm.do">사진 올리기</a>
+			</div>
 		</div>
-	</form>
+		<div style="margin: 10px auto; width: 50%; background: white; height: 700px">
+		<form id="frm">
+			<input type="hidden"
+				id="pageNo" name="pageNo" value="1" /> <input type="hidden" id="no"
+				name="no" />
+			<div class="bottom">
+				<center>${pageBeanGallery.pagelink }</center>
+			</div>
+			<div class="gallery2">
+				<c:forEach var="p" items='${activelist}'>
+					<div>
+						<a href="#" onclick="getBoard(${p.af_id})"> 
+						<img src="upload_active/${p.af_sfilename}"/>
+						</a>
+					</div>
+				</c:forEach>
+			</div>
+		</form>
+	</div>
+	</div>
 </body>
 </html>
-<div id="modal_content">
- <img src="active/${p.af_sfilename}"/><input type="button" value="닫기" id="m_close">
-</div>

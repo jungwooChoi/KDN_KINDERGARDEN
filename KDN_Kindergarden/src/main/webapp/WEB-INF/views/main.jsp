@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,14 +29,12 @@
 						<div class="upcoming-event">
 							<h2>April’s upcoming event</h2>
 							<div class="event-description">
-								<h3><a href="#">Libero tempore cum soluta nobis est eligendi optio cumque nihil</a></h3>
+								${date}
+								<h3><a href="#"></a></h3>
 								<div class="metadata">
-									<time datetime="2014-04-17T09:00">17.04.14 
-									<span>09:00 AM</span></time>
-									<span>Lorem ipsum dolor</span>
+									<time></time>
 								</div>
-								<p>Vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
-								<a class="btn yellow" href="#">Learn more</a>
+								<p></p>
 							</div>
 						</div>
 						<div class="widget-calendar">

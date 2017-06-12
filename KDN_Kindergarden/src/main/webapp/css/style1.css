@@ -177,16 +177,11 @@ a, a:visited, a:focus, a:active {
 a:hover {
 	text-decoration: underline;
 }
-a.btn,
-input.btn[type=submit] {
-	display: block;
-	width: 140px;
-	height: 52px;
-	font-family: 'Gochi Hand', cursive;
-	font-size: 20px;
-	line-height: 52px;
-	text-align: center;
+
+a.btn{
+	font-family: 'Binggrae';
 }
+
 a.btn:hover {
 	text-decoration: none;
 }
@@ -333,7 +328,8 @@ body #login ul li a:hover{
 	height: 200px;
 	padding-top: 72px;
 	margin-left: -71px;
-	font-family: 'Gochi Hand', cursive;
+	font-family: 'Binggrae';
+	font-weight: bold;
 	font-size: 21px;
 	color: #ea6b6e;
 	text-align: center;
@@ -358,6 +354,46 @@ body #login ul li a:hover{
 	margin: 0 auto;
 }
 
+/***table2*****/
+.table2{
+	text-align: left;
+	line-height: 40px;
+	border-collapse: separate;
+	border-spacing : 0;
+	border: 2px solid #ed1c40;
+	margin : 0px auto;
+	border-radius : .25rem;
+	font-family:'Binggrae';
+	width:800px;
+	margin-bottom : 20px
+}
+
+.table2 tr th{
+	background: #ea6b6e;
+	color:#fff;
+	border:none;
+	font-size: 30px;
+	text-align: center;
+	font-weight: bold;
+	height: 60px;
+	line-height: 60px;
+}
+
+.table2 tr td span{
+	display: block;
+	font-size: 20px;
+	height:50px;
+	border-bottom:3px solid #ddd;
+	margin-left: 10px;
+}
+
+.table2 tr : hover{
+	text-decoration: none;
+}
+
+.table tr td span:hover{
+	background-color : rgba(237, 28, 64, .1);
+}
 /* Navigation
 ------------------------------------------------------------------------------*/
 .bar-holder {
@@ -381,7 +417,8 @@ body #login ul li a:hover{
 #nav ul li {
 	display: inline-block;
 	padding: 0 25px;
-	font-family: 'Gochi Hand', cursive;
+	font-family: 'Binggrae';
+	font-weight: bold;
 	font-size: 24px;
 	color: #ea6b6e;
 }
@@ -400,7 +437,8 @@ body #login ul li a:hover{
 #nav2 ul li {
 	display: inline-block;
 	padding: 0 25px;
-	font-family: 'Gochi Hand', cursive;
+	font-family: 'Binggrae';
+	font-weight: bold;
 	font-size: 24px;
 	color: #ea6b6e;
 }
@@ -861,9 +899,7 @@ div.gallery2  div  a  img:hover{
 }
 
 div .bottom center{
-	position: absolute;
-	height: 20px;
-	left : 50%;
+
 }
 
 
