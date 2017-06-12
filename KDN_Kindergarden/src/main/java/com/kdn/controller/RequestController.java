@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.kdn.model.biz.KidService;
 import com.kdn.model.biz.RequestService;
 import com.kdn.model.biz.TeacherService;
+import com.kdn.model.domain.Kid;
 import com.kdn.model.domain.PageBean;
 import com.kdn.model.domain.Request;
 import com.kdn.model.domain.Teacher;
@@ -37,16 +38,20 @@ public class RequestController {
 	
 	@Autowired
 	private RequestService requestService;
+	@Autowired
 	private TeacherService teacherService;
+	@Autowired
 	private KidService kidService;
 	
 	@RequestMapping(value="insertRequestForm.do", method=RequestMethod.GET)
 	public String insertRequestForm(Model model, HttpSession session){
-		List<Teacher> list = teacherService.searchAll();
-		model.addAttribute("id", session.getAttribute("id"));
+		List<Teacher> rlist = teacherService.searchAll();
+		int id = (Integer) session.getAttribute("id");
+		model.addAttribute("id", id);		
+		List<Kid> klist = kidService.searchMyKid(id);
+		model.addAttribute("rlist", rlist);
+		model.addAttribute("klist", klist);
 		model.addAttribute("content", "request/insertRequest.jsp");
-		//List<Kid> kid = kid.
-		model.addAttribute("list", list);
 		return "index";
 	}
 	
@@ -80,7 +85,7 @@ public class RequestController {
 	}
 	
 	@RequestMapping(value="updateRequest.do", method=RequestMethod.GET)
-	public String updateRequest(Request request){
+	public String updateRequest(Request request, HttpSession session){
 		requestService.update(request);
 		return "redirect:listRequest.do";
 	}
