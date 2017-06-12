@@ -15,20 +15,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kdn.model.biz.ScheduleService;
+
 import com.kdn.model.domain.Schedule;
+
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class HomeController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	@Autowired
 	private ScheduleService scheduleService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
+
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
         Calendar c1 = Calendar.getInstance();
         String strToday = sdf.format(c1.getTime());
@@ -44,6 +47,9 @@ public class HomeController {
 		model.addAttribute("schedulelist",schedule);
 		model.addAttribute("year",strY);
 		model.addAttribute("month",strM);
+
+		model.addAttribute("date", scheduleService.searchNow());
+
 		return "index";
 	}
 	

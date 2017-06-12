@@ -20,5 +20,9 @@ public interface ScheduleService {
 
 	public Schedule searchSch(int no);
 	
+
 	public List<Schedule> searchMonth(String date);
+
+	public List<Schedule> searchNow();
+
 }

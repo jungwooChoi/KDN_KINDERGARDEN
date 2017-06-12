@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kdn.model.biz.KidService;
 import com.kdn.model.biz.RequestService;
+import com.kdn.model.biz.TeacherService;
 import com.kdn.model.domain.PageBean;
 import com.kdn.model.domain.Request;
+import com.kdn.model.domain.Teacher;
 
 @Controller
 public class RequestController {
@@ -34,18 +37,23 @@ public class RequestController {
 	
 	@Autowired
 	private RequestService requestService;
+	private TeacherService teacherService;
+	private KidService kidService;
 	
 	@RequestMapping(value="insertRequestForm.do", method=RequestMethod.GET)
-	public String insertRequestForm(Model model){
+	public String insertRequestForm(Model model, HttpSession session){
+		List<Teacher> list = teacherService.searchAll();
+		model.addAttribute("id", session.getAttribute("id"));
 		model.addAttribute("content", "request/insertRequest.jsp");
+		//List<Kid> kid = kid.
+		model.addAttribute("list", list);
 		return "index";
 	}
 	
 	@RequestMapping(value="insertRequest.do", method=RequestMethod.POST)
 	public String insertRequest(Request request){
 		
-		requestService.add(request);
-		
+		requestService.add(request);		
 		return "redirect:listRequest.do";
 	}
 	@RequestMapping(value="listRequest.do", method=RequestMethod.GET)
@@ -58,7 +66,7 @@ public class RequestController {
 	
 	@RequestMapping(value="searchRequest.do", method=RequestMethod.GET)
 	public String searchRequest(int r_id, Model model, HttpSession session){
-		//model.addAttribute("id", session.getAttribute("id"));
+		model.addAttribute("id", session.getAttribute("id"));
 		System.out.println(r_id);
 		model.addAttribute("request", requestService.search(r_id));
 		model.addAttribute("content", "request/searchRequest.jsp");

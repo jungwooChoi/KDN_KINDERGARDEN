@@ -24,7 +24,12 @@
 				, s_contents , s_etc , s_t_id , s_o_id
 		from schedule
 		where s_date=#{s_date}
-	</select>  
+	</select>
+	
+	<select id="searchNow" resultType="schedule">
+		SELECT * FROM SCHEDULE
+		WHERE TO_CHAR(SYSDATE, 'yyyy-dd-mm') = TO_CHAR(s_date, 'yyyy-dd-mm')
+	</select>
 	
 	<select id="searchAll" parameterType="pagebean" resultType="schedule">
 		select s_id, to_char(s_date,'yyyy-mm-dd') s_date, s_title 

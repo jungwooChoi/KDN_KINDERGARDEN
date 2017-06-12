@@ -80,12 +80,25 @@ $(function(){
 					    <td><input type="text" name="r_title" id="r_title"/></td>
 					</tr>
 					<tr height="50"><td><label for="title">아이디</label></td>
-					    <td><input type="text" name="r_t_id" id="r_t_id" value /></td>
+					    <td><input type="text" name="r_p_id" id="r_p_id" value="${id}" /></td>
 					</tr>
 					<tr><td colspan="2"><label for="contents">내용</label></td></tr>
 					<tr><td colspan="2" align="center">
 					    <textarea name="r_contents" id="r_contents" cols="30" rows="5"></textarea>
 					</td></tr>
+					<tr height="50"><td><label for="title">아이디</label></td>
+					    <td><input type="text" name="r_p_id" id="r_p_id" value="${id}" /></td>
+					</tr>
+					<tr height="50"><td><label for="title">아이</label></td>
+					    <td><input type="text" name="r_k_id" id="r_k_id" value="${id}" /></td>
+					</tr>
+					<tr height="50"><td><label for="title">선생님</label></td>
+					    <c:forEach var="open" items="${list}">
+						<td><input type="radio" name="r_t_id" id="r_t_id" value="${teacher.t_id}"/>${teacher.t_name}</td>
+						</c:forEach>
+					</tr>			
+					
+					
 					<tr><td colspan="2" align="center">
 						<input type="submit" value="작성"/>
 						<input type="reset" value="취소"/>
