@@ -8,6 +8,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>KDN 어린이집  활동 Gallery</title>
+	<script type="text/javascript" src="/js/bPopup.js"></script>
 	<script type="text/javascript">
 	//조건 검색, 페이지 번호로 게시글 요청을 위한 메서드  
 	function pagelist(cpage){
@@ -20,10 +21,14 @@
 	//게시글 번호나 타이틀을 클릭하면 해당 게시글 요청을 위한 메서드 
 	function getBoard(no){
 		//input 양식의 hidden으로 선언된 no(게시글 번호)에 요청된 게시글 번호를 셋팅
-		document.getElementById("no").value = no;
+		/* document.getElementById("no").value = no;
 		var frm = document.getElementById("frm");
 		frm.action="searchGallery.do";
-		frm.submit();
+		frm.submit(); */
+		$('element_to_pop_up').bPopup({
+            content:'image',
+            contentContainer:'.content',
+            loadUrl:'active/${p.af_sfilename}'
 	}
 	$(document).ready(function(){
 		 $("#pop").click(function(){
@@ -55,7 +60,7 @@
 				<c:forEach var ="p" items='${activelist}'>
 				<div>	
 					<a href="#" onclick="getBoard(${p.af_id})">
-						<img src="active/${p.af_sfilename}" /><input type="button" value="팝업" id="open">
+						<img src="active/${p.af_sfilename}" />
 					</a> 
 				</div>
 				</c:forEach>
