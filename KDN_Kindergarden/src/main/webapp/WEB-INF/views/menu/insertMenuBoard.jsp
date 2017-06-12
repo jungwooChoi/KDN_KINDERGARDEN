@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<link href="css/bootstrap.css" rel="stylesheet">
+<title>식단 입력</title>
 <style type="text/css">
 .whole {
 	position: relative;
@@ -64,44 +64,59 @@ $(function(){
 </script>
 </head>
 <body>
-<div class="container_12">
-	<div class="grid_3 bot-1">
-		<ul class = "font">
-			<li><a href="updatemenuBoard.do" id="nav_int_menu_li1">메뉴 작성</a></li>
-			<li><a href="deletemenuBoard.do" id="nav_int_menu_li2">메뉴 삭제</a></li>
-		</ul>
-	</div>
-	<div class="grid_9">
+	<div class="row">
+		<div class="col-lg-3 col-md-3 col-sm-4">
+			<div class="list-group table-of-contents">
+				<a class="list-group-item" href="menu.do">주간 메뉴</a> 
+				<a class="list-group-item" href="insertmenuBoardForm.do">메뉴 작성</a>
+			</div>
+		</div>
+	<div style="margin: 10px auto; width: 50%; background: white; height: 700px">
 		<form method="post" action="insertmenuBoard.do"  >
-			<table align="center" width="300">
-					<tr><th colspan="2"> 메뉴 작성 </th></tr>
-					<tr height="50"><td><label for="title">날짜</label></td>
-					    <td><input type="date" name="m_date" id="m_date"/></td>
+			<table class="table table-striped table-hover">
+					<tr><th colspan="2"><h1> 메뉴 작성 </h1></th></tr>
+					<tr height="50" class="form-group">
+						<td>
+							<label for="col-lg-2 control-label">날짜</label>
+						</td>
+						<td>
+							<div class="col-lg-10"><input type="date" name="m_date" id="m_date" class="form-control"/></div>
+						</td>				
 					</tr>
-					<tr height="50"><td><label for="title">시간</label></td>
-					    <td><select name="m_category" id="m_category">
+					<tr height="50" class="form-group">
+						<td><label for="col-lg-2 control-label">시간</label></td>
+					    <td>
+					    	<div class="col-lg-10">
+					    	<select name="m_category" id="m_category" class="form-control">
 							    <option value="1" selected="selected">오전 간식</option>
 							    <option value="2">점심</option>
 							    <option value="3">오후 간식</option>
 							    <option value="4">저녁</option>
 							</select>
+							</div>
 							</td>
 					</tr>
-					<tr height="50"><td><label for="title">선생님아이디</label></td>
-					    <td><input type="text" name="m_t_id" id="m_t_id"  value="${id}" readonly="readonly"/></td>
+					<tr height="50" class="form-group"><td><label for="col-lg-2 control-label">선생님아이디</label></td>
+					    <td><div class="col-lg-10"><input class="form-control" type="text" name="m_t_id" id="m_t_id"  value="${id}" readonly="readonly"/></div></td>
 					</tr>
-					<tr><td colspan="2"><label for="contents">식단</label></td></tr>
-					<tr><td colspan="2" align="center">
-					    <textarea name="m_etc" id="m_etc" cols="30" rows="5"></textarea>
-					</td></tr>
-					<tr><td colspan="2" align="center">
-						<input type="submit" value="작성"/>
-						<input type="reset" value="취소"/>
+					<tr><td colspan="2" class="form-group"><label for="col-lg-2 control-label">식단</label></td></tr>
+					<tr> <td colspan="2">
+						<div class="col-lg-10">
+					    <textarea class="form-control" name="m_etc" id="m_etc" cols="30" rows="5"></textarea>
+						</div>
 					</td></tr>
 			</table>
-		</form>
+				<div class="form-group">
+					<div class="col-lg-10 col-lg-offset-2">
+					 <center>
+						<button type="submit" class="btn btn-primary">작성</button>
+						<button type="reset" class="btn btn-default">재설정</button>
+					</center>
+					</div>
+				</div>
+			</form>
 	</div>
-	
 </div>
+
 </body>
 </html>

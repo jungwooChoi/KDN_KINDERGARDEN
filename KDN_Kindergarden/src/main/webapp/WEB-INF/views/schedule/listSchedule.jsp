@@ -8,6 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>어린이집</title>
 <link  rel="stylesheet" type="text/css" href="css/schedule.css"  />
+<link href="css/bootstrap.css" rel="stylesheet">
 <style type="text/css">
 html, body {
 	margin: 0px;

@@ -7,34 +7,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link  rel="stylesheet" type="text/css" href="css/basic.css"  />
+<link  rel="stylesheet" type="text/css" href="css/basic.css"/>
+<link href="css/bootstrap.css" rel="stylesheet">
 <script type="text/javascript">
 	function init(){
-		var writeBoard = document.getElementById("writeBoard");
-		writeBoard.style.display="none";
-		var viewBoard = document.getElementById("viewBoard");
-		viewBoard.style.display="";
+		var writeSchedule = document.getElementById("writeSchedule");
+		writeSchedule.style.display="none";
+		var viewSchedule = document.getElementById("viewSchedule");
+		viewSchedule.style.display="";
 	}
 	function updateForm(){
-		var writeBoard = document.getElementById("writeBoard");
-		writeBoard.style.display="";
-		document.getElementById("viewBoard").style.display="none";
+		var writeSchedule = document.getElementById("writeSchedule");
+		writeSchedule.style.display="";
+		document.getElementById("viewSchedule").style.display="none";
 	}
-	function updateBoard(){
+	function updateSchedule(){
 		var frm = document.getElementById("updatefrm");
-		frm.action="updateBoard.do";
+		frm.action="updateSchedule.do";
 		frm.submit();
 	}
-	function deleteBoard(s_id){
+	function deleteSchedule(s_id){
 		document.getElementById("s_id").value=s_id;
 		var frm = document.getElementById("frm");
-		frm.action="deleteBoard.do";
+		frm.action="deleteSchedule.do";
 		frm.submit();
 	}
-	function listBoard(){
-		location.href="listBoard.do?<%=request.getQueryString()%>";
+	function listSchedule(){
+		location.href="listSchedule.do?<%=request.getQueryString()%>";
 	}
-	function resetBoard(){
+	function resetSchedule(){
 		var frm = document.getElementById("updatefrm");
 		frm.title.value="";
 		frm.content.value="";
@@ -47,39 +48,38 @@
 </script>
 </head>
 <body onload="init()">
-<div class="container_12">
-	<div class="grid_3 bot-1">
-		<ul class = "font">
-			<li><a href="listBoard.do" id="nav_int_menu_li1">게시글 목록</a></li>
-			<li><a href="insertBoardForm.do" id="nav_int_menu_li2">글쓰기</a></li>
-		</ul>
-	</div>
-
+<div class="row">
+		<div class="col-lg-3 col-md-3 col-sm-4">
+			<div class="list-group table-of-contents">
+				<a class="list-group-item" href="listSchedule.do">주간 메뉴</a> 
+				<a class="list-group-item" href="insertScheduleForm.do">메뉴 작성</a>
+			</div>
+		</div>
 	<div class="grid_9">
     <c:if test="${msg != null }"> 
     	<script type="text/javascript">  alert('${msg}');</script>
     </c:if>
-	<div class="main" id="viewBoard" style="display:none">
+	<div class="main" id="viewSchedule" style="display:none">
 	 	<form id="frm"  >
 	 	    <input type ="hidden" name="s_id"  id="s_id" />
 	 	    
 			<table border="1" align="center">
 				<tbody>
 					<tr><td><label for="title">제목</label></td>
-					    <td>${board.s_title}</td>
+					    <td>${schedule.s_title}</td>
 					</tr>
-					<tr><td colspan="2">내용 &nbsp;&nbsp;글쓴이:${board.s_t_id}
-										&nbsp;&nbsp; 게시일:${board.s_date}</td></tr>
+					<tr><td colspan="2">내용 &nbsp;&nbsp;글쓴이:${schedule.s_t_id}
+										&nbsp;&nbsp; 게시일:${schedule.s_date}</td></tr>
 					<tr><td colspan="2"  valign="top" height="200">
-						<pre>${board.s_contents }</pre>							
+						<pre>${schedule.s_contents }</pre>							
 						</td></tr>
 				</tbody>
 				<tfoot>
 					<tr><td colspan="2" align="center">
-						<a href="#" onclick="listBoard('frm')">목록</a>
-						<c:if test="${board.s_t_id == id }">
-							<a href="#" onclick="updateForm(${board.s_id})">수정</a>
-							<a href="#" onclick="deleteBoard(${board.s_id})">삭제</a>
+						<a href="#" onclick="listSchedule('frm')">목록</a>
+						<c:if test="${schedule.s_t_id == id }">
+							<a href="#" onclick="updateForm(${schedule.s_id})">수정</a>
+							<a href="#" onclick="deleteSchedule(${schedule.s_id})">삭제</a>
 						</c:if>
 						</td>
 					</tr>
@@ -87,28 +87,28 @@
 			</table>
 		</form>
 	</div>
-	<div class="main" id="writeBoard" style="display:none">
+	<div class="main" id="writeSchedule" style="display:none">
 	 	<form  id="updatefrm">
-	 	    <input type ="hidden" name="s_id"  id="s_id"  value="${board.s_id}"/>
-	 	    <input type ="hidden" name="s_t_id"  id="s_t_id"  value="${board.s_t_id}"/>
+	 	    <input type ="hidden" name="s_id"  id="s_id"  value="${schedule.s_id}"/>
+	 	    <input type ="hidden" name="s_t_id"  id="s_t_id"  value="${schedule.s_t_id}"/>
 			<table border="1" align="center">
 				<caption>게시글 작성</caption>
 				<tbody>
 					<tr><td><label for="title">제목</label></td>
-					    <td><input type="text" name="s_title" id="s_title" value="${board.s_title}"/></td>
+					    <td><input type="text" name="s_title" id="s_title" value="${schedule.s_title}"/></td>
 					</tr>
 					<tr><td colspan="2">내용</td></tr>
 					<tr><td colspan="2">
 						<textarea name="s_contents" id="s_contents" cols="30" rows="10">
-							${board.s_contents}
+							${schedule.s_contents}
 						</textarea>
 						</td></tr>
 				</tbody>
 				<tfoot>
 					<tr><td colspan="2" align="center">
-						<a href="#" onclick="updateBoard()"> 수정 </a> 
-						<a href="#" onclick="resetBoard()"> 다시 쓰기</a> 
-						<a href="#" onclick="listBoard()">목 록</a>
+						<a href="#" onclick="updateSchedule()"> 수정 </a> 
+						<a href="#" onclick="resetSchedule()"> 다시 쓰기</a> 
+						<a href="#" onclick="listSchedule()">목 록</a>
 						</td>
 					</tr>
 				</tfoot>

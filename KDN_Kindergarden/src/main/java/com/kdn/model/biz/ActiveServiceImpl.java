@@ -120,6 +120,7 @@ public class ActiveServiceImpl implements ActiveService {
 			int total = dao.getCount(bean);
 			PageUtility bar = new PageUtility(bean.getInterval(), total, bean.getPageNo(), "images/");
 			bean.setPagelink(bar.getPageBar());
+			System.out.println(dao.searchImg(bean));
 			return dao.searchImg(bean);
 		}catch(Exception e){
 			e.printStackTrace();

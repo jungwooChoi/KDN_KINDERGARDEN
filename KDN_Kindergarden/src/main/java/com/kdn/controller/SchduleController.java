@@ -16,6 +16,7 @@ import com.kdn.model.biz.OpenService;
 import com.kdn.model.biz.ScheduleService;
 import com.kdn.model.domain.Board;
 import com.kdn.model.domain.Open;
+import com.kdn.model.domain.PageBean;
 import com.kdn.model.domain.Schedule;
 
 @Controller
@@ -54,6 +55,14 @@ public class SchduleController {
 		model.addAttribute("schedulelist", schedule);
 		model.addAttribute("year", year);
 		model.addAttribute("month", month);
+		return "index";
+	}
+	
+	@RequestMapping(value="listSchedule.do", method=RequestMethod.GET)
+	public String listSchedule(PageBean bean, Model model){
+		List<Schedule> list = scheduleService.searchAll(bean);
+		model.addAttribute("list", list);
+		model.addAttribute("content", "schedule/listSchedule.jsp");
 		return "index";
 	}
 	

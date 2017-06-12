@@ -38,7 +38,7 @@ function fSetSelectedDay(myElement){
 			//var finalDate = document.frmCalendarSample.tbSelYear.value+"-"+document.frmCalendarSample.tbSelMonth.value+"-"+document.all.calSelectedDate.value;
 			//var finalDay = document.all.calSelectedDate.value;
 			var finalDate = thisday.innerText.substring(0,4)+"-"+thisday.innerText.substring(6,8)+"-"+document.all.calSelectedDate.value;
-			
+						
 			var popOption = "width=388. height=460, resizable=no, scrollbars=no, status=no;";    //ÆË¾÷Ã¢ ¿É¼Ç(optoin)
 			if (wnd){
 				wnd.close();
@@ -157,7 +157,7 @@ function fSetSelectedDay(myElement){
 					if (!isNaN(myMonth[w][d])) {
 						calDateText[((7 * w) + d) - 7].innerText = myMonth[w][d];
 						$(calDateText[((7 * w) + d) - 7]).removeClass('archival').addClass('archival');
-						$(calDateText[((7 * w) + d) - 7]).removeClass('upcoming');
+						//$(calDateText[((7 * w) + d) - 7]).removeClass('upcoming');
 						
 					} else {
 						calDateText[((7 * w) + d) - 7].innerText = " ";
@@ -165,7 +165,7 @@ function fSetSelectedDay(myElement){
 						$(calDateText[((7 * w) + d) - 7]).removeClass('upcoming');
 					}
 				}
-			}//location.href = "schedule.do?year="+iYear+"&month="+iMonth;
+			}//location.href ="schedule.do?year="+iYear+"&month="+iMonth;
 		}
 	function beforeYear() {
 		var dispYear = eval(thisday.innerText.substring(0, 4)) - 1;
@@ -176,7 +176,6 @@ function fSetSelectedDay(myElement){
 		fUpdateCal(dispYear, dispMonth);
 		
 	}
-
 	function beforeMonth() {
 		var dispYear = eval(thisday.innerText.substring(0, 4));
 		var dispMonth = eval(thisday.innerText.substring(6, 8)) - 1;
