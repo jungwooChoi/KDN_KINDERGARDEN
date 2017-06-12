@@ -94,7 +94,7 @@
 						<ul>
 							<li><a href="test.do">어린이집 소개</a></li>
 							<li><a href="listBoard.do">공지 사항</a></li>
-							<li><a href="enterForm.do">입학신청관리</a></li>
+							<li><a href="insertEnterForm.do">입학신청관리</a></li>
 							<li><a href="listRequest.do">상담신청관리</a></li>
 							<li><a href="gallery.do">사진관리</a></li>
 							<li><a href="menu.do">식단관리</a></li>
@@ -107,7 +107,7 @@
 						<ul>
 							<li><a href="test.do">어린이집 소개</a></li>
 							<li><a href="listBoard.do">공지 사항</a></li>
-							<li><a href="gallery.html">입학신청관리</a></li>
+							<li><a href="insertEnterForm.do">입학신청관리</a></li>
 							<li><a href="listRequest.do">상담신청관리</a></li>
 							<li><a href="gallery.do">사진관리</a></li>
 							<li><a href="menu.do">식단관리</a></li>
