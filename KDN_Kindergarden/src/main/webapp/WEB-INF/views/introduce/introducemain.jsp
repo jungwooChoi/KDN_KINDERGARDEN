@@ -91,11 +91,82 @@ $(function(){
 
 	<div class="grid_9">
 		<form id="frm" method="post" action="introduce.do">
-			<p>
-				KDN 어린이집에 오신 것을 환영합니다.																</br>
-				우리 어린이집은 KDN 사원들의 자녀들을 성심껏 보살피어										</br>
-				업무뿐만 아니라 화목한 가정을 일구기 위해 최선을 다해 원생들을 보살피겠습니다.		</br>
-			</p>
+			
+			<table width="100" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td><img src="images/introduce01.jpg" width="300" height="50"></td>
+				</tr>
+			</table>
+			
+			<table width="800" height="71" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td width="52">&nbsp;</td>
+					<td width="760" class="text">
+						<font size="3" face="맑은고딕"> </br>1. 자비로운 어린이 </br> </br>2. 예의바른 어린이  </br> </br>3. 창의적인 어린이  </br> </br></br></br>  </font>
+					</td>
+				</tr>
+			</table>
+			
+			<table width="100" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td><img src="images/introduce02.jpg" width="300" height="42"></td>
+				</tr>
+			</table>
+			
+			<table width="760" height="71" border="0" cellpadding="0" cellspacing="0">
+ 				<tr>
+ 					<td width="52">&nbsp;</td>
+					<td width="760" class="text" height="10">
+						<font size="3" face="맑은고딕"> </br> 어린이들을 최우선적으로 생각하는 전인 교육에 목표를 두고 </br></br></font>
+					</td>
+				</tr>
+					
+				<tr>
+					<td width="52">&nbsp;</td>	
+					<td width="760" class="text" height="10">
+					<font size="3" face="맑은고딕"> 아이들의 신체적, 사회적, 지적, 언어발달에 기여할 수 있는 경험을 제공하여 </br></br>  </font>
+					</td>
+				</tr>
+				
+				<tr>	
+					<td width="52">&nbsp;</td>
+					<td width="760" class="text" height="10">
+					<font size="3" face="맑은고딕">유능하고 존경받는 사람으로서 자기 존중감을 발달시키며, 창의적 개발에 역점을 둡니다. </br></br></br></br>  </font>
+				</tr>
+			</table>
+			
+			<table width="100" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td><img src="images/introduce03.jpg" width="300" height="40"></td>
+				</tr>
+			</table>
+			
+			<table width="760" height="71" border="0" cellpadding="0" cellspacing="0">
+ 				<tr>
+ 					<td width="52">&nbsp;</td>
+					<td width="760" class="text" height="10">
+						<font size="3" face="맑은고딕"> </br><strong>1.</strong>
+						안전하고 쾌적한 교육환경을 제공하여 올바른 인성을 발달시키도록 도와줍니다. </br></br></font>
+					</td>
+				</tr>
+					
+				<tr>
+					<td width="52">&nbsp;</td>	
+					<td width="760" class="text" height="10">
+					<font size="3" face="맑은고딕"><strong>2.</strong> 
+					다양한 프로그램을 제공하여 우리 것을 소중히 여기는 어린이로 키웁니다.</br></br>  </font>
+					</td>
+				</tr>
+				
+				<tr>	
+					<td width="52">&nbsp;</td>
+					<td width="760" class="text" height="10">
+					<font size="3" face="맑은고딕"><strong>3.</strong>
+						어린이의 발달적 특성을 고려한 적절한 교육을 실시하여 교육의 효과를 최대화합니다.</br></br></br></br></font>
+					</td>
+				</tr>
+			</table>
+			
 		</form>
 	</div>
 	

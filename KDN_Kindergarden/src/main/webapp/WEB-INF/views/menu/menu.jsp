@@ -29,7 +29,7 @@
 <div class="grid_9">
 	<form id="frm" >
 		<input type="hidden" id="m_id"  name="m_id"/>
-		<table class="table">
+		<table class="table table-striped table-hover ">
 			<tr>
 				<th>Monday</th>
 				<th>Tuesday</th>
@@ -37,7 +37,7 @@
 				<th>Thursday</th>
 				<th>Friday</th>
 			</tr>
-			<tr>
+			<tr class="info">
 				<c:forEach var="p1" items="${one}">
 				<td><span>오전 간식</span><c:if test="${p1.m_id != null }"><a href = "#" onclick="getBoard(${p1.m_id})"><span>${p1.m_etc }</span></a> </c:if></td>
 				</c:forEach>

@@ -26,4 +26,10 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping(value="test.do", method = RequestMethod.GET )
+	public String home(Model model){
+		model.addAttribute("content", "test3.jsp");
+		return "index";
+	}
+	
 }
