@@ -323,7 +323,7 @@ body #login ul li a:hover{
 
 #logo {
 	width: 142px;
-	height: 100%;
+	height: 80px;
 	padding-top: 72px;
 	margin-left: -71px;
 	font-family: 'Binggrae';
@@ -1758,7 +1758,7 @@ div .bottom center{
 @media (-webkit-min-device-pixel-ratio:2),(min--moz-device-pixel-ratio:2),(-o-min-device-pixel-ratio:2/1),(min-device-pixel-ratio:2),(min-resolution:192dpi),(min-resolution:2dppx){
 	#logo {
 		width: 142px;
-		height: 60px;
+		height: 130px;
 		padding-top: 72px;
 		background: url(../images/logo-x2.png) no-repeat;
 		background-size: 142px 132px;

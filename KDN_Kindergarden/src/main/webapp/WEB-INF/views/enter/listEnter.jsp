@@ -30,13 +30,11 @@ function getEnter(e_id){
 <div class="page-header" id="banner">
       <div class="row">
           <div class="col-lg-3 col-md-3 col-sm-4">
-            <div class="list-group table-of-contents">
               <a class="list-group-item" href="listEnter.do">입학 신청 리스트</a> 
 			  <a class="list-group-item" href="insertEnterForm.do">입학 신청</a> 
-            </div>
           </div>
           <form id="frm" >
-          <div style="margin: 10px auto; width: 50%; height: 700px">
+  	<div class="col-lg-9">
           		<input type="hidden" id="pageNo"  name="pageNo"  value="1"/>
 				<input type="hidden" id="e_id"  name="e_id"/>
 				

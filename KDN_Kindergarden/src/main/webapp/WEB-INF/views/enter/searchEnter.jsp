@@ -19,13 +19,10 @@ $(document).on("click","#return",function(){
 	<div class="page-header" id="banner">
 		<div class="row">
 			<div class="col-lg-3 col-md-3 col-sm-4">
-				<div class="list-group table-of-contents">
 					<a class="list-group-item" href="listEnter.do">입학 신청 리스트</a> 
 					<a class="list-group-item" href="insertEnterForm.do">입학 신청</a> 
-				</div>
 			</div>
-			<div
-				style="margin: 10px auto; width: 50%; background: white; height: 700px">
+		<div class="col-lg-9">
 				<div style="padding : 0 auto">
 				<h1>입학 신청서</h1>
 				<form method="post" action="updateEnter.do" class="form-horizontal">
