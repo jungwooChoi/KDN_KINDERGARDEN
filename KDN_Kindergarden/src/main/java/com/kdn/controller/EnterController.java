@@ -74,7 +74,6 @@ public class EnterController {
 	@RequestMapping(value="listEnter.do", method=RequestMethod.GET)
 	public String listEnter(PageBean bean, Model model){
 		List<Enter> enterList = enterService.searchAll(bean);
-		System.out.println(enterList);
 		model.addAttribute("enterList", enterList);
 		model.addAttribute("content", "enter/listEnter.jsp");
 		return "index";
@@ -82,7 +81,6 @@ public class EnterController {
 	
 	@RequestMapping(value="searchEnter.do", method=RequestMethod.GET)
 	public String searchEnter(int e_id, Model model){
-		System.out.println(e_id);
 		List<Open> openClassList=openService.thisYearSearch();
 		model.addAttribute("openClassList", openClassList);
 		model.addAttribute("enter", enterService.search(e_id));
