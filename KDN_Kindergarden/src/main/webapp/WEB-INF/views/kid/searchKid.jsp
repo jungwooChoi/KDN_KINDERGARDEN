@@ -62,7 +62,7 @@ $(function(){
 	<div class="grid_3 bot-1">
 		<ul class = "font">
 			<li><a href="insertKidForm.do" id="nav_int_menu_li1">자녀 입력</a></li>
-			<li><a href="listKid.do" id="nav_int_menu_li2">자녀 리스트</a></li>
+			<li><a href=listAllKids.do id="nav_int_menu_li2">자녀 리스트</a></li>
 		</ul>
 	</div>
 

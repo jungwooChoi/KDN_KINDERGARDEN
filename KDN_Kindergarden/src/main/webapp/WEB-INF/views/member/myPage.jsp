@@ -17,8 +17,12 @@
               <a class="list-group-item"  href="#">상담 관리</a>
               <a class="list-group-item"  href="insertKidForm.do">입학 관리</a>
         </div>
-          
-        <div style="margin: 10px auto; width: 50%; background : white; height: 700px ">
+        <div class="col-lg-9">  
+        	<table class="table table-striped table-hover">
+					<tr>
+						<th colspan="4"><h1>사용자 정보 리스트</h1></th>
+					</tr>
+			</table>
 					<c:choose>
 						<c:when test ="${!empty myPage_content }">
 							<jsp:include page="${myPage_content }"/>
@@ -27,6 +31,7 @@
 							<jsp:include page="memberInfo.jsp"/>
 						</c:otherwise>
 					</c:choose>
+		
 		</div>
 	</div>
 </div>

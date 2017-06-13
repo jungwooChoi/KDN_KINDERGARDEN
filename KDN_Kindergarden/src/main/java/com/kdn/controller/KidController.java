@@ -40,13 +40,22 @@ public class KidController {
 	
 	@RequestMapping(value="insertKid.do", method=RequestMethod.POST)
 	public String insertKid(Kid kid, HttpServletRequest request){
-		String dir=request.getRealPath("uploadKidKid/");
+		String dir=request.getRealPath("upload_kid/");
 		kidService.add(kid, dir);
-		return "redirect:listKid.do";
+		return "redirect:listMyKids.do";
 	}
-	@RequestMapping(value="listKid.do", method=RequestMethod.GET)
-	public String listKid(PageBean bean, Model model){
+	@RequestMapping(value="listAllKids.do", method=RequestMethod.GET)
+	public String listAllKids(PageBean bean, Model model){
 		List<Kid> list = kidService.searchAll(bean);
+		model.addAttribute("list", list);
+		model.addAttribute("content", "kid/listKid.jsp");
+		return "index";
+	}
+	
+	@RequestMapping(value="listMyKids.do", method=RequestMethod.GET)
+	public String listMyKids(HttpSession session, Model model){
+		int k_p_id=(Integer)session.getAttribute("id");
+		List<Kid> list = kidService.searchMyKid(k_p_id);
 		model.addAttribute("list", list);
 		model.addAttribute("content", "kid/listKid.jsp");
 		return "index";
