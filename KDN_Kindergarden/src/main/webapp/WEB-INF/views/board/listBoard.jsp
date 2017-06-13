@@ -89,10 +89,10 @@ $(function(){
 					type="hidden" id="b_id" name="b_id" />
 				<table class="table table-striped table-hover">
 					<tr>
-						<th colspan="3"><h1>게시글 목록</h1></th>
+						<th colspan="4"><h1>게시글 목록</h1></th>
 					</tr>
 					<tr>
-						<td colspan="2" height="100" align="center">
+						<td colspan="3" height="100" align="center">
 							<div class="form-group">
 									<select name="key" id="key" class="form-control">
 										<option value="all">-----all-----</option>
@@ -122,10 +122,15 @@ $(function(){
 							</tr>
 						</c:forEach>
 					</tr>
+					<tr align="center">
+						<td colspan="4">
+							<div class="bottom">
+								${pageBean.pagelink }
+							</div>
+						</td>
+					</tr>
 				</table>
-				<div class="bottom">
-					<center>${pageBean.pagelink }</center>
-				</div>
+				
 			</form>
 		</div>
 		</div>
