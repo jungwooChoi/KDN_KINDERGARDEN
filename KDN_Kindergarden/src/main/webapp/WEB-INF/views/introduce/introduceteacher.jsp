@@ -36,7 +36,9 @@
 						</tr>
 						
 						<tr height="125">
-							<td>		
+							<td width="200" align="center"><img style="width: 150px; height: 150px;" src="upload_teacher/${introduce.t_img}"/></td>
+							<td width="30"></td>
+							<td width="300">		
 								<font size="3" face="맑은고딕"><strong>학력</strong></font><font size="3" face="맑은고딕" color="black"></font> 
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${introduce.t_gradu} </br>
 								<font size="3" face="맑은고딕"><strong>전화번호</strong></font><font size="3" face="맑은고딕" color="black"></font> 
@@ -47,6 +49,8 @@
 								&nbsp;&nbsp;${introduce.t_status} </br>
 							<td></td>	 			
 						</tr>
+						
+						<tr height="40"></tr>
 				</c:forEach>
 				
 			</table>

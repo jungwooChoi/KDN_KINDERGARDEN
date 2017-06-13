@@ -22,6 +22,7 @@
 	<resources mapping="/js/**"  			location="/js/" />
 	<resources mapping="/upload/**"  	location="/upload/" />
 	<resources mapping="/upload_active/**"  	location="/upload_active/" />
+	<resources mapping="/upload_teacher/**"  	location="/upload_teacher/" />
 	<resources mapping="/images/**"  	location="/images/" />
 	<resources mapping="/font/**"  		location="/font/" />
 
