@@ -39,16 +39,17 @@
 					사회적응력 향상에 힘쓰도록 하겠습니다. </br></br></br> </br></br> </font> 
 					
 					<font size="4" face="맑은고딕" color="black"> 
-					<strong>     KDN 어린이집 원장 임수경</strong>	</br></br></br></br></br></br></br></br>	</font>
+					<strong>     KDN 어린이집 원장 최정우</strong></font>
 					
 					</td>
-					<td width="30">&nbsp;</td>
-					<td width="350" ><img src="images/introducekindegarden.jpg" width="350" height="350"></td>
+					<td colspan="2" align="center"><img src="images/introduceCJU.JPG" width="250" height="250"></td>
+					
 				</tr>
 				
 				<tr>
 					<td width="52">&nbsp;</td>
-					<td></td>
+					<!-- <td></td> -->
+					
 				</tr>
 			</table>
 		</form>

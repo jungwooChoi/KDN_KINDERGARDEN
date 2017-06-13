@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kdn.model.biz.ScheduleService;
-
 import com.kdn.model.domain.Schedule;
 
 
@@ -30,7 +31,7 @@ public class HomeController {
 	private ScheduleService scheduleService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(Locale locale, Model model, HttpSession session) {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
         Calendar c1 = Calendar.getInstance();
@@ -49,7 +50,8 @@ public class HomeController {
 		model.addAttribute("month",strM);*/
 		Schedule date = scheduleService.searchNow();
 		model.addAttribute("date", date);
-
+		
+			
 		return "index";
 	}
 	

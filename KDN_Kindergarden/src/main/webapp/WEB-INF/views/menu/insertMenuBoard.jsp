@@ -105,11 +105,9 @@
 								</div></td>
 						</tr>
 						<tr>
-							<td colspan="2" class="form-group"><label
+							<td class="form-group"><label
 								for="col-lg-2 control-label">식단</label></td>
-						</tr>
-						<tr>
-							<td colspan="2">
+							<td class="form-group">
 								<div class="col-lg-10">
 									<textarea class="form-control" name="m_etc" id="m_etc"
 										cols="30" rows="5"></textarea>

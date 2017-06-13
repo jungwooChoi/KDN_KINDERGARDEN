@@ -19,6 +19,7 @@ import com.kdn.model.biz.ScheduleService;
 import com.kdn.model.domain.Open;
 import com.kdn.model.domain.PageBean;
 import com.kdn.model.domain.Schedule;
+import com.kdn.util.LoginCheck;
 
 @Controller
 public class SchduleController {
@@ -84,13 +85,16 @@ public class SchduleController {
 		//Schedule schedule = scheduleService.searchSch((Integer)session.getAttribute("id"));
 		//model.addAttribute("schedule", schedule);
 		//System.out.println(date);
-		List<Open> list = openService.searchAll(date);
-		//date.trim();
-		model.addAttribute("id",session.getAttribute("id"));
-		model.addAttribute("date",date);
-		model.addAttribute("list",list);
-		model.addAttribute("content", "schedule/insertSchedule.jsp");		
-		return "schedule/insertSchedule";
+		if(LoginCheck.check(model, session, "insertScheduleForm.do")){
+			List<Open> list = openService.searchAll(date);
+			//date.trim();
+			model.addAttribute("id",session.getAttribute("id"));
+			model.addAttribute("date",date);
+			model.addAttribute("list",list);
+			model.addAttribute("content", "schedule/insertSchedule.jsp");		
+			return "schedule/insertSchedule";
+			}
+		return "member/loginForm";
 	}
 	
 	@RequestMapping(value="insertSchedule.do", method=RequestMethod.POST)

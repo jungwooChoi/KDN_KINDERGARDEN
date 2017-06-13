@@ -17,6 +17,7 @@ import com.kdn.model.biz.ActiveService;
 import com.kdn.model.domain.Active;
 import com.kdn.model.domain.ActiveFile;
 import com.kdn.model.domain.PageBeanGallery;
+import com.kdn.util.LoginCheck;
 
 @Controller
 public class ActiveController {
@@ -31,10 +32,12 @@ public class ActiveController {
 	}
 	
 	@RequestMapping(value ="gallery.do", method = RequestMethod.GET)
-	public String gallery(PageBeanGallery bean, Model model){
-		List<ActiveFile> list = activeService.searchImg(bean);
-		model.addAttribute("activelist", list);
-		model.addAttribute("content", "gallery/gallery.jsp");
+	public String gallery(PageBeanGallery bean, Model model, HttpSession session){
+		if(LoginCheck.check(model, session, "gallery.do")){
+			List<ActiveFile> list = activeService.searchImg(bean);
+			model.addAttribute("activelist", list);
+			model.addAttribute("content", "gallery/gallery.jsp");
+		}
 		
 		return "index";
 	}

@@ -65,7 +65,7 @@
 							<tr height = "40">
 								<td width="80"><font size="3" face="맑은고딕"><strong>업로드할 파일</strong></font></td>
 		    					<td width="100">
-		    						<img style="width: 280px; height: 180px;" src="${root}/uploadTeacher/${teacher.t_img}"/>
+		    						<img style="width: 280px; height: 180px;" src="${root}/upload_teacher/${teacher.t_img}"/>
 	         						<input type="file" name="t_uploadimg" id="t_uploadimg" > 
 	      							<input type="hidden" name="t_img" id="t_img">
 		    					</td>
