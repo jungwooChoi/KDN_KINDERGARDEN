@@ -89,6 +89,7 @@ public class ActiveServiceImpl implements ActiveService {
 	public void remove(int a_id) {
 		// TODO Auto-generated method stub
 		try {
+			System.out.println(a_id);
 			dao.removeFiles(a_id);
 			dao.remove(a_id);
 		} catch (Exception e) {

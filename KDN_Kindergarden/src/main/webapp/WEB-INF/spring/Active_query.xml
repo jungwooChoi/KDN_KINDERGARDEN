@@ -118,4 +118,8 @@
 	<delete id="delete" parameterType="int">
 		delete from active where a_id = #{a_id}
 	</delete>
+	
+	<delete id="deleteFile" parameterType="int">
+		delete from activefile where af_a_id = #{af_a_id}
+	</delete>
 </mapper>

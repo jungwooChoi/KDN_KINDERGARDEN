@@ -40,7 +40,7 @@ public class ActiveController {
 	}
 	
 	@RequestMapping(value ="searchGallery.do", method = RequestMethod.GET)
-	public String searchgallery(int no, Model model){
+	public String searchGallery(int no, Model model){
 		model.addAttribute("board", activeService.search(no));
 		model.addAttribute("contnet", "gallery/searchGallery.jsp");
 		
@@ -48,7 +48,7 @@ public class ActiveController {
 	}
 	
 	@RequestMapping(value ="insertGalleryForm.do", method = RequestMethod.GET)
-	public String searchgallery(HttpSession session, Model model){
+	public String searchGallery(HttpSession session, Model model){
 		model.addAttribute("id", session.getAttribute("id"));
 		model.addAttribute("content", "gallery/insertGallery.jsp");
 		
@@ -56,9 +56,15 @@ public class ActiveController {
 	}
 	
 	@RequestMapping(value="insertGallery.do", method=RequestMethod.POST)
-	public String insertBoard(Active active, HttpServletRequest request, HttpSession session){
+	public String insertGallery(Active active, HttpServletRequest request, HttpSession session){
 		String dir = request.getRealPath("upload_active/");
 		activeService.add(active, dir, (Integer)session.getAttribute("id"));
+		return "redirect:gallery.do";
+	}
+	
+	@RequestMapping(value="deleteGallery.do", method=RequestMethod.GET)
+	public String delteGallery(int no){
+		activeService.remove(no);
 		return "redirect:gallery.do";
 	}
 }

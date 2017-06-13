@@ -8,8 +8,9 @@
 <head>
 	<meta charset="utf-8">
 	<link href="css/bootstrap.css" rel="stylesheet">
+	<script src="js/bootstrap.js"></script>
+
 	<title>KDN 어린이집  활동 Gallery</title>
-	<script type="text/javascript" src="/js/bPopup.js"></script>
 	<script type="text/javascript">
 	//조건 검색, 페이지 번호로 게시글 요청을 위한 메서드  
 	function pagelist(cpage){
@@ -20,36 +21,21 @@
 		frm.submit();
 	}
 	//게시글 번호나 타이틀을 클릭하면 해당 게시글 요청을 위한 메서드 
-	function getBoard(no){
-		//input 양식의 hidden으로 선언된 no(게시글 번호)에 요청된 게시글 번호를 셋팅
-		/* document.getElementById("no").value = no;
-		var frm = document.getElementById("frm");
-		frm.action="searchGallery.do";
-		frm.submit(); */
-		$('element_to_pop_up').bPopup({
-            content:'image',
-            contentContainer:'.content',
-            loadUrl:'active/${p.af_sfilename}'
+	function getBoard(sfile, no, title){
+		document.getElementById("modalImage").src=sfile;
+		
+		document.getElementById("no").value = no;
+		document.getElementById("modalGalleryTitle").innerHTML = "#" + no + "  ";
+		document.getElementById("modalGalleryTitle").innerHTML += title;
 	}
-	$(document).ready(function(){
-		 $("#pop").click(function(){
-		  $("#modal_content").modal(); 
-		 });
-		 $("#m_close").click(function(){
-		  $.modal.close();
-		 });
-		}); 
+	
+	function deleteGallary(){
+		var frm = document.getElementById("frm");
+		frm.action="deleteGallery.do";
+		frm.submit();
+	}
+
 </script>
-<style type="text/css">
-#pop {
-	display: none;
-	margin: 50 auto;
-	width: 200px;
-	height: 100px;
-	background: blue;
-	color: #fff
-}
-</style>
 </head>
 <body>
 	<div class="row">
@@ -59,22 +45,41 @@
 		</div>
  	<div class="col-lg-9">
 		<form id="frm">
-			<input type="hidden"
-				id="pageNo" name="pageNo" value="1" /> <input type="hidden" id="no"
-				name="no" />
+				<input type="hidden" id="pageNo" name="pageNo" value="1" /> 
+				<input type="hidden" id="no"  name="no" />
 			<div class="bottom">
 				<center>${pageBeanGallery.pagelink }</center>
 			</div>
 			<div class="gallery2">
 				<c:forEach var="p" items='${activelist}'>
 					<div>
-						<a href="#" onclick="getBoard(${p.af_id})"> 
+						<a href="#" onclick="getBoard( 'upload_active/${p.af_sfilename}', ${p.af_a_id}, '${p.af_a_title}')" data-toggle="modal" data-target="#myModal"> 
 						<img src="upload_active/${p.af_sfilename}"/>
 						</a>
 					</div>
 				</c:forEach>
 			</div>
-		</form>
+				<div class="modal" id="myModal">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<h4 class="modal-title" id="modalGalleryTitle" ></h4>
+							</div>
+							<div class="modal-body">
+									<img id ="modalImage" style ="width: 100%"/>
+							</div>							
+							<div class="modal-footer" align="center">
+								<button type="button" class="btn btn-default" data-dismiss="modal">목록</button>
+								<button type="button" class="btn btn-danger" onclick="deleteGallary()" data-dismiss="modal">삭제</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
 </body>

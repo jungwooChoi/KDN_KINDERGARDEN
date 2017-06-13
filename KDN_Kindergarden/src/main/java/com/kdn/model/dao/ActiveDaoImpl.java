@@ -71,7 +71,7 @@ public class ActiveDaoImpl implements ActiveDao {
 	@Override
 	public void removeFiles(int af_a_id) {
 		// TODO Auto-generated method stub
-		session.delete("active.delete", af_a_id);
+		session.delete("active.deleteFile", af_a_id);
 	}
 
 	@Override

@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항 작성</title>
-<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
 <link href="css/bootstrap.css" rel="stylesheet">
 <style type="text/css">
 .whole {
@@ -84,7 +83,7 @@ $(function(){
 					<tr height="50" class="form-group"><td><label for="col-lg-2 control-label">아이디</label></td>
 					    <td><div class="col-lg-10"><input type="text" name="b_t_id" id="b_t_id" value = "${id}" readonly="readonly"/></div></td>
 					</tr>
-					<tr><td colspan="2" class="form-group"><label for="contents">내용</label></td></tr>
+					<tr><td colspan="2" class="form-group"><label for="col-lg-2 control-label">내용</label></td></tr>
 					<tr><td colspan="2" align="center"><div class="col-lg-10">
 					    <textarea name="b_contents" id="b_contents" cols="30" rows="5" class="form-control"></textarea></div>
 					</td></tr>
