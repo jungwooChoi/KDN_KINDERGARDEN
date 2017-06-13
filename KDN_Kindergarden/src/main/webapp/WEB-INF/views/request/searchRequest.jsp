@@ -56,7 +56,7 @@
 		<c:if test="${msg != null }">
 			<script type="text/javascript">  alert('${msg}');</script>
 		</c:if>
-		<div class="col-lg-9" id="viewBoard" style="display: none">
+		<div class="col-lg-9" id="viewRequest" style="display: none">
 			<form id="frm">
 				<input type="hidden" name="r_id" id="r_id" />
 
