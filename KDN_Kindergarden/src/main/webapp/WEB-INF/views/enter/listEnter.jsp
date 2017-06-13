@@ -35,6 +35,7 @@ function getEnter(e_id){
 			  <a class="list-group-item" href="insertEnterForm.do">입학 신청</a> 
             </div>
           </div>
+          <form id="frm" >
           <div style="margin: 10px auto; width: 50%; height: 700px">
           		<input type="hidden" id="pageNo"  name="pageNo"  value="1"/>
 				<input type="hidden" id="e_id"  name="e_id"/>
@@ -67,6 +68,7 @@ function getEnter(e_id){
 				</table> 
 				<div class="bottom"><center>${pageBean.pagelink } </center></div>
           </div>
+          </form>
         </div>
       </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

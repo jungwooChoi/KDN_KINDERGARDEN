@@ -74,6 +74,7 @@ public class EnterController {
 	@RequestMapping(value="listEnter.do", method=RequestMethod.GET)
 	public String listEnter(PageBean bean, Model model){
 		List<Enter> enterList = enterService.searchAll(bean);
+		System.out.println(enterList);
 		model.addAttribute("enterList", enterList);
 		model.addAttribute("content", "enter/listEnter.jsp");
 		return "index";
@@ -93,7 +94,7 @@ public class EnterController {
 		return "redirect:listEnter.do";
 	}
 	
-	@RequestMapping(value="updateEnter.do", method=RequestMethod.GET)
+	@RequestMapping(value="updateEnter.do", method=RequestMethod.POST)
 	public String updateEnter(Enter enter){
 		enterService.update(enter);
 		return "redirect:listEnter.do";
