@@ -57,17 +57,7 @@
 						  	  		<td width=200" height="30">${introduce.t_status}</td>
 						  	  	</c:forEach>	
 						  	  </tr>
-						  	  
-<%-- 						  	  <c:forEach  var="introduce" items="${teacherList}">
-						  	  <tr align="center">
-								 <td width="100" height="30">${introduce.t_name}</td>
-								 <td width="100" height="30">${introduce.t_gradu}</td>  	  
-								 <td width="200" height="30">${introduce.t_phone}</td>  	  
-								 <td width="100" height="30">${introduce.t_address}</td>  	  
-								 <td width="100" height="30">${introduce.t_status}</td>  	  
-							  </tr>  
-						  	  </c:forEach> --%>
-						  	  
+
 						</table>
 					</form>
 	          		
@@ -98,4 +88,14 @@
 						  	</tr>
 						</table> --%>
 
-
+						  	  
+<%-- 						  	  <c:forEach  var="introduce" items="${teacherList}">
+						  	  <tr align="center">
+								 <td width="100" height="30">${introduce.t_name}</td>
+								 <td width="100" height="30">${introduce.t_gradu}</td>  	  
+								 <td width="200" height="30">${introduce.t_phone}</td>  	  
+								 <td width="100" height="30">${introduce.t_address}</td>  	  
+								 <td width="100" height="30">${introduce.t_status}</td>  	  
+							  </tr>  
+						  	  </c:forEach> --%>
+						  	  
