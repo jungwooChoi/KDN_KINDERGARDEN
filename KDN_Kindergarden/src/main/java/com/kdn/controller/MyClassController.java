@@ -80,7 +80,7 @@ public class MyClassController {
 		model.addAttribute("cnt", cnt);
 		model.addAttribute("kidList", kidList);
 		
-		model.addAttribute("content", "myClass/listMyClass2.jsp");
+		model.addAttribute("content", "myClass/listMyClass.jsp");
 		return "index";
 	}
 	
