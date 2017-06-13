@@ -30,21 +30,21 @@
 							<h2>upcoming event</h2>
 							<div class="event-description">
 							<c:choose>
-							<c:when test="${!empty date.s_date}">
+							<c:when test="${!empty schedule.s_date}">
 								<tr>
 									<td class="tbl_cell1" width="80">날짜</td>
-									<td style="font-size: 12px;">${date.s_date}</td>
+									<td style="font-size: 12px;">${schedule.s_date}</td>
 								</tr>
 								<tr>
 									<td class="tbl_cell1">제목</td>
-									<td style="font-size: 12px;">${date.s_title}</td>
+									<td style="font-size: 12px;">${schedule.s_title}</td>
 								</tr>
 								<tr>
 									<td class="tbl_cell2">내용</td>
 									<td>
 										<div
 											style="overflow: auto; overflow-y: auto; overflow-x: auto; width: 100%; height: 265px; text-align: left; font-size: 12px; line-height: 160%">
-											${date.s_contents}</div>
+											${schedule.s_contents}</div>
 									</td>
 								</tr>
 							</c:when>
