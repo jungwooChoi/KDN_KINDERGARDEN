@@ -68,24 +68,36 @@ $(function(){
 	<div class="grid_3 bot-1">
 		<ul class = "font">
 			<li><a href="listRequest.do" id="nav_int_menu_li2">게시글 목록</a></li>
-			<li><a href="#" id="nav_int_menu_li1">글쓰기</a></li>
+			<li><a href="insertRequestForm.do" id="nav_int_menu_li1">글쓰기</a></li>
 		</ul>
 	</div>
 
 	<div class="grid_9">
 		<form method="post" action="insertRequest.do"  >
 			<table align="center" width="300">
-					<tr><th colspan="2"> 게시글 작성 </th></tr>
+					<tr><th colspan="2"> 상담글 작성 </th></tr>
 					<tr height="50"><td><label for="title">제목</label></td>
 					    <td><input type="text" name="r_title" id="r_title"/></td>
 					</tr>
 					<tr height="50"><td><label for="title">아이디</label></td>
-					    <td><input type="text" name="r_t_id" id="r_t_id"/></td>
+					    <td><input type="text" name="r_p_id" id="r_p_id" value="${id}" /></td>
 					</tr>
 					<tr><td colspan="2"><label for="contents">내용</label></td></tr>
 					<tr><td colspan="2" align="center">
 					    <textarea name="r_contents" id="r_contents" cols="30" rows="5"></textarea>
 					</td></tr>
+					<tr height="50"><td><label for="title">자녀</label></td>
+					    <c:forEach var="open" items="${klist}">
+						<td><input type="radio" name="r_t_id" id="r_t_id" value="${k_id}"/>${k_name}</td>
+						</c:forEach>
+					</tr>
+					<tr height="50"><td><label for="title">선생님</label></td>
+					    <c:forEach var="open" items="${rlist}">
+						<td><input type="radio" name="r_t_id" id="r_t_id" value="${teacher.t_id}"/>${teacher.t_name}</td>
+						</c:forEach>
+					</tr>			
+					
+					
 					<tr><td colspan="2" align="center">
 						<input type="submit" value="작성"/>
 						<input type="reset" value="취소"/>

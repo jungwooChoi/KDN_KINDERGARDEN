@@ -10,12 +10,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kdn.model.biz.OpenService;
 import com.kdn.model.biz.ScheduleService;
 import com.kdn.model.domain.Board;
 import com.kdn.model.domain.Open;
+import com.kdn.model.domain.PageBean;
 import com.kdn.model.domain.Schedule;
 
 @Controller
@@ -45,16 +47,23 @@ public class SchduleController {
 		return "schedule/listSchedule";
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="schedule.do", method=RequestMethod.GET)
+	public List<Schedule> schedule(Model model, String year, String month){
+		String finalDate = year+month;
+		System.out.println(finalDate);
+		List<Schedule> schedule = scheduleService.searchMonth(finalDate);
+		return schedule;
+	}
 	
-	/*@RequestMapping(value="schedule.do", method=RequestMethod.GET)
-	public String schedule(Model model,String finalDate){
-		Schedule schedule = scheduleService.searchDate(finalDate);
-		model.addAttribute("schedule", schedule);
-		model.addAttribute("finalDate", finalDate);
-		//System.out.println(finalDate);
-		
-		return"index";
-	}*/
+	
+	@RequestMapping(value="listSchedule.do", method=RequestMethod.GET)
+	public String listSchedule(PageBean bean, Model model){
+		List<Schedule> list = scheduleService.searchAll(bean);
+		model.addAttribute("list", list);
+		model.addAttribute("content", "schedule/listSchedule.jsp");
+		return "index";
+	}
 	
 	@RequestMapping(value="insertScheduleForm.do", method=RequestMethod.GET)
 	public String insertScheduleForm(Model model, HttpSession session, String date){

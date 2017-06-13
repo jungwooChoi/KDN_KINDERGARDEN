@@ -12,9 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kdn.model.biz.KidService;
 import com.kdn.model.biz.RequestService;
+import com.kdn.model.biz.TeacherService;
+import com.kdn.model.domain.Kid;
 import com.kdn.model.domain.PageBean;
 import com.kdn.model.domain.Request;
+import com.kdn.model.domain.Teacher;
 
 @Controller
 public class RequestController {
@@ -34,9 +38,19 @@ public class RequestController {
 	
 	@Autowired
 	private RequestService requestService;
+	@Autowired
+	private TeacherService teacherService;
+	@Autowired
+	private KidService kidService;
 	
 	@RequestMapping(value="insertRequestForm.do", method=RequestMethod.GET)
-	public String insertRequestForm(Model model){
+	public String insertRequestForm(Model model, HttpSession session){
+		List<Teacher> rlist = teacherService.searchAll();
+		int id = (Integer) session.getAttribute("id");
+		model.addAttribute("id", id);		
+		List<Kid> klist = kidService.searchMyKid(id);
+		model.addAttribute("rlist", rlist);
+		model.addAttribute("klist", klist);
 		model.addAttribute("content", "request/insertRequest.jsp");
 		return "index";
 	}
@@ -44,8 +58,7 @@ public class RequestController {
 	@RequestMapping(value="insertRequest.do", method=RequestMethod.POST)
 	public String insertRequest(Request request){
 		
-		requestService.add(request);
-		
+		requestService.add(request);		
 		return "redirect:listRequest.do";
 	}
 	@RequestMapping(value="listRequest.do", method=RequestMethod.GET)
@@ -58,7 +71,7 @@ public class RequestController {
 	
 	@RequestMapping(value="searchRequest.do", method=RequestMethod.GET)
 	public String searchRequest(int r_id, Model model, HttpSession session){
-		//model.addAttribute("id", session.getAttribute("id"));
+		model.addAttribute("id", session.getAttribute("id"));
 		System.out.println(r_id);
 		model.addAttribute("request", requestService.search(r_id));
 		model.addAttribute("content", "request/searchRequest.jsp");
@@ -72,7 +85,7 @@ public class RequestController {
 	}
 	
 	@RequestMapping(value="updateRequest.do", method=RequestMethod.GET)
-	public String updateRequest(Request request){
+	public String updateRequest(Request request, HttpSession session){
 		requestService.update(request);
 		return "redirect:listRequest.do";
 	}

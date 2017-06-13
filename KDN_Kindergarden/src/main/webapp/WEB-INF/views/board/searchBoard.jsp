@@ -2,12 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>Insert title here</title>
-<link  rel="stylesheet" type="text/css" href="css/basic.css"  />
+<link href="css/bootstrap.css" rel="stylesheet"/>
 <script type="text/javascript">
 	function init(){
 		var writeBoard = document.getElementById("writeBoard");
@@ -40,32 +40,25 @@
 		frm.content.value="";
 	}
 	
-	$(function(){
-		$("#nav_int_menu_li1").css("color","#4C4C4C");
-		$("#nav_int_menu_li1").css("font-weight","bold");	
-	});
 </script>
 </head>
 <body onload="init()">
-<div class="container_12">
-	<div class="grid_3 bot-1">
-		<ul class = "font">
-			<li><a href="listBoard.do" id="nav_int_menu_li1">게시글 목록</a></li>
-			<li><a href="insertBoardForm.do" id="nav_int_menu_li2">글쓰기</a></li>
-		</ul>
-	</div>
-
-	<div class="grid_9">
+	<div class="row">
+		<div class="col-lg-3 col-md-3 col-sm-4">
+				<a class="list-group-item" href="listBoard.do">게시글 목록</a> 
+				<a class="list-group-item" href="insertBoardForm.do">글 쓰기</a>
+		</div>
+	
     <c:if test="${msg != null }"> 
     	<script type="text/javascript">  alert('${msg}');</script>
     </c:if>
-	<div class="main" id="viewBoard" style="display:none">
+	<div class="col-lg-9" id="viewBoard" style="display:none">
 	 	<form id="frm"  >
 	 	    <input type ="hidden" name="b_id"  id="b_id" />
 	 	    
-			<table border="1" align="center">
+			<table class="table table-striped table-hover">
 				<tbody>
-					<tr><td><label for="title">제목</label></td>
+					<tr><td><label for="col-lg-2 control-label">제목</label></td>
 					    <td>${board.b_title}</td>
 					</tr>
 					<tr><td colspan="2">내용 &nbsp;&nbsp;글쓴이:${board.b_t_id}
@@ -74,49 +67,48 @@
 						<pre>${board.b_contents }</pre>							
 						</td></tr>
 				</tbody>
-				<tfoot>
-					<tr><td colspan="2" align="center">
-						<a href="#" onclick="listBoard('frm')">목록</a>
-						<c:if test="${board.b_t_id == id }">
-							<a href="#" onclick="updateForm(${board.b_id})">수정</a>
-							<a href="#" onclick="deleteBoard(${board.b_id})">삭제</a>
-						</c:if>
-						</td>
-					</tr>
-				</tfoot>
 			</table>
+				<div align="center">
+						<a href="#" onclick="listBoard('frm') " class="btn btn-default">목록</a>
+						<c:if test="${board.b_t_id == id }">
+							<a href="#" onclick="updateForm(${board.b_id})" class="btn btn-primary">수정</a>
+							<a href="#" onclick="deleteBoard(${board.b_id})" class="btn btn-danger">삭제</a>
+						</c:if>
+				</div>
 		</form>
 	</div>
-	<div class="main" id="writeBoard" style="display:none">
+	<div class="col-lg-9" id="writeBoard" style="display:none">
 	 	<form  id="updatefrm">
 	 	    <input type ="hidden" name="b_id"  id="b_id"  value="${board.b_id}"/>
 	 	    <input type ="hidden" name="b_t_id"  id="b_t_id"  value="${board.b_t_id}"/>
-			<table border="1" align="center">
+			<div class="col-lg-9">
+			<table class="table table-striped table-hover">
 				<caption>게시글 작성</caption>
 				<tbody>
-					<tr><td><label for="title">제목</label></td>
-					    <td><input type="text" name="b_title" id="b_title" value="${board.b_title}"/></td>
+					<tr><td><label for="col-lg-2 control-label">제목</label></td>
+					    <td><div class="col-lg-10"><input type="text" name="b_title" id="b_title" value="${board.b_title}" class="form-control"/></div></td>
 					</tr>
 					<tr><td colspan="2">내용</td></tr>
 					<tr><td colspan="2">
-						<textarea name="b_contents" id="b_contents" cols="30" rows="10">
+					<div class="col-lg-10">
+						<textarea name="b_contents" id="b_contents" cols="30" rows="10" class="form-control">
 							${board.b_contents}
 						</textarea>
+					</div>
 						</td></tr>
 				</tbody>
-				<tfoot>
-					<tr><td colspan="2" align="center">
-						<a href="#" onclick="updateBoard()"> 수정 </a> 
-						<a href="#" onclick="resetBoard()"> 다시 쓰기</a> 
-						<a href="#" onclick="listBoard()">목 록</a>
-						</td>
-					</tr>
+									<tfoot>
+						<tr>
+							<td colspan="2" align="center" >
+							<a href= "#" onclick="updateBoard()" class="btn btn-primary"> 수정 </a> <a href="#"
+								onclick="resetBoard()" class="btn btn-default"> 다시 쓰기</a> <a href="#"
+								onclick="listBoard()" class="btn btn-default">목 록</a></td>
+							</tr>
 				</tfoot>
 			</table>
+			</div>
 		</form>
 	</div>
 	</div>
-	
-</div>
 </body>
 </html>

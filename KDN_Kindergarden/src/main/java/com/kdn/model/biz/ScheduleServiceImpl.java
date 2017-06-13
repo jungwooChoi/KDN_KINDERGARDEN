@@ -101,10 +101,21 @@ public class ScheduleServiceImpl implements ScheduleService {
 	}
 
 	@Override
+
+	public List<Schedule> searchMonth(String date) {
+		try {
+			return dao.searchMonth(date);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new UpdateException("게시글 검색 중 오류 발생");
+		}
+	}
+
 	public List<Schedule> searchNow() {
 		// TODO Auto-generated method stub
 		try {
 			return dao.searchNow();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new UpdateException("게시글 검색 중 오류 발생");

@@ -37,7 +37,8 @@ public class BoardController {
 	private BoardService boardService;
 	
 	@RequestMapping(value="insertBoardForm.do", method=RequestMethod.GET)
-	public String insertBoardForm(Model model){
+	public String insertBoardForm(Model model, HttpSession session){
+		model.addAttribute("id", session.getAttribute("id"));
 		model.addAttribute("content", "board/insertBoard.jsp");
 		return "index";
 	}

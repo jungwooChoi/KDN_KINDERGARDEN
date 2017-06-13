@@ -54,12 +54,10 @@
 <body>
 	<div class="row">
 		<div class="col-lg-3 col-md-3 col-sm-4">
-			<div class="list-group table-of-contents">
 				<a class="list-group-item" href="gallery.do">사진 관리</a>
 				<a class="list-group-item" href="insertGalleryForm.do">사진 올리기</a>
-			</div>
 		</div>
-		<div style="margin: 10px auto; width: 50%; background: white; height: 700px">
+ 	<div class="col-lg-9">
 		<form id="frm">
 			<input type="hidden"
 				id="pageNo" name="pageNo" value="1" /> <input type="hidden" id="no"
@@ -77,7 +75,7 @@
 				</c:forEach>
 			</div>
 		</form>
-	</div>
+		</div>
 	</div>
 </body>
 </html>
