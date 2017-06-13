@@ -24,6 +24,13 @@
 	<div class="well bs-component">
 		<form id="frm" method="post" action="introduceclass.do">
 		
+			<table width="100" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td><img src="images/introduceclass.jpg" width="300" height="38"></td>
+						</tr>
+			</table>		
+		
+		
 			<table width="800" border="0" cellpadding="0" cellspacing="0">
 			
 				<tr>
