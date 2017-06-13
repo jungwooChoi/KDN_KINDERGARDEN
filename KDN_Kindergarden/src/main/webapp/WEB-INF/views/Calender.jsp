@@ -53,8 +53,8 @@ function fSetSelectedDay(myElement){
 			if (request.getParameter("fieldName2") != null) {%>
 			self.opener.document.form1.<%=param%>.value=finalDate;
 			<%}%>
-			window.opener.document.all.<%=request.getParameter("fieldName")%>[<%=request.getParameter("array")%>].value=finalDate;
-			window.close();
+			<%-- window.opener.document.all.<%=request.getParameter("fieldName")%>[<%=request.getParameter("array")%>].value=finalDate;
+			window.close(); --%>
 			// eval("self.opener.document.<%=request.getParameter("fieldName")%>.value='"+finalDate+"'; window.close();");
 				// self.opener.document.form1.start.value = finalDate; window.close();
 				// onClick=\"self.opener.document." + this.gReturnItem + ".value='" +
@@ -146,31 +146,32 @@ var dispMonth=0;
 		}
 		function fUpdateCal(iYear, iMonth) {
 			myMonth = fBuildCal(iYear, iMonth);
-			
 			objPrevElement.bgColor = "";
 			document.all.calSelectedDate.value = "";
-			
 			for (w = 1; w < 7; w++) {
 				for (d = 0; d < 7; d++) {
 					if (!isNaN(myMonth[w][d])) {
-						calDateText[((7 * w) + d) - 7].innerText = myMonth[w][d];
-						
 						var hasSchedule=false;
 						for(var i=0; i<=count; i++){
-							if(schedule[i] == ''+myMonth[w][d]){
-								hasSchedule=true;
-							}		
+							if(myMonth[w][d] > 10){
+								if(schedule[i] == ''+myMonth[w][d]){
+									hasSchedule=true;
+								}
+							}else {
+								if(schedule[i] == "0"+myMonth[w][d]){
+									hasSchedule=true;
+								}
+							}
 						}
 						if(hasSchedule){
 							$(calDateText[((7 * w) + d) - 7]).removeClass('archival').addClass('upcoming');
 						}else{
 							$(calDateText[((7 * w) + d) - 7]).removeClass('archival').removeClass('upcoming').addClass('archival');
 						}
-						
+						calDateText[((7 * w) + d) - 7].innerText = myMonth[w][d];
 					} else {
 						calDateText[((7 * w) + d) - 7].innerText = " ";
-						$(calDateText[((7 * w) + d) - 7]).removeClass('archival');
-						$(calDateText[((7 * w) + d) - 7]).removeClass('upcoming');
+						$(calDateText[((7 * w) + d) - 7]).removeClass('archival').removeClass('upcoming');
 					}
 				}
 			}//location.href ="schedule.do?year="+iYear+"&month="+iMonth;
@@ -244,9 +245,10 @@ var dispMonth=0;
 		console.log('data>>>>>>>>>>>>>>>>>>>>>>>'+data);
 		$.each(data, function(index, item){
 			schedule[count++] = item.s_date;
-			console.log(item.s_date);
-		})
-		console.log(schedule);	
+			//console.log(item.s_date);
+			//console.log(schedule);
+			
+		})	
 		fUpdateCal(dispYear, dispMonth);
 	}
 </script>

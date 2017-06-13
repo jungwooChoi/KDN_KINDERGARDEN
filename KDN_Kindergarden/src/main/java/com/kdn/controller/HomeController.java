@@ -47,8 +47,8 @@ public class HomeController {
 		model.addAttribute("schedulelist",schedule);
 		model.addAttribute("year",strY);
 		model.addAttribute("month",strM);
-
-		model.addAttribute("date", scheduleService.searchNow());
+		Schedule date = scheduleService.searchNow();
+		model.addAttribute("date", date);
 
 		return "index";
 	}

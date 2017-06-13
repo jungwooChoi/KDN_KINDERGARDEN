@@ -22,55 +22,42 @@
             </div>
             </nav>
 			</section>
-			<section id="main">
-				<div class="top-pink-border"></div>
-				<div class="event-wrap">
-					<div class="block-event">
-						<div class="upcoming-event">
-							<h2>upcoming event</h2>
-							<div class="event-description">
-							<c:choose>
-							<c:when test="${!empty schedule.s_date}">
-								<tr>
-									<td class="tbl_cell1" width="80">날짜</td>
-									<td style="font-size: 12px;">${schedule.s_date}</td>
-								</tr>
-								<tr>
-									<td class="tbl_cell1">제목</td>
-									<td style="font-size: 12px;">${schedule.s_title}</td>
-								</tr>
-								<tr>
-									<td class="tbl_cell2">내용</td>
-									<td>
-										<div
-											style="overflow: auto; overflow-y: auto; overflow-x: auto; width: 100%; height: 265px; text-align: left; font-size: 12px; line-height: 160%">
-											${schedule.s_contents}</div>
-									</td>
-								</tr>
+	<section id="main">
+		<div class="top-pink-border"></div>
+		<div class="event-wrap">
+			<div class="block-event">
+				<div class="upcoming-event">
+					<h2>upcoming event</h2>
+					<div class="event-description">				
+						<c:choose>
+							<c:when test="${!empty date.s_date}">
+								<div class="metadata">
+								<h3>${date.s_title}</h3>
+									<time>${date.s_date}</time>															
+								</div>
+								<p style="overflow: auto; overflow-y: auto; overflow-x: auto; width: 100%; height: 265px; text-align: left; font-size: 12px; line-height: 160%">
+										${date.s_contents}</p>								
 							</c:when>
 							<c:otherwise>
 								<tr>
 									<td class="tbl_cell1" width="80">일정이 없습니다.</td>
 								</tr>
 							</c:otherwise>
-							</c:choose>
-							<h3>
-									<a href="#"></a>
-								</h3>
-								<div class="metadata">
-									<time></time>
-								</div>
-								<p></p>
-					</div>
-						</div>
-						<div class="widget-calendar">
-							<jsp:include page="Calender.jsp"/>
-							<div class="legend"><span class="upcoming">Upcoming event</span><!-- <span class="archival">Archival event</span> --> </div>
-						</div>
+						</c:choose>
 					</div>
 				</div>
-				<div class="bottom-pink-border"></div>
-			</section>
+				<div style=width:150px;></div>
+				<div class="widget-calendar">
+					<jsp:include page="Calender.jsp" />
+					<div class="legend">
+						<span class="upcoming">Upcoming event</span>
+						<!-- <span class="archival">Archival event</span> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bottom-pink-border"></div>
+	</section>
 </body>
 </html>
 

@@ -28,6 +28,6 @@ public interface ScheduleDao {
 	public List<Schedule> searchMonth(String date);
 
 	
-	public List<Schedule> searchNow();
+	public Schedule searchNow();
 
 }

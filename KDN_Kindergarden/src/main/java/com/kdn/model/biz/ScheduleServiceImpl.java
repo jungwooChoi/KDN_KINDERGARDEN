@@ -111,7 +111,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 		}
 	}
 
-	public List<Schedule> searchNow() {
+	public Schedule searchNow() {
 		// TODO Auto-generated method stub
 		try {
 			return dao.searchNow();

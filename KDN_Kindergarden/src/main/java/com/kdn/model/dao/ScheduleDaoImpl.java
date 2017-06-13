@@ -73,8 +73,8 @@ public class ScheduleDaoImpl implements ScheduleDao {
 		return session.selectList("schedule.searchMonth", date);
 		
 	}
-	public List<Schedule> searchNow() {
-		return session.selectList("schedule.searchNow");
+	public Schedule searchNow() {
+		return session.selectOne("schedule.searchNow");
 
 	}
 
