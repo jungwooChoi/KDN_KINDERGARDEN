@@ -81,7 +81,7 @@ public class MyClassController {
 		model.addAttribute("kidList", kidList);
 		
 		model.addAttribute("content", "myClass/listMyClass.jsp");
-		return "myPageIndex";
+		return "index";
 	}
 	
 	@RequestMapping(value="searchMyStudent.do", method=RequestMethod.GET)

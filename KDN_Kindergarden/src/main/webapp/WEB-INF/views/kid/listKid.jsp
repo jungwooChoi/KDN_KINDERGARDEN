@@ -7,6 +7,67 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="css/bootstrap.css" rel="stylesheet">
+<script type="text/javascript">
+
+function getKid(k_id){
+	//input 양식의 hidden으로 선언된 page에 요청된 페이지 정보 셋팅 
+	document.getElementById("k_id").value=k_id;
+	var frm = document.getElementById("frm");
+	frm.action="searchKid.do";
+	frm.submit();
+}
+
+</script>   
+	<title>Welcome</title>
+</head>	
+<body>
+<div class="page-header" id="banner">
+	<div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-4">
+	          <a class="list-group-item"  href="updateForm.do">정보 수정</a>
+              <a class="list-group-item"  href="listMyClass.do">나의 클래스 관리</a>
+              <a class="list-group-item"  href="#">상담 관리</a>
+              <a class="list-group-item"  href="insertKidForm.do">입학 관리</a>
+	    </div> 
+	     
+	    <div class="col-lg-9">
+			<div class="well bs-component">  
+				<div style="height: 100px; width:800px; background-color: #c0d8e2;
+							padding: 5px; ">
+			        <h2 style="color: #4531ac; font-weight: bold; margin-left: 20px;">자녀 리스트</h2>
+			    </div>
+				
+				<form id="frm" >
+					<input type="hidden" id="k_id"  name="k_id"/>
+					<div class="gallery2" style="padding-left: 30px;">
+						<c:forEach  var="kid" items="${list}">
+							<div class="col-lg-5">
+				  	  			<a href="#" onclick="getKid(${kid.k_id})" >
+				      			<img src="upload_kid/${kid.k_img}"/>
+					       		<h3>${kid.k_name }</h3>
+					        </a>
+							</div>
+			  			</c:forEach>
+		  			</div>
+	  			</form>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+<%-- 
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="java.util.*,com.kdn.model.domain.*"  %>
+<%@ taglib prefix="c"    uri="http://java.sun.com/jsp/jstl/core"%> 
+<jsp:useBean 	id="pageBean"         class="com.kdn.model.domain.PageBean" 
+				scope="request"/>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
 	<title>Welcome</title>
 	<link  rel="stylesheet" type="text/css" href="css/style1.css"  />
 <style type="text/css">
@@ -112,4 +173,6 @@ $(function(){
 	
 </div>
 </body>
-</html>
+</html> --%>
+
+

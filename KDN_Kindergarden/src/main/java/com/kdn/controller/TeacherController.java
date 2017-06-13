@@ -72,7 +72,7 @@ public class TeacherController {
 	
 	@RequestMapping(value = "update.do", method = RequestMethod.POST)
 	public String update(Teacher teacher, HttpServletRequest request){
-		String dir=request.getRealPath("uploadTeacher/");
+		String dir=request.getRealPath("upload_teacher/");
 		teacherService.update(teacher,dir);
 		return "redirect:myPage.do";
 	}
