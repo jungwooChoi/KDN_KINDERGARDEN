@@ -9,7 +9,11 @@
 <meta charset="UTF-8">
 <link href="css/bootstrap.css" rel="stylesheet">    
 <title>Insert title here</title>
-
+<script type="text/javascript">
+$(document).on("click","#return",function(){
+	location.href='listEnter.do';
+}); 
+</script>
 </head>
 <body>
 	<div class="page-header" id="banner">
@@ -36,28 +40,36 @@
 						<div class="form-group">
 							<label for="getName" class="col-lg-2 control-label">접수 날짜</label>
 							<div class="col-lg-10">
-								<input type="text" class="form-control" name="e_date" 
+								<input type="text" class="form-control" name="e_date" value="${enter.e_date}" 
 									placeholder="${enter.e_date}" readonly="readonly">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="getName" class="col-lg-2 control-label">학생 이름</label>
 							<div class="col-lg-10">
-								<input type="text" class="form-control" name="e_k_id" 
-									placeholder="${enter.k_name}" readonly="readonly">
+								<input type="text" class="form-control" name="e_k_id" value="${enter.e_k_id}" 
+									placeholder="${enter.k_name}" readonly="readonly" >
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="getClassName" class="col-lg-2 control-label">반 이름</label>
+							<label for="select" class="col-lg-2 control-label">반선택</label>
 							<div class="col-lg-10">
-								<input type="text" class="form-control" name="e_o_id" 
-									placeholder="${enter.c_name}" readonly="readonly">
+								<select class="form-control" id="e_o_id" name="e_o_id">
+									<c:forEach var="openClass" items="${openClassList}" >
+										<c:if test="${openClass.c_name==enter.c_name}">
+											<option value="${openClass.o_id}" selected="selected">${enter.c_name}</option>
+										</c:if>
+										<c:if test="${openClass.c_name!=enter.c_name}">
+											<option value="${openClass.o_id}">${openClass.c_name}</option>
+										</c:if>
+									</c:forEach>	
+								</select> 
 							</div>
-						</div>
+						</div>   
 						<div class="form-group">
 							<label for="getParentName" class="col-lg-2 control-label">부모 이름</label>
 							<div class="col-lg-10">
-								<input type="text" class="form-control" name="e_p_id" 
+								<input type="text" class="form-control" name="e_p_id" value="${enter.e_p_id}" 
 									placeholder="${enter.p_name}" readonly="readonly">
 							</div>
 						</div>
@@ -66,7 +78,7 @@
 							<div class="col-lg-10">
 								<textarea class="form-control" rows="3" 
 										readonly="readonly"
-										id="e_etc" name="e_etc">
+										id="e_etc" name="e_etc" >
 								${enter.e_etc}
 								</textarea>
 							</div>
@@ -74,14 +86,21 @@
 						<div class="form-group">
 							<label for="getParentName" class="col-lg-2 control-label">승인 여부</label>
 							<div class="col-lg-10">
-								<input type="text" class="form-control" name="e_status" 
-									placeholder="${enter.e_status}" >
+								<select class="form-control" id="e_status" name="e_status">
+									<c:if test="${enter.e_status=='Y'}">
+										<option value="Y" selected="selected">Y</option>
+										<option value="N">N</option>	
+									</c:if>
+									<c:if test="${enter.e_status!='Y'}">
+										<option value="Y">Y</option>
+										<option value="N" selected="selected">N</option>		
+									</c:if>
+								</select> 
 							</div>
 						</div>
 						<div class="form-group">
-						<div class="form-group">
 							<div class="col-lg-10 col-lg-offset-2">
-								<button type="reset" class="btn btn-default">돌아가기</button>
+								<button type="button" id="return" class="btn btn-default">돌아가기</button>
 								<button type="submit" class="btn btn-primary">수정하기</button>
 							</div>
 						</div>

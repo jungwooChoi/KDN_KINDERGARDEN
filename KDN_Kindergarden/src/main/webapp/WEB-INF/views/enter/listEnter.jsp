@@ -39,7 +39,30 @@ function getEnter(e_id){
           <div style="margin: 10px auto; width: 50%; height: 700px">
           		<input type="hidden" id="pageNo"  name="pageNo"  value="1"/>
 				<input type="hidden" id="e_id"  name="e_id"/>
-          		<table class="table table-striped table-hover ">
+				
+          		<table>
+					<tr>
+						<th colspan="3"><h1>입학 신청 리스트</h1></th>
+					</tr>
+					<tr>
+						<td colspan="2" height="100" align="center">
+							<div class="form-group">
+									<select name="key" id="key" class="form-control">
+										<option value="all">-----all-----</option>
+										<option value="openClass" <%=pageBean.getKey("openClass")%>>반 찾기</option>
+										<option value="parent" <%=pageBean.getKey("parent")%>>학부모 찾기</option>
+										<option value="student" <%=pageBean.getKey("student")%>>학생 찾기</option>
+									</select>
+									<input type="text" id="word" name="word"
+										value="${pageBean.word}" class="form-control" />
+							</div>
+							</td>
+							<td height="100">
+									<a href="#" onclick="pagelist(1)" class="btn btn-default">검색</a>
+							</td>
+					</tr>
+				</table>
+				 <table class="table table-striped table-hover ">
 				  <thead>
 				    <tr>
 				      <th>No</th>
