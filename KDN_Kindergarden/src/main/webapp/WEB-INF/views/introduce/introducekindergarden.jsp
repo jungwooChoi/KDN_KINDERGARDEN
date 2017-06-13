@@ -20,7 +20,7 @@
               <a class="list-group-item"  href="introduceclass.do">학급 소개</a>
           </div>
 
-< 	<div class="col-lg-9">
+ 	<div class="col-lg-9">
 	<div class="well bs-component">
 		<form id="frm" method="post" action="introducekindergarden.do">
 
