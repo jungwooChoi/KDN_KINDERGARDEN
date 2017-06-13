@@ -30,7 +30,7 @@
 		</where>
 		order by k_id desc
 	</select>
-	
+		
 	<select id="searchMyKid" parameterType="int" resultType="kid">
 		select k_id, k_name, k_birth, k_sex, k_img, k_contents
 				, k_p_id

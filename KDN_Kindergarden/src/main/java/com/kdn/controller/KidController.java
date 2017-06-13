@@ -67,7 +67,7 @@ public class KidController {
 	
 	@RequestMapping(value="updateKid.do", method=RequestMethod.POST)
 	public String updateKid(Kid kid, HttpServletRequest request){
-		String dir=request.getRealPath("uploadKid/");
+		String dir=request.getRealPath("upload_kid/");
 		kidService.update(kid, dir);
 		return "redirect:listKid.do";
 	}
