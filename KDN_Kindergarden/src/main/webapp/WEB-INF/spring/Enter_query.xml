@@ -30,6 +30,7 @@
 	<select id="search" parameterType="int" resultType="enter">
 		SELECT e.E_ID, k.K_NAME, p.P_NAME, c.C_NAME, e.E_STATUS
 				, to_char(e.E_DATE,'yyyy-mm-dd') e_date, e.e_etc
+				, e.e_p_id, e.e_o_id, e.e_k_id
 		FROM ENTER e, PARENT p, KID k, CLASS c, OPEN o
 		WHERE e.E_P_ID=p.P_ID AND e.E_O_ID=o.O_ID AND o.O_C_ID=c.C_ID 
 				 AND e.E_K_ID=k.K_ID AND e.E_ID=#{e_id}
@@ -55,7 +56,7 @@
 	</select>
 	
 	<select id="getCount" parameterType="pagebean" resultType="int">
-		select e_id, to_char(e_date,'yyyy-mm-dd'), e_status, e_p_id, e_o_id, e_k_id
+		select count(*)
 		from enter
 		<where>
 			<if test="word != null">
