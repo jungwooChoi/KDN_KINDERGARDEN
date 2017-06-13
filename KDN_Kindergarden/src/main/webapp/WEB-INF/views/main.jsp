@@ -27,12 +27,12 @@
 		<div class="event-wrap">
 			<div class="block-event">
 				<div class="upcoming-event">
-					<h2>upcoming event</h2>
-					<div class="event-description">				
+					<h2>Today's Event</h2>
+					<div class="event-description">		
 						<c:choose>
 							<c:when test="${!empty date.s_date}">
 								<div class="metadata">
-								<h3>${date.s_title}</h3>
+								<center><h4>${date.s_title}</h4></center>
 									<time>${date.s_date}</time>															
 								</div>
 								<p style="overflow: auto; overflow-y: auto; overflow-x: auto; width: 100%; height: 265px; text-align: left; font-size: 12px; line-height: 160%">
@@ -50,7 +50,7 @@
 				<div class="widget-calendar">
 					<jsp:include page="Calender.jsp" />
 					<div class="legend">
-						<span class="upcoming">Upcoming event</span>
+						<center><span class="upcoming">Upcoming Event</span></center>
 						<!-- <span class="archival">Archival event</span> -->
 					</div>
 				</div>
