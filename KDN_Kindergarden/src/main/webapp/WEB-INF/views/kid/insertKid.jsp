@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>파일 업로드</title>
-<link href="../css/basic.css" rel="stylesheet" type="text/css">
+<!-- <link href="../css/basic.css" rel="stylesheet" type="text/css"> -->
+<link href="css/bootstrap.css" rel="stylesheet">
 <%
    request.setCharacterEncoding("UTF-8");
    String root=request.getContextPath();
@@ -100,99 +101,101 @@
 </script>
 </head>
 <body>
-<div class="container_12">
-	<div class="grid_3 bot-1">
-		<ul class = "font">
-			<li><a href="insertKidForm.do" id="nav_int_menu_li1">자녀 입력</a></li>
-			<li><a href="listKid.do" id="nav_int_menu_li2">자녀 리스트</a></li>
-		</ul>
-	</div>
-
-	<div class="grid_9">
-	<form action="insertKid.do" method="post" enctype="multipart/form-data"
-	    name="frm" onsubmit="return check(this)" >
-	<table id="table1">
-	   <tr>
-	      <td colspan="2" style="border-bottom: 3px solid #ddd; ">
-	         <b style="float: left; width: 500px; font-size: 20pt; padding-left: 10px;">자녀 입력</b>
-	      </td>
-	   </tr>
-	   <tr style="height: 40px;">
-	      <td colspan="2" align="left" style="height: 20px; border-bottom: 3px solid #ddd; text-align: right; ">
-	        <div style="float:right; margin-top: 10px; padding-right: 10px;">   
-	         <input type="radio" size="4" name="sellerok" class="sellerok" id="seller" value="seller" checked="checked">학생
-	        </div>
-	      </td>
-	   </tr>
-	   <tr style="height: 35px;">
-	      <td colspan="2" align="left" style="height: 20px; border-bottom: 3px solid #ddd; text-align: right; ">
-	      <b style="font-size: 8pt; color: red; margin-bottom: 0px; padding-bottom: 0px;">* 필수항목</b>
-	      </td>
-	   </tr>
-	    <tr height="45">
-	      <th width="100">학부모 아이디</th>
-	      <td>
-	         <input type="text" name="k_p_id" id="k_p_id" value="${id}" readonly="readonly" >
-	      </td>
-	   </tr>
-	   <tr>
-	      <th>학생 이름&nbsp;&nbsp;<b style="color: red;">*</b></th>
-	      <td>
-	         <input type="text" name="k_name" id="k_name" required="required" maxlength="20"> 
-	      </td>
-	   </tr>
-	   <tr>
-	      <th>생년월일&nbsp;&nbsp;<b style="color: red;">*</b></th>
-	      <td>
-	         <input type="text" name="k_birth" id="k_birth" maxlength="20" required="required" placeholder="YYYY-MM-DD"> 
-	      </td>
-	   </tr>
-	   <tr>
-	      <th>성별&nbsp;&nbsp;<b style="color: red;">*</b></th>
-	      <td>
-	         <input type="radio" size="4" name="k_sex" value="여자" >여자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-	         <input type="radio" size="4" name="k_sex" value="남자" >남자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-	      </td>
-	   </tr>
-	   <tr>
-	      <th>기타 사항</th>
-	      <td>
-	         <input type="text" name="k_contents" size="72px;" maxlength="72"> 
-	      </td>
-	   </tr>
-	   <tr>
-	      <th style="border-bottom: none;">학생 사진</th>
-	      <td style="border-bottom: none;">
-	       <!--   <input type="radio" class="sellerimg" name="s_img" size="15" value="무" checked="checked">  이미지 없음
-	         &nbsp;&nbsp;&nbsp;
-	         <input type="radio" class="sellerimg" name="s_img" size="15" value="유" >  이미지 있음
-	         &nbsp;&nbsp; -->
-	         <jsp:include page="imageView.jsp"></jsp:include>
-	         <input type="file" name="k_uploadimg" id="k_uploadimg" onchange="previewImage(this,'View_area')"> 
-	      	 <input type="hidden" name="k_img" id="k_img">
-	      </td>
-	</table>
+<div class="page-header" id="banner">
+      <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-4">
+          	<div class="list-group table-of-contents">
+              	<a class="list-group-item"  href="insertKidForm.do">자녀 입력</a>
+              	<a class="list-group-item"  href="listKid.do">자녀 리스트</a>
+            </div>
+           </div>
+          
+          <div style="margin: 10px auto; width: 50%; background : white; height: 700px ">
+	          <form action="insertKid.do" method="post" enctype="multipart/form-data" name="frm" onsubmit="return check(this)" >
+				<table id="table1">
+				   <tr>
+				      <td colspan="2" style="border-bottom: 3px solid #ddd; ">
+				         <b style="float: left; width: 500px; font-size: 20pt; padding-left: 10px;">자녀 입력</b>
+				      </td>
+				   </tr>
+				   <tr style="height: 40px;">
+				      <td colspan="2" align="left" style="height: 20px; border-bottom: 3px solid #ddd; text-align: left; ">
+				        <div style="float:right; margin-top: 10px; padding-right: 10px;">   
+				         <input type="radio" size="4" name="sellerok" class="sellerok" id="seller" value="seller" checked="checked">학생
+				        </div>
+				      </td>
+				   </tr>
+				   <tr style="height: 35px;">
+				      <td colspan="2" align="left" style="height: 20px; border-bottom: 3px solid #ddd; text-align: left; ">
+				      <b style="font-size: 8pt; color: red; margin-bottom: 0px; padding-bottom: 0px;">* 필수항목</b>
+				      </td>
+				   </tr>
+				    <tr height="45">
+				      <th width="100">학부모 아이디</th>
+				      <td>
+				         <input type="text" name="k_p_id" id="k_p_id" value="${id}" readonly="readonly" >
+				      </td>
+				   </tr>
+				   <tr>
+				      <th>원생 이름&nbsp;&nbsp;<b style="color: red;">*</b></th>
+				      <td>
+				         <input type="text" name="k_name" id="k_name" required="required" maxlength="20"> 
+				      </td>
+				   </tr>
+				   <tr>
+				      <th>생년월일&nbsp;&nbsp;<b style="color: red;">*</b></th>
+				      <td>
+				         <input type="text" name="k_birth" id="k_birth" maxlength="20" required="required" placeholder="YYYY-MM-DD"> 
+				      </td>
+				   </tr>
+				   <tr>
+				      <th>성별&nbsp;&nbsp;<b style="color: red;">*</b></th>
+				      <td>
+				         <input type="radio" size="4" name="k_sex" value="여자" >여자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				         <input type="radio" size="4" name="k_sex" value="남자" >남자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				      </td>
+				   </tr>
+				   <tr>
+				      <th>기타 사항</th>
+				      <td>
+				         <input type="text" name="k_contents" size="72px;" maxlength="72"> 
+				      </td>
+				   </tr>
+				   <tr>
+				      <th style="border-bottom: none;">학생 사진</th>
+				      <td style="border-bottom: none;">
+				       <!--   <input type="radio" class="sellerimg" name="s_img" size="15" value="무" checked="checked">  이미지 없음
+				         &nbsp;&nbsp;&nbsp;
+				         <input type="radio" class="sellerimg" name="s_img" size="15" value="유" >  이미지 있음
+				         &nbsp;&nbsp; -->
+				         <jsp:include page="imageView.jsp"></jsp:include>
+				         <input type="file" name="k_uploadimg" id="k_uploadimg" onchange="previewImage(this,'View_area')"> 
+				      	 <input type="hidden" name="k_img" id="k_img">
+				      </td>
+				      </tr>
+				</table>
 	
-	<div id='View_area' style='width: 100px; height: 150px; color: black; border: 0px solid black; 
-	   position: relative; left:500px; dispaly: inline; '>
-	</div>
+				<div id='View_area' style='width: 100px; height: 150px; color: black; border: 0px solid black; position: relative; left:500px; dispaly: inline; '>
+				
+				</div>
 	      
-	<table id="table3">   
-	   <tr height="60">
-	      <td colspan="2" align="center" style="border-top: 3px solid #ddd; border-bottom: none;">
-	         <input type="submit" value="입학신청" id="btnsubmit" style="width: 100px; background-color: #ffcc00; color: white; border: 0px; height: 25px;">         
-	         <input type="button" value="취소" id="btncel" onclick="location.href='<%=root%>/member/myPage.jsp'"
-	            style="width: 100px; background-color: #b9b49e; color: white; border: 0px; height: 25px;">
-	      </td>
-	   </tr>
+				<table id="table3">   
+				   <tr height="60">
+				      <td colspan="2" align="center" style="border-top: 3px solid #ddd; border-bottom: none;">
+				         <input type="submit" value="입학신청" id="btnsubmit" style="width: 100px; background-color: #ffcc00; color: white; border: 0px; height: 25px;">         
+				         <input type="button" value="취소" id="btncel" onclick="location.href='<%=root%>/member/myPage.jsp'"
+				            style="width: 100px; background-color: #b9b49e; color: white; border: 0px; height: 25px;">
+				      </td>
+				   </tr>
 	
-	</table>
-	</form>
-	<div style="clear: right;clear: left;"></div>
+				</table>
+			</form>
+          
+			</div>
+			
+		</div>
+		
 	</div>
-	
-</div>
-	
 </body>
 </html>
 

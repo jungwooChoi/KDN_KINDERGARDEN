@@ -36,17 +36,17 @@ public class HomeController {
         Calendar c1 = Calendar.getInstance();
         String strToday = sdf.format(c1.getTime());
         
-        SimpleDateFormat sdfy = new SimpleDateFormat("yyyy");
+        /*SimpleDateFormat sdfy = new SimpleDateFormat("yyyy");
         String strY = sdfy.format(c1.getTime());
         
         SimpleDateFormat sdfm = new SimpleDateFormat("MM");
-        String strM = sdfm.format(c1.getTime());
+        String strM = sdfm.format(c1.getTime());*/
         
 		List<Schedule> schedule = scheduleService.searchMonth(strToday);
 		//System.out.println(schedule);
 		model.addAttribute("schedulelist",schedule);
-		model.addAttribute("year",strY);
-		model.addAttribute("month",strM);
+		/*model.addAttribute("year",strY);
+		model.addAttribute("month",strM);*/
 		Schedule date = scheduleService.searchNow();
 		model.addAttribute("date", date);
 
@@ -55,6 +55,23 @@ public class HomeController {
 	
 	@RequestMapping(value="home.do", method = RequestMethod.GET )
 	public String home(Model model){
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
+        Calendar c1 = Calendar.getInstance();
+        String strToday = sdf.format(c1.getTime());
+        
+        /*SimpleDateFormat sdfy = new SimpleDateFormat("yyyy");
+        String strY = sdfy.format(c1.getTime());
+        
+        SimpleDateFormat sdfm = new SimpleDateFormat("MM");
+        String strM = sdfm.format(c1.getTime());*/
+        
+		List<Schedule> schedule = scheduleService.searchMonth(strToday);
+		//System.out.println(schedule);
+		model.addAttribute("schedulelist",schedule);
+		/*model.addAttribute("year",strY);
+		model.addAttribute("month",strM);*/
+		Schedule date = scheduleService.searchNow();
+		model.addAttribute("date", date);
 		
 		return "index";
 	}

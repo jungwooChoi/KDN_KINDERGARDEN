@@ -14,88 +14,46 @@
 	              <a class="list-group-item"  href="introducekindergarden.do">어린이집 소개</a>
 	              <a class="list-group-item"  href="introduceteacher.do">교사 소개</a>
 	              <a class="list-group-item"  href="introduceclass.do">학급 소개</a>
-          </div>
+	      </div>  
           
-	    	<div class="col-lg-9">
+<div class="col-lg-9">
 	<div class="well bs-component">
-	          		
-	          		<form id="frm" method="post" action="introduceteacher.do">
-						<table align="center">
+		<form id="frm" method="post" action="introduceclass.do">
+			
+			<table width="100" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td><img src="images/introduceteacher.jpg" width="300" height="42"></td>
+						</tr>
+			</table>
+		
+			<table width="800" border="0" cellpadding="0" cellspacing="0">
+				<c:forEach var="introduce" items="${teacherList}">
+						<tr height="50">
+							<td><font size="4" face="맑은고딕" color="black" ></br> 
+							<strong>${introduce.t_name} 선생님</strong>	</br></br>	</font>
+							</td>
+						</tr>
 						
-						  	<tr align="center" height="30">
-						  	  	<td width="200"><font size="3" face="맑은고딕" color="black"><strong>교사 이름</strong></font></td>
-						  	  	<c:forEach  var="introduce" items="${teacherList}">
-						  	  		<td width="200" height="30">${introduce.t_name}</td>
-						  	  </c:forEach>	
-						  	 </tr>
-						  	 
-						  	 <tr align="center" height="30">
-						  	  	<td width="200"><font size="3" face="맑은고딕" color="black"><strong>학력</strong></font></td>
-						  	 	<c:forEach  var="introduce" items="${teacherList}">
-						  	  		<td width="200" height="30">${introduce.t_gradu}</td>
-						  	  	</c:forEach>		
-						  	 </tr>
-						  	 
-						  	 <tr align="center" height="30">						  	  
-						  	  	<td  width="200"><font size="3" face="맑은고딕" color="black"><strong>전화번호</strong></font></td>
-						  	  	<c:forEach  var="introduce" items="${teacherList}">
-						  	  		<td width="200" height="30">${introduce.t_phone}</td>
-						  	  	</c:forEach>	
-						  	 </tr>
-						  	 
-						  	 <tr align="center" height="30">
-						  	  	<td width="200"><font size="3" face="맑은고딕" color="black"><strong>지역</strong></font></td>
-						  	  	<c:forEach  var="introduce" items="${teacherList}">
-						  	  		<td width="200" height="30">${introduce.t_address}</td>
-						  	  	</c:forEach>	
-						  	 </tr>
-						  	 
-						  	 <tr align="center" height="30">
-						  	  	<td  width="200"><font size="3" face="맑은고딕" color="black"><strong>재직여부</strong></font></td>
-						  	  	<c:forEach  var="introduce" items="${teacherList}">
-						  	  		<td width=200" height="30">${introduce.t_status}</td>
-						  	  	</c:forEach>	
-						  	  </tr>
-						  	  
-<%-- 						  	  <c:forEach  var="introduce" items="${teacherList}">
-						  	  <tr align="center">
-								 <td width="100" height="30">${introduce.t_name}</td>
-								 <td width="100" height="30">${introduce.t_gradu}</td>  	  
-								 <td width="200" height="30">${introduce.t_phone}</td>  	  
-								 <td width="100" height="30">${introduce.t_address}</td>  	  
-								 <td width="100" height="30">${introduce.t_status}</td>  	  
-							  </tr>  
-						  	  </c:forEach> --%>
-						  	  
-						</table>
-					</form>
-	          		
-	        </div>
+						<tr height="125">
+							<td width="200" align="center"><img src="images/introducesunny.jpg" width="100" height="100"></td>
+							<td>		
+								<font size="3" face="맑은고딕"><strong>학력</strong></font><font size="3" face="맑은고딕" color="black"></font> 
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${introduce.t_gradu} </br>
+								<font size="3" face="맑은고딕"><strong>전화번호</strong></font><font size="3" face="맑은고딕" color="black"></font> 
+								&nbsp;&nbsp;${introduce.t_phone} </br>
+								<font size="3" face="맑은고딕"><strong>지역</strong></font><font size="3" face="맑은고딕" color="black"></font> 
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${introduce.t_address} </br>
+								<font size="3" face="맑은고딕"><strong>재직여부</strong></font><font size="3" face="맑은고딕" color="black"></font> 
+								&nbsp;&nbsp;${introduce.t_status} </br>
+							<td></td>	 			
+						</tr>
+				</c:forEach>
+				
+			</table>
+		</form>
+ </div>
+ </div>
         </div>
-        </div>
-</div>
+      </div>
 </body>
 </html>
-
-<%-- <table align="center">
-						  	<tr align="center" height="30">
-						  	  <td width="100"><font size="3" face="맑은고딕" color="black"><strong>교사 이름</strong></font></td>
-						  	  <td width="100"><font size="3" face="맑은고딕" color="black"><strong>학력</strong></font></td>
-						  	  <td  width="200"><font size="3" face="맑은고딕" color="black"><strong>전화번호</strong></font></td>
-						  	  <td width="100"><font size="3" face="맑은고딕" color="black"><strong>지역</strong></font></td>
-						  	  <td  width="100"><font size="3" face="맑은고딕" color="black"><strong>재직여부</strong></font></td>
-						  	  
-						  	  <c:forEach  var="introduce" items="${teacherList}">
-						  	  <tr align="center">
-								 <td width="100" height="30">${introduce.t_name}</td>
-								 <td width="100" height="30">${introduce.t_gradu}</td>  	  
-								 <td width="200" height="30">${introduce.t_phone}</td>  	  
-								 <td width="100" height="30">${introduce.t_address}</td>  	  
-								 <td width="100" height="30">${introduce.t_status}</td>  	  
-							  </tr>  
-						  	  </c:forEach>
-						  	  
-						  	</tr>
-						</table> --%>
-
-

@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="css/style1.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="css/grid_12.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/slider.css">
-    <script src="js/jquery-1.7.min.js"></script>
+    	<script src="js/jquery-1.10.1.js"></script>
     <script src="js/jquery.easing.1.3.js"></script>
     <script src="js/tms-0.4.1.js"></script>
     <style type="text/css">
@@ -23,7 +23,7 @@
 	margin : 0 auto;
 	height: 50px;
 	background-color: #484848;
-	z-index:9004;
+	z-index:10;
 	position: fixed; 
 	line-height: 50px;
 	top:0px;
@@ -70,7 +70,6 @@
 	</script>
 </head>
 <body>
-
 	<div class="bar-holder2">
 			<a class="menu_trigger2" href="#">menu</a>
 					<div id="nav2">
@@ -83,7 +82,7 @@
 							<li><a href="menu.do">식단관리</a></li>
 						</ul>
 					</div>
-				</div>
+			</div>
 <div class="container">
 	 <div id="login">
 		<ul>
@@ -115,26 +114,13 @@
 						</ul>
 					</div>
 				</div>
-				<div class="bar-holder2">
-					<a class="menu_trigger2" href="#">menu</a>
-					<div id="nav2">
-						<ul>
-							<li><a href="introduce.do">어린이집 소개</a></li>
-							<li><a href="listBoard.do">공지 사항</a></li>
-							<li><a href="insertEnterForm.do">입학신청관리</a></li>
-							<li><a href="listRequest.do">상담신청관리</a></li>
-							<li><a href="gallery.do">사진관리</a></li>
-							<li><a href="menu.do">식단관리</a></li>
-						</ul>
-					</div>
-				</div>
 			</header>
 					<c:choose>
 						<c:when  test="${!empty content}">
 							<jsp:include page="${content}"/>
 						</c:when>
 						<c:otherwise>
-							<jsp:include page="main.jsp"/>
+							 <jsp:include page="main.jsp"/> 
 						</c:otherwise>
 					</c:choose>
 			</div>

@@ -10,14 +10,12 @@
 </head>
 <body>
 <div class="page-header" id="banner">
-      <div class="row">
+      <div class="row" style="font-family: 'Binggrae'">
           <div class="col-lg-3 col-md-3 col-sm-4">
-            <div class="list-group table-of-contents">
               <a class="list-group-item"  href="updateForm.do">정보 수정</a>
               <a class="list-group-item"  href="listMyClass.do">나의 클래스 관리</a>
               <a class="list-group-item"  href="#">상담 관리</a>
               <a class="list-group-item"  href="insertKidForm.do">입학 관리</a>
-            </div>
           </div>
           
           <div style="margin: 10px auto; width: 50%; background : white; height: 700px ">
