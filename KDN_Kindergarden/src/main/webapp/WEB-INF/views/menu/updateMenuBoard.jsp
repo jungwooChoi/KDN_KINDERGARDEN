@@ -117,12 +117,12 @@
 						</tr>
 						<tr>
 							<td><div class="col-lg-10"><input type="date" name='m_date' id='m_date'
-								value="${board.m_date}" class="form-control" ></div>
+								value="${board.m_date}" class="form-control" ></div></td>
 						<tr>
 							<td><label for="col-lg-2 control-label">시간</label></td>
 						</tr>
 						<tr>
-							<td><input type="radio" name='m_category' id='m_category'
+							<td align="left"><input type="radio" name='m_category' id='m_category'
 								value='1'
 								<c:if test="${fn:trim(board.m_category) eq '1'}">checked="checked"</c:if> onfocus="setRadioCl(event)">오전
 								간식 <input type="radio" name='m_category' id='m_category'
@@ -139,7 +139,7 @@
 							<td colspan="2"><label for="col-lg-2 control-label">내용</label></td>
 						</tr>
 						<tr>
-							<td colspan="2"><textarea name="m_etc" id="m_etc" cols="30"
+							<td colspan="2" ><textarea name="m_etc" id="m_etc" cols="30"
 									rows="10" class="form-control" >
 							${board.m_etc}
 						</textarea></td>

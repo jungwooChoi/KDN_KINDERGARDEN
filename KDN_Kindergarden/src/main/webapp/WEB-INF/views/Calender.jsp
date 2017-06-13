@@ -13,6 +13,9 @@
 <title>::::: Calender :::::</title>
 <script language="javascript" src="/js/datepicker.js"></script>
 <script type="text/javascript" src="/js/jquery-1.7.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link  rel="stylesheet" type="text/css" href="css/schedule.css"  />
 <SCRIPT LANGUAGE="JavaScript">
 
 var dDate = new Date();
@@ -38,8 +41,24 @@ function fSetSelectedDay(myElement){
 			//var finalDate = document.frmCalendarSample.tbSelYear.value+"-"+document.frmCalendarSample.tbSelMonth.value+"-"+document.all.calSelectedDate.value;
 			//var finalDay = document.all.calSelectedDate.value;
 			var finalDate = thisday.innerText.substring(0,4)+"-"+thisday.innerText.substring(6,8)+"-"+document.all.calSelectedDate.value;
-						
-			var popOption = "width=388. height=460, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+				
+			//document.getElementById("pop").href= "pop.do?finalDate="+finalDate;
+			/* $.ajax({
+				url:'pop.do',
+				type:'get',
+				dataType:"html",
+				data:{'finalDate':finalDate},
+				success: function(data){
+					$("#wrapper").html(data);
+				},
+				error : function(e){
+					
+					 alert('일정을 서버에서 받아올 수 없습니다. 다시 조회회세요')
+					 console.log(e);
+				}
+			}); */
+			
+			var popOption = "width=388. height=500, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
 			if (wnd){
 				wnd.close();
 			}		
@@ -125,7 +144,7 @@ var dispMonth=0;
 			for (w = 1; w < 7; w++) {
 				document.write("<tr>");
 				for (d = 0; d < 7; d++) {
-					document.write("<td id=calCell onclick=fSetSelectedDay(this)>");
+					document.write("<td id=calCell onclick=fSetSelectedDay(this) data-toggle='modal' data-target='#myModal'>");
 					if (!isNaN(myMonth[w][d])) {
 						var hasSchedule=false;
 						for(var i=0; i<=count; i++){
@@ -140,7 +159,7 @@ var dispMonth=0;
 						}
 						
 					} else {
-						document.write("<div id=calDateText class='cell-wrap' onclick=fSetSelectedDay(this)> </div>");
+						document.write("<div id=calDateText class='cell-wrap'> </div>");
 					}
 					document.write("</td>")
 				}
@@ -315,6 +334,25 @@ var dispMonth=0;
 			</tbody>
 		</table>
 	</form>
+	<!-- <div class="modal" id="myModal">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<h4 class="modal-title" id="modalGalleryTitle" ></h4>
+							</div>
+							<div class="modal-body">
+								<div id ="wrapper"></div>
+							</div>							
+							<div class="modal-footer" align="center">
+								<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+							</div>
+						</div>
+					</div>
+				</div>	 -->
 </body>
 <script language="JavaScript" for=window event=onload>
 	<!-- Begin
