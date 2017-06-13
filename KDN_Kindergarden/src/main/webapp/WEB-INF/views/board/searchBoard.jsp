@@ -58,14 +58,29 @@
 	 	    
 			<table class="table table-striped table-hover">
 				<tbody>
-					<tr><td><label for="col-lg-2 control-label">제목</label></td>
+					<tr>
+						<td style="width: 70px;">
+							<label for="col-lg-2 control-label">제목</label>
+						</td>
 					    <td>${board.b_title}</td>
 					</tr>
-					<tr><td colspan="2">내용 &nbsp;&nbsp;글쓴이:${board.b_t_id}
-										&nbsp;&nbsp; 게시일:${board.b_date}</td></tr>
-					<tr><td colspan="2"  valign="top" height="200">
-						<pre>${board.b_contents }</pre>							
-						</td></tr>
+					<tr>
+						<td>글쓴이</td>
+						<td>${board.t_name}</td>
+					</tr>
+					<tr><td>게시일</td><td>${board.b_date}</td></tr>
+					<tr style="border-bottom: none;">
+						<td class="form-group" style="border-bottom: none;">
+							<label for="contents">내용</label>
+						</td>
+						<td rowspan="3">
+						<br>
+						<div  style="background-color: DFD0D0;">
+					   		<p>${board.b_contents}</p>
+					    </div>
+						</td>
+					</tr>
+					
 				</tbody>
 			</table>
 				<div align="center">
@@ -89,15 +104,21 @@
 					    <td><div class="col-lg-10"><input type="text" name="b_title" id="b_title" value="${board.b_title}" class="form-control"/></div></td>
 					</tr>
 					<tr><td colspan="2">내용</td></tr>
-					<tr><td colspan="2">
-					<div class="col-lg-10">
-						<textarea name="b_contents" id="b_contents" cols="30" rows="10" class="form-control">
-							${board.b_contents}
-						</textarea>
-					</div>
-						</td></tr>
+					<tr>
+						<td colspan="2">
+							<div class="col-lg-10">
+								<textarea name="b_contents" id="b_contents" cols="30" rows="10" class="form-control">
+								${board.b_contents}
+								</textarea>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>비고</td>
+						<td>${board.b_etc}</td>
+					</tr>
 				</tbody>
-									<tfoot>
+				<tfoot>
 						<tr>
 							<td colspan="2" align="center" >
 							<a href= "#" onclick="updateBoard()" class="btn btn-primary"> 수정 </a> <a href="#"

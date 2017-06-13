@@ -60,8 +60,6 @@ public class BoardController {
 	
 	@RequestMapping(value="searchBoard.do", method=RequestMethod.GET)
 	public String searchBoard(int b_id, Model model, HttpSession session){
-		//model.addAttribute("id", session.getAttribute("id"));
-		System.out.println(b_id);
 		model.addAttribute("board", boardService.search(b_id));
 		model.addAttribute("content", "board/searchBoard.jsp");
 		return "index";

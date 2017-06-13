@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kdn.model.biz.OpenService;
@@ -46,17 +47,15 @@ public class SchduleController {
 		return "schedule/listSchedule";
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="schedule.do", method=RequestMethod.GET)
-	public String schedule(Model model, String year, String month){
+	public List<Schedule> schedule(Model model, String year, String month){
 		String finalDate = year+month;
-		
+		System.out.println(finalDate);
 		List<Schedule> schedule = scheduleService.searchMonth(finalDate);
-		System.out.println(schedule);
-		model.addAttribute("schedulelist", schedule);
-		model.addAttribute("year", year);
-		model.addAttribute("month", month);
-		return "index";
+		return schedule;
 	}
+	
 	
 	@RequestMapping(value="listSchedule.do", method=RequestMethod.GET)
 	public String listSchedule(PageBean bean, Model model){

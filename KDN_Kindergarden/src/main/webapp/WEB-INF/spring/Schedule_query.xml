@@ -27,8 +27,12 @@
 	</select>
 	
 	<select id="searchNow" resultType="schedule">
-		SELECT * FROM SCHEDULE
+		SELECT S_ID, S_DATE,S_TITLE,S_CONTENTS,S_ETC,S_T_ID,S_O_ID
+		FROM (SELECT ROWNUM ro, S_ID, S_DATE,S_TITLE,S_CONTENTS,S_ETC,S_T_ID,S_O_ID FROM SCHEDULE
 		WHERE TO_CHAR(SYSDATE, 'yyyy-dd-mm') = TO_CHAR(s_date, 'yyyy-dd-mm')
+		ORDER BY s_id)
+		WHERE ro <![CDATA[<]]> 2
+
 	</select>
 	
 	<select id="searchAll" parameterType="pagebean" resultType="schedule">

@@ -78,16 +78,16 @@
 							</div>
 						</div>
 						
-						 <div class="form-group">
-							<label for="select" class="col-lg-2 control-label">Selects</label>
+						<div class="form-group">
+							<label for="select" class="col-lg-2 control-label">반선택</label>
 							<div class="col-lg-10">
-								<select class="form-control" id="" name="e_o_id">
+								<select class="form-control" id="e_o_id" name="e_o_id">
 									<c:forEach var="openClassList" items="${openClassList}">
 										<option value="${openClassList.o_id}">${openClassList.c_name}</option>
 									</c:forEach>	
 								</select> 
 							</div>
-						</div>  -
+						</div>  
 			
 						<div class="form-group">
 							<label for="textArea" class="col-lg-2 control-label">특이사항</label>

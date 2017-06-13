@@ -120,7 +120,7 @@
 							<jsp:include page="${content}"/>
 						</c:when>
 						<c:otherwise>
-							<jsp:include page="main.jsp"/>
+							 <jsp:include page="main.jsp"/> 
 						</c:otherwise>
 					</c:choose>
 			</div>

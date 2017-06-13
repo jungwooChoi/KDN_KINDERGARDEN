@@ -15,10 +15,6 @@
 <script type="text/javascript" src="/js/jquery-1.7.min.js"></script>
 <SCRIPT LANGUAGE="JavaScript">
 
-var dDate = new Date();
-var dCurMonth = dDate.getMonth();
-var dCurDayOfMonth = dDate.getDate();
-var dCurYear = dDate.getFullYear();
 var objPrevElement = new Object();
 var wnd; // 팝업
 var yy;
@@ -101,20 +97,21 @@ function fSetSelectedDay(myElement){
 		return aMonth;
 	}
 	
-	var schedule = new Array(31);
+	var schedule = new Array();
 	var count =0;
 </script>
 <c:choose>
 	<c:when test="${!empty schedulelist}">
 		<c:forEach var="schedule"  items="${schedulelist}">
 		<script type="text/javascript">
-			schedule[count] = ${schedule.s_date};
+			schedule[count++] = ${schedule.s_date};
 		</script>
 		</c:forEach>
 	</c:when>
 </c:choose>
-
 <script type="text/javascript">
+var dispYear=0;
+var dispMonth=0;
 		function fDrawCal(iYear, iMonth) {
 			//console.log(schedule);
 			var myMonth;
@@ -130,13 +127,14 @@ function fSetSelectedDay(myElement){
 						for(var i=0; i<=count; i++){
 							if(schedule[i] == ''+myMonth[w][d]){
 								hasSchedule=true;
-							}
+							}		
 						}
 						if(hasSchedule){
 							document.write("<div id=calDateText class='cell-wrap upcoming'>"+ myMonth[w][d] + "</div>");
 						}else{
 							document.write("<div id=calDateText class='cell-wrap archival'>"+ myMonth[w][d] + "</div>");
 						}
+						
 					} else {
 						document.write("<div id=calDateText class='cell-wrap' onclick=fSetSelectedDay(this)> </div>");
 					}
@@ -156,8 +154,18 @@ function fSetSelectedDay(myElement){
 				for (d = 0; d < 7; d++) {
 					if (!isNaN(myMonth[w][d])) {
 						calDateText[((7 * w) + d) - 7].innerText = myMonth[w][d];
-						$(calDateText[((7 * w) + d) - 7]).removeClass('archival').addClass('archival');
-						//$(calDateText[((7 * w) + d) - 7]).removeClass('upcoming');
+						
+						var hasSchedule=false;
+						for(var i=0; i<=count; i++){
+							if(schedule[i] == ''+myMonth[w][d]){
+								hasSchedule=true;
+							}		
+						}
+						if(hasSchedule){
+							$(calDateText[((7 * w) + d) - 7]).removeClass('archival').addClass('upcoming');
+						}else{
+							$(calDateText[((7 * w) + d) - 7]).removeClass('archival').removeClass('upcoming').addClass('archival');
+						}
 						
 					} else {
 						calDateText[((7 * w) + d) - 7].innerText = " ";
@@ -168,17 +176,17 @@ function fSetSelectedDay(myElement){
 			}//location.href ="schedule.do?year="+iYear+"&month="+iMonth;
 		}
 	function beforeYear() {
-		var dispYear = eval(thisday.innerText.substring(0, 4)) - 1;
-		var dispMonth = eval(thisday.innerText.substring(6, 8));
+		dispYear = eval(thisday.innerText.substring(0, 4)) - 1;
+		dispMonth = eval(thisday.innerText.substring(6, 8));
 		if (dispMonth < 10)	dispMonth = "0" + dispMonth;
 
 		thisday.innerText = dispYear + "년 " + dispMonth + "월";
-		fUpdateCal(dispYear, dispMonth);
+		searchSchedule(dispYear, dispMonth);
 		
 	}
 	function beforeMonth() {
-		var dispYear = eval(thisday.innerText.substring(0, 4));
-		var dispMonth = eval(thisday.innerText.substring(6, 8)) - 1;
+		dispYear = eval(thisday.innerText.substring(0, 4));
+		dispMonth = eval(thisday.innerText.substring(6, 8)) - 1;
 
 		if (dispMonth < 10) {
 			dispMonth = "0" + dispMonth;
@@ -188,12 +196,12 @@ function fSetSelectedDay(myElement){
 			dispMonth = "12";
 		}
 		thisday.innerText = dispYear + "년 " + dispMonth + "월";
-		fUpdateCal(dispYear, dispMonth);
+		searchSchedule(dispYear, dispMonth);
 	}
 
 	function nextMonth() {
-		var dispYear = eval(thisday.innerText.substring(0, 4));
-		var dispMonth = eval(thisday.innerText.substring(6, 8)) + 1;
+		dispYear = eval(thisday.innerText.substring(0, 4));
+		dispMonth = eval(thisday.innerText.substring(6, 8)) + 1;
 
 		if (dispMonth < 10) {
 			dispMonth = "0" + dispMonth;
@@ -203,15 +211,42 @@ function fSetSelectedDay(myElement){
 			dispMonth = "01";
 		}
 		thisday.innerText = dispYear + "년 " + dispMonth + "월";
-		fUpdateCal(dispYear, dispMonth);
+		searchSchedule(dispYear, dispMonth);
 	}
+	
 	function nextYear() {
-		var dispYear = eval(thisday.innerText.substring(0, 4)) + 1;
-		var dispMonth = eval(thisday.innerText.substring(6, 8));
+		dispYear= eval(thisday.innerText.substring(0, 4)) + 1;
+		dispMonth= eval(thisday.innerText.substring(6, 8));
 		if (dispMonth < 10)
 			dispMonth = "0" + dispMonth;
 
 		thisday.innerText = dispYear + "년 " + dispMonth + "월";
+		searchSchedule(dispYear, dispMonth);
+	}
+	
+	function searchSchedule(year, month){
+		$.ajax({
+			url: 'schedule.do',
+			type: 'get',
+			datatype:'text',
+			data:{'year':year, 'month':month },
+			success: parsingSchedule,
+			error : function(e){
+				 alert('일정을 서버에서 받아올 수 없습니다. 다시 조회회세요')
+				 console.log(e);
+			}
+		});
+	}
+	
+	function parsingSchedule(data){
+		schedule = new Array();
+		count=0;
+		console.log('data>>>>>>>>>>>>>>>>>>>>>>>'+data);
+		$.each(data, function(index, item){
+			schedule[count++] = item.s_date;
+			console.log(item.s_date);
+		})
+		console.log(schedule);	
 		fUpdateCal(dispYear, dispMonth);
 	}
 </script>
