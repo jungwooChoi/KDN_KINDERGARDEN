@@ -29,9 +29,21 @@ public class TeacherController {
 	}
 	
 	@RequestMapping(value = "login.do", method = RequestMethod.POST)
-	public String loginForm(Model model, HttpSession session, int id, String pw){
+	public String login(Model model, HttpSession session, int id, String pw){
 		teacherService.login(id, pw);
 		session.setAttribute("id", id);
+		String referer = (String)session.getAttribute("referer");
+		if(referer != null){
+			session.removeAttribute("referer");
+			return "redirect:"+referer;
+		}else{
+			return "index";
+		}
+	}
+	
+	@RequestMapping(value = "loginForm.do", method = RequestMethod.GET)
+	public String loginForm(Model model){
+		model.addAttribute("content", "member/loginForm.jsp");
 		return "index";
 	}
 	

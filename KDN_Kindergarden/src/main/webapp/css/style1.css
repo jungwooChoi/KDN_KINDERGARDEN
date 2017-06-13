@@ -395,7 +395,7 @@ body {
 	font-family: 'Arvo', serif;
 	font-size: 15px;
 	color: #9e9994;
-	background: #fffbf7;
+	background: #fff;
 	-webkit-text-size-adjust: none; 
 }
 
@@ -561,10 +561,9 @@ body #login ul li a:hover{
 	border: none;
 }
 
-
 #logo {
 	width: 142px;
-	height: 80px;
+	height: 130px;
 	padding-top: 72px;
 	margin-left: -71px;
 	font-family: 'Binggrae';

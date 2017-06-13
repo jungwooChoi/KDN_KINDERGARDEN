@@ -2968,7 +2968,7 @@ select[multiple].input-lg {
 }
 
 .form-horizontal{
-	padding-left:25%;
+	/* padding-left:25%; */
 }
 .form-horizontal .radio,
 .form-horizontal .checkbox,
