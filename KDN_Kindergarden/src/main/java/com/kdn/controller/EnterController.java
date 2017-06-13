@@ -24,6 +24,7 @@ import com.kdn.model.domain.Kid;
 import com.kdn.model.domain.Open;
 import com.kdn.model.domain.PageBean;
 import com.kdn.model.domain.Parent;
+import com.kdn.util.LoginCheck;
 
 @Controller
 public class EnterController {
@@ -72,10 +73,12 @@ public class EnterController {
 	}
 	
 	@RequestMapping(value="listEnter.do", method=RequestMethod.GET)
-	public String listEnter(PageBean bean, Model model){
-		List<Enter> enterList = enterService.searchAll(bean);
-		model.addAttribute("enterList", enterList);
-		model.addAttribute("content", "enter/listEnter.jsp");
+	public String listEnter(PageBean bean, Model model, HttpSession session){
+		if(LoginCheck.check(model, session, "listEnter.do")){	
+			List<Enter> enterList = enterService.searchAll(bean);
+			model.addAttribute("enterList", enterList);
+			model.addAttribute("content", "enter/listEnter.jsp");
+		}
 		return "index";
 	}
 	

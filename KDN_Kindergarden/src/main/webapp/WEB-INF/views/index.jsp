@@ -17,6 +17,7 @@
     	<script src="js/jquery-1.10.1.js"></script>
     <script src="js/jquery.easing.1.3.js"></script>
     <script src="js/tms-0.4.1.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet">   
     <style type="text/css">
     .bar-holder2{
 	width: 100%;
