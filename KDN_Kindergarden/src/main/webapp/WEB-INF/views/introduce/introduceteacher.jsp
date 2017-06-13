@@ -23,6 +23,7 @@
 			<table width="100" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td><img src="images/introduceteacher.jpg" width="300" height="42"></td>
+							<!-- <td width="200" align="center"><img src="images/introduceCJU.JPG" width="100" height="100"></td> -->
 						</tr>
 			</table>
 		
@@ -35,7 +36,6 @@
 						</tr>
 						
 						<tr height="125">
-							<td width="200" align="center"><img src="images/introducesunny.jpg" width="100" height="100"></td>
 							<td>		
 								<font size="3" face="맑은고딕"><strong>학력</strong></font><font size="3" face="맑은고딕" color="black"></font> 
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${introduce.t_gradu} </br>
