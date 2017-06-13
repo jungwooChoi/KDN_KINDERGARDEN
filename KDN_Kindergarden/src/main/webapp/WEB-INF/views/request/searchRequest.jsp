@@ -56,7 +56,7 @@
 		<c:if test="${msg != null }">
 			<script type="text/javascript">  alert('${msg}');</script>
 		</c:if>
-		<div class="col-lg-9" id="viewBoard" style="display: none">
+		<div class="col-lg-9" id="viewRequest" style="display: none">
 			<form id="frm">
 				<input type="hidden" name="r_id" id="r_id" />
 
@@ -120,9 +120,9 @@
 						<tfoot>
 							<tr>
 								<td colspan="2" align="center"><a href="#"
-									onclick="updateBoard()" class="btn btn-primary"> 수정 </a> <a
-									href="#" onclick="resetBoard()" class="btn btn-default"> 다시
-										쓰기</a> <a href="#" onclick="listBoard()" class="btn btn-default">목
+									onclick="updateRequest()" class="btn btn-primary"> 수정 </a> <a
+									href="#" onclick="resetRequest()" class="btn btn-default"> 다시
+										쓰기</a> <a href="#" onclick="listRequest()" class="btn btn-default">목
 										록</a></td>
 							</tr>
 						</tfoot>
