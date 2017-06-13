@@ -48,12 +48,18 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="getClassName" class="col-lg-2 control-label">반 이름</label>
+							<label for="select" class="col-lg-2 control-label">반선택</label>
 							<div class="col-lg-10">
-								<input type="text" class="form-control" name="e_o_id" 
-									placeholder="${enter.c_name}" readonly="readonly">
+								<select class="form-control" id="e_o_id" name="e_o_id">
+									<option value=${enter.c_name}>${enter.c_name}</option>
+									<c:forEach var="openClassList" items="${openClassList}">
+										<c:if test="${openClassList.o_id!=enter.c_name}">
+										<option value="${openClassList.o_id}">${openClassList.c_name}</option>
+										</c:if>
+									</c:forEach>	
+								</select> 
 							</div>
-						</div>
+						</div>  
 						<div class="form-group">
 							<label for="getParentName" class="col-lg-2 control-label">부모 이름</label>
 							<div class="col-lg-10">

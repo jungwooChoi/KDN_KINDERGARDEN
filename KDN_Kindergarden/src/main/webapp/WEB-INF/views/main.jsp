@@ -22,7 +22,7 @@
             </div>
             </nav>
 			</section>
-			<section id="main">
+		 	<section id="main">
 				<div class="top-pink-border"></div>
 				<div class="event-wrap">
 					<div class="block-event">
@@ -70,7 +70,7 @@
 					</div>
 				</div>
 				<div class="bottom-pink-border"></div>
-			</section>
+			</section> 
 </body>
 </html>
 

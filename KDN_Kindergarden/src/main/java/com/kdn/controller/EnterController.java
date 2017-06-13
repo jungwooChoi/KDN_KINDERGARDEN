@@ -83,6 +83,8 @@ public class EnterController {
 	@RequestMapping(value="searchEnter.do", method=RequestMethod.GET)
 	public String searchEnter(int e_id, Model model){
 		System.out.println(e_id);
+		List<Open> openClassList=openService.thisYearSearch();
+		model.addAttribute("openClassList", openClassList);
 		model.addAttribute("enter", enterService.search(e_id));
 		model.addAttribute("content", "enter/searchEnter.jsp");
 		return "index";

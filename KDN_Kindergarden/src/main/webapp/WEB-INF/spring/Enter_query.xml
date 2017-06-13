@@ -52,7 +52,7 @@
 				</choose>
 			</if>
 		</where>
-		order by e_id desc
+		order by e.e_id desc
 	</select>
 	
 	<select id="getCount" parameterType="pagebean" resultType="int">
