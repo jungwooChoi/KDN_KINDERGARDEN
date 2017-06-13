@@ -18,6 +18,7 @@ import com.kdn.model.biz.MenuService;
 import com.kdn.model.domain.Board;
 import com.kdn.model.domain.Menu;
 import com.kdn.model.domain.PageBean;
+import com.kdn.util.LoginCheck;
 
 @Controller
 public class MenuController {
@@ -85,12 +86,14 @@ public class MenuController {
 	}
 	
 	@RequestMapping(value ="menu.do", method = RequestMethod.GET)
-	public String menu(Model model){
-		model.addAttribute("one", menuService.searchCategoryOne());
-		model.addAttribute("two", menuService.searchCategoryTwo());
-		model.addAttribute("three", menuService.searchCategoryThree());
-		model.addAttribute("four", menuService.searchCategoryFour());
-		model.addAttribute("content", "menu/menu.jsp");
+	public String menu(Model model, HttpSession session){
+		if(LoginCheck.check(model, session, "menu.do")){
+			model.addAttribute("one", menuService.searchCategoryOne());
+			model.addAttribute("two", menuService.searchCategoryTwo());
+			model.addAttribute("three", menuService.searchCategoryThree());
+			model.addAttribute("four", menuService.searchCategoryFour());
+			model.addAttribute("content", "menu/menu.jsp");
+		}
 		return "index";
 	}
 	

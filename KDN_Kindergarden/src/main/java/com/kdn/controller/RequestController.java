@@ -19,6 +19,7 @@ import com.kdn.model.domain.Kid;
 import com.kdn.model.domain.PageBean;
 import com.kdn.model.domain.Request;
 import com.kdn.model.domain.Teacher;
+import com.kdn.util.LoginCheck;
 
 @Controller
 public class RequestController {
@@ -62,10 +63,12 @@ public class RequestController {
 		return "redirect:listRequest.do";
 	}
 	@RequestMapping(value="listRequest.do", method=RequestMethod.GET)
-	public String listRequest(PageBean bean, Model model){
-		List<Request> list = requestService.searchAll(bean);
-		model.addAttribute("list", list);
-		model.addAttribute("content", "request/listRequest.jsp");
+	public String listRequest(PageBean bean, Model model, HttpSession session){
+		if(LoginCheck.check(model, session, "listRequest.do")){
+			List<Request> list = requestService.searchAll(bean);
+			model.addAttribute("list", list);
+			model.addAttribute("content", "request/listRequest.jsp");
+		}
 		return "index";
 	}
 	
