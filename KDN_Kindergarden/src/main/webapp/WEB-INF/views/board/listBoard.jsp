@@ -110,13 +110,14 @@ $(function(){
 					<tr align="center">
 						<td width="100">번호</td>
 						<td width="200">제목</td>
+						<td width="200">작성자</td>
 						<td width="100">게시일</td>
 						<c:forEach var="board" items="${list}">
 							<tr align="center">
 								<td align="center">${board.b_id}</td>
 								<td align="center"><a href="#" onclick="getBoard(${board.b_id})">
 										${board.b_title}</a></td>
-								<%--  <td><a href="searchBoard.do?b_id=${board.b_id}"> ${board.b_title}</a></td>   --%>
+								<td align="center">${board.t_name}</td>
 								<td align="center">${board.b_date}</td>
 							</tr>
 						</c:forEach>

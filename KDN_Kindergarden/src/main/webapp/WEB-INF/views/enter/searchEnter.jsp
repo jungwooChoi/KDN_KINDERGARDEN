@@ -9,7 +9,11 @@
 <meta charset="UTF-8">
 <link href="css/bootstrap.css" rel="stylesheet">    
 <title>Insert title here</title>
-
+<script type="text/javascript">
+$(document).on("click","#return",function(){
+	location.href='listEnter.do';
+}); 
+</script>
 </head>
 <body>
 	<div class="page-header" id="banner">
@@ -96,7 +100,7 @@
 						</div>
 						<div class="form-group">
 							<div class="col-lg-10 col-lg-offset-2">
-								<button type="reset" class="btn btn-default">돌아가기</button>
+								<button type="button" id="return" class="btn btn-default">돌아가기</button>
 								<button type="submit" class="btn btn-primary">수정하기</button>
 							</div>
 						</div>
