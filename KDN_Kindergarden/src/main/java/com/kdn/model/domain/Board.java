@@ -9,8 +9,10 @@ public class Board implements Serializable{
 	private String b_contents;
 	private String b_etc;
 	private String b_t_id; //teacher 외래키
+	private int b_o_id; //open 외래키
 	
-	private String t_name;
+	private String t_name; //선생님이름
+	private String c_name; //클래스이름
 	
 	public Board() {}
 		
@@ -31,7 +33,7 @@ public class Board implements Serializable{
 	}
 
 	public Board(int b_id, String b_date, String b_title, String b_contents,
-			String b_etc, String b_t_id) {
+			String b_etc, String b_t_id, int b_o_id) {
 		super();
 		this.b_id = b_id;
 		this.b_date = b_date;
@@ -39,10 +41,12 @@ public class Board implements Serializable{
 		this.b_contents = b_contents;
 		this.b_etc = b_etc;
 		this.b_t_id = b_t_id;
+		this.b_o_id = b_o_id;
 	}
-	
+
 	public Board(int b_id, String b_date, String b_title, String b_contents,
-			String b_etc, String b_t_id, String t_name) {
+			String b_etc, String b_t_id, int b_o_id, String t_name,
+			String c_name) {
 		super();
 		this.b_id = b_id;
 		this.b_date = b_date;
@@ -50,7 +54,9 @@ public class Board implements Serializable{
 		this.b_contents = b_contents;
 		this.b_etc = b_etc;
 		this.b_t_id = b_t_id;
+		this.b_o_id = b_o_id;
 		this.t_name = t_name;
+		this.c_name = c_name;
 	}
 
 	@Override
@@ -60,7 +66,8 @@ public class Board implements Serializable{
 				.append(b_date).append(", b_title=").append(b_title)
 				.append(", b_contents=").append(b_contents).append(", b_etc=")
 				.append(b_etc).append(", b_t_id=").append(b_t_id)
-				.append(", t_name=").append(t_name).append("]");
+				.append(", b_o_id=").append(b_o_id).append(", t_name=")
+				.append(t_name).append(", c_name=").append(c_name).append("]");
 		return builder.toString();
 	}
 
@@ -112,6 +119,14 @@ public class Board implements Serializable{
 		this.b_t_id = b_t_id;
 	}
 
+	public int getB_o_id() {
+		return b_o_id;
+	}
+
+	public void setB_o_id(int b_o_id) {
+		this.b_o_id = b_o_id;
+	}
+
 	public String getT_name() {
 		return t_name;
 	}
@@ -120,4 +135,13 @@ public class Board implements Serializable{
 		this.t_name = t_name;
 	}
 
+	public String getC_name() {
+		return c_name;
+	}
+
+	public void setC_name(String c_name) {
+		this.c_name = c_name;
+	}
+
+	
 }

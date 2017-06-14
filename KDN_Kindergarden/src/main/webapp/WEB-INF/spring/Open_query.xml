@@ -36,11 +36,12 @@
 	<collection property="openclass" 		ofType="class"  
 					resultMap="classmap"/>
 	</resultMap>
-	 <select id="search" parameterType="int" resultType="open">
-		SELECT o_id, TO_CHAR(o_date,'yyyy-mm-dd') o_date, o_t_id, o_c_id
-		FROM (select o_id, o_date, o_t_id, o_c_id,RANK() OVER(ORDER BY o_id desc) rank
-	 		 from open
-	 		 where o_t_id=#{o_t_id} and TO_CHAR(o_date,'yyyy')= TO_CHAR(sysdate,'YYYY') )
+	<select id="search" parameterType="int" resultType="open">
+		SELECT o_id, TO_CHAR(o_date,'yyyy-mm-dd') o_date, o_t_id, o_c_id, c_name
+		FROM (select o_id, o_date, o_t_id, o_c_id, c_name, RANK() OVER(ORDER BY o_id desc) rank
+	 		 from open, class
+	 		 where o_t_id=#{o_t_id} and TO_CHAR(o_date,'yyyy')= TO_CHAR(sysdate,'YYYY') 
+	 		 	   and	o_c_id=c_id)
 		WHERE rank=1
 	</select> 
 	
