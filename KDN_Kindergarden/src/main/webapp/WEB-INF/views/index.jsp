@@ -16,6 +16,7 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="css/grid_12.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/slider.css">
     <script src="js/jquery-1.10.1.js"></script>
+    <script src="js/jquery-1.7.min.js"></script>
     <script src="js/jquery.easing.1.3.js"></script>
     <script src="js/tms-0.4.1.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet">   
@@ -127,6 +128,7 @@
 						</c:otherwise>
 					</c:choose>
 			</div>
+		<div class="fish" id="fish"></div>
 		<div class="top-blue-border"></div>
 		<footer id="footer">
 			<div class="footer-holder">
@@ -141,5 +143,7 @@
 		</footer>	
 	</div>
 	</div>
+    <script src="js/index.js"></script>
+	
 </body>
 </html>

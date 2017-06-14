@@ -29,6 +29,7 @@
 		
 			<table width="800" border="0" cellpadding="0" cellspacing="0">
 				<c:forEach var="introduce" items="${teacherList}">
+					<c:if test= "${introduce.t_id != 0}"> 
 						<tr height="50">
 							<td><font size="4" face="맑은고딕" color="black" ></br> 
 							<strong>${introduce.t_name} 선생님</strong>	</br></br>	</font>
@@ -51,6 +52,7 @@
 						</tr>
 						
 						<tr height="40"></tr>
+					</c:if> 
 				</c:forEach>
 				
 			</table>

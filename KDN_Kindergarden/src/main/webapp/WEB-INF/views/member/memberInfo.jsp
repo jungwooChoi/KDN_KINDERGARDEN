@@ -66,20 +66,18 @@
 						<div class="form-group">
 							<label for="getName" class="col-lg-2 control-label">재직여부</label>
 							<div class="col-lg-10">
-								<div class="radio">
-								<label> 
-								<input type="radio" name='t_status' id='t_status' value ='Y' checked="checked">Y  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-								<input type="radio" name='t_status' id='t_status' value ='N'>N
-								</label>
-								</div>
-								<%-- <c:if test="${teacher.t_status=='Y'}">
-									<input type="radio" name='t_status' id='t_status' value ='Y' checked="checked">Y
-									<input type="radio" name='t_status' id='t_status' value ='N'>N
-								</c:if>
+								<c:if test="${teacher.t_status=='Y'}">
+									<div class="radio">
+										<input type="radio" name='t_status' id='t_status' value ='Y' checked="checked">Y
+										<input type="radio" name='t_status' id='t_status' value ='N'>N
+									</div>
+									</c:if>
 								<c:if test="${teacher.t_status=='N'}">
-									<input type="radio" name='t_status' id='t_status' value ='Y'>Y
-									<input type="radio" name='t_status' id='t_status' value ='N' checked="checked">N
-								</c:if> --%>
+									<div class="radio">
+										<input type="radio" name='t_status' id='t_status' value ='Y'>Y
+										<input type="radio" name='t_status' id='t_status' value ='N' checked="checked">N
+									</div>
+								</c:if> 
 							</div>
 						</div>
 						<div class="form-group">

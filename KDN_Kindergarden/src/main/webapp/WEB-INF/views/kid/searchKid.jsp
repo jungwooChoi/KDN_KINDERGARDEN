@@ -95,7 +95,7 @@
 					<div class="col-lg-10 col-lg-offset-2">
 						<button type="submit" class="btn btn-primary">수정</button>
 						<button type="reset" class="btn btn-default">취소</button>
-						<button type="reset" class="btn btn-default" onclick="location.href='deleteKid.do?k_id=${kid.k_id}'"  >삭제</button>
+						<%-- <button type="reset" class="btn btn-default" onclick="location.href='deleteKid.do?k_id=${kid.k_id}'"  >삭제</button> --%>
 					</div>
 				</div>
 			</fieldset>
