@@ -71,14 +71,14 @@ public class KidController {
 	@RequestMapping(value="deleteKid.do", method=RequestMethod.GET)
 	public String deleteKid(int k_id){
 		kidService.remove(k_id);
-		return "redirect:listKid.do";
+		return "redirect:listMyKids.do";
 	}
 	
 	@RequestMapping(value="updateKid.do", method=RequestMethod.POST)
 	public String updateKid(Kid kid, HttpServletRequest request){
 		String dir=request.getRealPath("upload_kid/");
 		kidService.update(kid, dir);
-		return "redirect:listKid.do";
+		return "redirect:listMyKids.do";
 	}
 }
 
