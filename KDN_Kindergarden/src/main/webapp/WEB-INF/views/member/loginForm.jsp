@@ -18,12 +18,12 @@
 <body>
 	<div class="row">
 		<div class="col-lg-3 col-md-3 col-sm-4">
-			<a class="list-group-item" href="loginForm.do">로그인</a>
+			<a class="list-group-item" href="home.do" style="font-family: 'Binggrae'; font-weight: bold">홈으로</a>
 		</div>
 		<div class="col-lg-9">
 			<form action="login.do" method="post" id="loginfrm">
 				<div class="form-group">
-					<label for="getId" class="col-lg-2 control-label"><h2>ID</h2></label>
+					<label for="getId" class="col-lg-2 control-label"><h1>ID</h1></label>
 					<div class="col-lg-10" style = "font-size: 20px;font-family: 'Binggrae'; font-weight: bold">
 						아이디 &nbsp; <input type="text" name="id" id="id"
 							class="form-control"/> 비밀번호 &nbsp; 

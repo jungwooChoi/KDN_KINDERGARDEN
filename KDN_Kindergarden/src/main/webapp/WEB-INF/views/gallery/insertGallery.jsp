@@ -40,7 +40,7 @@
 					<table class="table table-striped table-hover">
 						<tr>
 							<th colspan="2">
-								<h1>게시글 작성</h1>
+								<h1>사진 업로드</h1>
 							</th>
 						</tr>
 						<tr height="50" class="form-group">
@@ -70,11 +70,9 @@
 							<td colspan="2" id="fileUpForm"></td>
 						</tr>
 						<tr class="form-group">
-							<td colspan="2"><label for="col-lg-2 control-label">내용</label></td>
-						</tr>
-						<tr>
-							<td colspan="2"><textarea name="a_contents"
-									class="form-control" id="a_contents" cols="30" rows="5"></textarea>
+							<td ><label for="col-lg-2 control-label">내용</label></td>
+							<td><textarea name="a_contents"
+									class="form-control" id="a_contents" cols="30" rows="5" style="margin-left: 10px"></textarea>
 							</td>
 						</tr>
 					</table>

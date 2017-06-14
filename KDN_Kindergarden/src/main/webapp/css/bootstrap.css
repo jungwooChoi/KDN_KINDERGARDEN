@@ -12,7 +12,6 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-  font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -265,12 +264,7 @@ th {
   .table-bordered td {
     border: 1px solid #ddd !important;
   }
-}
-@font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
-}
+
 .glyphicon {
   position: relative;
   top: 1px;
@@ -1085,8 +1079,8 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-family : 'Binggrae';
+  font-size: 18px;
   line-height: 1.42857143;
   color: #555555;
   background-color: #ffffff;
@@ -1603,6 +1597,7 @@ pre code {
 @media (min-width: 1200px) {
   .container {
     width: 1170px;
+
   }
 }
 .container-fluid {
@@ -2634,6 +2629,8 @@ input[type="search"] {
 }
 .form-group {
   margin-bottom: 15px;
+  font-family: 'Binggrae';
+  font-size : 18px;
 }
 .radio,
 .checkbox {
@@ -5260,6 +5257,8 @@ a.thumbnail.active {
   margin-bottom: -1px;
   background-color: #ffffff;
   border: 1px solid #dddddd;
+  font-family: 'Bingrrae';
+  font-weight: bold;
 }
 .list-group-item:first-child {
   border-top-right-radius: 4px;
@@ -5276,8 +5275,9 @@ button.list-group-item {
     height: 70px;
   line-height: 50px;
   text-align: center;
-  font-size: 20px;
+  font-size: 20px;	
 }
+
 a.list-group-item .list-group-item-heading,
 button.list-group-item .list-group-item-heading {
   color: #333333;
@@ -5293,6 +5293,7 @@ button.list-group-item:focus {
   text-align: center;
   font-weight: bold;
   border-radius : 8px;
+  font-family: 'Binggrae'
 }
 button.list-group-item {
   width: 100%;
@@ -6920,3 +6921,5 @@ button.close {
 .panel-info > .panel-heading .badge {
   background-color: #fff;
 }
+
+@font-face{font-family:'Binggrae'; font-weight: bold; url('/font/Binggrae.ttf');}

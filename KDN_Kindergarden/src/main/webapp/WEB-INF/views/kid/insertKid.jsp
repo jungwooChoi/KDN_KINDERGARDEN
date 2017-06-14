@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>파일 업로드</title>
-<!-- <link href="../css/basic.css" rel="stylesheet" type="text/css"> -->
 <link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/style1.css" rel="stylesheet">
 <%
    request.setCharacterEncoding("UTF-8");
    String root=request.getContextPath();
@@ -104,13 +104,11 @@
 <div class="page-header" id="banner">
       <div class="row">
           <div class="col-lg-3 col-md-3 col-sm-4">
-          	<div class="list-group table-of-contents">
               	<a class="list-group-item"  href="insertKidForm.do">자녀 입력</a>
               	<a class="list-group-item"  href="listKid.do">자녀 리스트</a>
-            </div>
            </div>
           
-          <div style="margin: 10px auto; width: 50%; background : white; height: 700px ">
+        <div class="col-lg-9">
 	          <form action="insertKid.do" method="post" enctype="multipart/form-data" name="frm" onsubmit="return check(this)" >
 				<table id="table1">
 				   <tr>

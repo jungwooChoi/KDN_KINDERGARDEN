@@ -50,6 +50,8 @@ public class EnterController {
 		
 	@RequestMapping(value="insertEnterForm.do", method=RequestMethod.GET)
 	public String insertEnterForm(Model model, HttpSession session){
+		if(LoginCheck.check(model, session, "listEnter.do"))
+		{
 		int p_id=(Integer) session.getAttribute("id");
 		Parent parent=parentService.search(p_id);
 		
@@ -60,7 +62,7 @@ public class EnterController {
 		model.addAttribute("myKidsList", myKidsList);
 		model.addAttribute("parentInfo", parent);
 		model.addAttribute("content", "enter/insertEnter.jsp");
-		
+		}
 		return "index";
 	}
 	

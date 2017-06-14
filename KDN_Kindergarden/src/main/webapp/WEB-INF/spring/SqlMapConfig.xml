@@ -16,6 +16,7 @@
 		 <typeAlias type="com.kdn.model.domain.PageBean" alias = "pagebean"/>
 		 <typeAlias type="com.kdn.model.domain.PageBeanGallery" alias = "pagebeangallery"/>
 		 <typeAlias type="com.kdn.model.domain.Menu" alias = "menu"/>
+		 <typeAlias type="com.kdn.model.domain.MenuFile" alias = "menufile"/>
 		 <typeAlias type="com.kdn.model.domain.Active" alias = "active"/>
 		 <typeAlias type="com.kdn.model.domain.ActiveFile" alias = "activefile"/>
 		 <typeAlias type="com.kdn.model.domain.Kid" alias = "kid"/>

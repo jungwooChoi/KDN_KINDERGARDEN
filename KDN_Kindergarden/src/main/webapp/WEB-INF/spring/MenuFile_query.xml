@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+	
+<!--여러 도메인을 위한 쿼리 xml를 작성할 때  도메인을 식별하기 위해 
+    namespace 부여 
+=> sqlSession.쿼리메서드("식별자", paramdata);
+    식별자 =>  namespace.id
+  ex)sqlSession.selectOne("board.search", paramdata);    
+-->	
+<mapper namespace="menufile">
+
+	<select id ="search"  parameterType="int" resultType="menufile">
+		SELECT  mf_id, to_char(mf_date, 'yyyy-mm-dd') mf_date, mf_category, mf_etc, mf_sfilename, mf_t_id
+		FROM MENUfile
+		WHERE mf_id = #{mf_id}
+	</select>
+	
+	<select id="searchAll"  parameterType="pagebeangallery" resultType="menufile">
+		select  mf_id, to_char(mf_date, 'yyyy-mm-dd') mf_date, mf_category, mf_etc, mf_sfilename, mf_t_id
+		FROM MENUfile
+		order by mf_id desc
+	</select>
+	
+	<select id="getCount" parameterType="pagebeangallery" resultType="int">
+		select count(*)
+		from MENUfile
+	</select>
+	
+	<insert id="insert" parameterType="menufile">
+		insert into menufile ( mf_id, mf_date, mf_category, mf_etc , mf_sfilename, mf_t_id )
+		values( mf_seq.nextval, #{mf_date:DATE}
+				,#{mf_category:VARCHAR} ,#{mf_etc:VARCHAR} , #{mf_sfilename:VARCHAR} ,#{mf_t_id:INTEGER} )
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from menufile where mf_id = #{mf_id:INTEGER}
+	</delete>
+	
+</mapper>

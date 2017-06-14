@@ -5,14 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="css/bootstrap.css" rel="stylesheet">    
+   <link href="css/style1.css" rel="stylesheet">      
 <title>KDN 어린이집</title>
 </head>
 <body>
 <div class="page-header" id="banner">
       <div class="row">
           <div class="col-lg-3 col-md-3 col-sm-4">
-	              <a class="list-group-item"  href="introducekindergarden.do">어린이집 소개</a>
+	              <a class="list-group-item"  href="introducekindergarden.do" >어린이집 소개</a>
 	              <a class="list-group-item"  href="introduceteacher.do">교사 소개</a>
 	              <a class="list-group-item"  href="introduceclass.do">학급 소개</a>
 	       </div>  
