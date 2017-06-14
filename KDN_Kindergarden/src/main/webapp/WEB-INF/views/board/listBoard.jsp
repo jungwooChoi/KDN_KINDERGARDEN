@@ -97,7 +97,8 @@ $(function(){
 									<select name="key" id="key" class="form-control">
 										<option value="all">-----all-----</option>
 										<option value="title" <%=pageBean.getKey("title")%>>제목</option>
-										<option value="contents" <%=pageBean.getKey("contents")%>>내용</option>
+										<option value="teacher" <%=pageBean.getKey("teacher")%>>선생님</option>
+										<option value="classes" <%=pageBean.getKey("classes")%>>반</option>
 									</select>
 									<input type="text" id="word" name="word"
 										value="${pageBean.word}" class="form-control" />
@@ -112,6 +113,7 @@ $(function(){
 						<td width="200">제목</td>
 						<td width="200">작성자</td>
 						<td width="100">게시일</td>
+						<td width="100">반</td>
 						<c:forEach var="board" items="${list}">
 							<tr align="center">
 								<td align="center">${board.b_id}</td>
@@ -119,6 +121,12 @@ $(function(){
 										${board.b_title}</a></td>
 								<td align="center">${board.t_name}</td>
 								<td align="center">${board.b_date}</td>
+								<c:if test="${board.b_o_id!=0}">
+									<td align="center">${board.c_name}</td>
+								</c:if>
+								<c:if test="${board.b_o_id==0}">
+									<td align="center">전체 공지</td>
+								</c:if>
 							</tr>
 						</c:forEach>
 					</tr>

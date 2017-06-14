@@ -7,24 +7,27 @@
 <mapper namespace="board">
 	<select id="search" parameterType="int" resultType="board">
 		select b_id, to_char(b_date,'yyyy-mm-dd') b_date, b_title 
-				, b_contents , b_etc , b_t_id, t_name 
-		from board, teacher 
-		where b_id=#{b_id} and b_t_id=t_id 
+				, b_contents , b_etc , b_t_id, t_name, b_o_id 
+		from board, teacher , open, class
+		where b_id=#{b_id} and b_t_id=t_id and b_o_id=o_id and o_c_id=c_id 
 	</select> 
 	
 	<select id="searchAll" parameterType="pagebean" resultType="board">
 		select b_id, to_char(b_date,'yyyy-mm-dd') b_date, b_title 
-				, b_contents , b_etc , b_t_id, t_name
-		from board , teacher 
+				, b_contents , b_etc , b_t_id, t_name , c_name , b_o_id
+		from board , teacher , open, class
 		<where>
-			b_t_id=t_id 
+			 b_t_id=t_id and b_o_id=o_id and o_c_id=c_id 
 			<if test="word != null">
 				<choose>
 					<when test="key == 'title'">
 						and b_title like '%'|| #{word} || '%'
 					</when>
-					<when test="key == 'contents'">
-						and b_contents like '%'|| #{word} || '%'
+					<when test="key == 'teacher'">
+						and t_name like '%'|| #{word} || '%'
+					</when>
+					<when test="key == 'classes'">
+					    and c_name LIKE '%'|| #{word} || '%'
 					</when>
 				</choose>
 			</if>
@@ -55,13 +58,14 @@
 	
 	<insert id="insert" parameterType="board">
 		insert into board ( b_id, b_date, b_title 
-							, b_contents , b_etc , b_t_id )
+							, b_contents , b_etc , b_t_id, b_o_id )
 		values( #{b_id:INTEGER}
 				,sysdate
 				,#{b_title:VARCHAR}
 				,#{b_contents:VARCHAR}
 				,#{b_etc:VARCHAR}
 				,#{b_t_id:INTEGER}
+				,#{b_o_id:INTEGER}
 			)
 	</insert>
 	<update id="update" parameterType="board">
@@ -70,6 +74,7 @@
 				,b_contents=#{b_contents:VARCHAR}
 				,b_etc=#{b_etc:VARCHAR}
 				,b_t_id=#{b_t_id:INTEGER}
+				,b_o_id=#{b_o_id:INTEGER}
 		where b_id=#{b_id:INTEGER}
 	</update>
 	
