@@ -45,13 +45,8 @@
       <div class="row">
           <div class="col-lg-3 col-md-3 col-sm-4">
               	<a class="list-group-item"  href="insertKidForm.do">자녀 입력</a>
-<<<<<<< HEAD
-              	<a class="list-group-item"  href="listKid.do">자녀 리스트</a>
-=======
               	<a class="list-group-item"  href="listMyKids.do">자녀 리스트</a>
             </div>
->>>>>>> branch 'master' of https://github.com/jungwooChoi/KDN_KINDERGARDEN.git
-           </div>
           
         <div class="col-lg-9">
 	          <form action="insertKid.do" method="post" enctype="multipart/form-data" name="frm" onsubmit="return check(this)" >

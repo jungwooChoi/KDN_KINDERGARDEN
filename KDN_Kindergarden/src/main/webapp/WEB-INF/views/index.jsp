@@ -128,6 +128,7 @@
 						</c:otherwise>
 					</c:choose>
 			</div>
+		<div class="fish" id="fish"></div>
 		<div class="top-blue-border"></div>
 		<footer id="footer">
 			<div class="footer-holder">
@@ -142,5 +143,7 @@
 		</footer>	
 	</div>
 	</div>
+    <script src="js/index.js"></script>
+	
 </body>
 </html>
