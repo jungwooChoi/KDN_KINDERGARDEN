@@ -38,7 +38,6 @@ public class SchduleController {
 	@Autowired
 	private OpenService openService;
 	
-	
 	@RequestMapping(value="pop.do", method=RequestMethod.GET)
 	public String pop(Model model,String finalDate){
 		Schedule schedule = scheduleService.searchDate(finalDate);
@@ -46,18 +45,19 @@ public class SchduleController {
 		model.addAttribute("finalDate", finalDate);
 		//System.out.println(finalDate);
 		return "schedule/listSchedule";
+		
 	}
 	
 	/*@RequestMapping(value="pop.do", method=RequestMethod.GET)
-	public ModelAndView pop(String finalDate){
+	public ModelAndView pop(String Date){
 		
 		ModelAndView mv = new ModelAndView();
 	
-		mv.setViewName("schedule/popup/listSchedule");
-		
-		Schedule schedule = scheduleService.searchDate(finalDate);
+		mv.setViewName("schedule/listSchedule");
+		System.out.println(Date);
+		Schedule schedule = scheduleService.searchDate(Date);
 		mv.addObject("schedule", schedule);
-		mv.addObject("finalDate", finalDate);
+		mv.addObject("finalDate", Date);
 		
 		return mv;
 	}*/
