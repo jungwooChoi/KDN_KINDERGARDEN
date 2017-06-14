@@ -29,7 +29,7 @@
 	</update>
 	
 	<select id="searchAll" resultType="teacher">
-		select t_name, t_gradu, t_phone, t_address, t_status, t_img
+		select t_id, t_name, t_gradu, t_phone, t_address, t_status, t_img
 		from teacher
 	</select>
 	
