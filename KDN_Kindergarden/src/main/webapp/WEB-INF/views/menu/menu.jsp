@@ -24,6 +24,8 @@
 		<div class="col-lg-3 col-md-3 col-sm-4">
 				<a class="list-group-item" href="menu.do">주간 메뉴</a> 
 				<a class="list-group-item" href="insertmenuBoardForm.do">메뉴 작성</a>
+				<a class="list-group-item" href="menuGallery.do">메뉴 사진</a>
+				<a class="list-group-item" href="insertMenuGalleryForm.do">메뉴 사진 업로드</a>
 		</div>
 		<div class="col-lg-9">
 			<form id="frm">

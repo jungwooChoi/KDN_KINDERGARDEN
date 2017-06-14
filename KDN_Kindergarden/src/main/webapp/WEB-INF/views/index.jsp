@@ -15,10 +15,11 @@
 	<link rel="stylesheet" href="css/style1.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="css/grid_12.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/slider.css">
-    	<script src="js/jquery-1.10.1.js"></script>
+    <script src="js/jquery-1.10.1.js"></script>
     <script src="js/jquery.easing.1.3.js"></script>
     <script src="js/tms-0.4.1.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet">   
+    <link href="css/style1.css" rel="stylesheet">   
     <style type="text/css">
     .bar-holder2{
 	width: 100%;

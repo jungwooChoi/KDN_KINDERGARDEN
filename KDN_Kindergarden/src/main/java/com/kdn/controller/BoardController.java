@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kdn.model.biz.BoardService;
+import com.kdn.model.biz.OpenService;
 import com.kdn.model.domain.Board;
 import com.kdn.model.domain.PageBean;
 
@@ -35,9 +36,14 @@ public class BoardController {
 	
 	@Autowired
 	private BoardService boardService;
+	@Autowired
+	private OpenService openService;
 	
 	@RequestMapping(value="insertBoardForm.do", method=RequestMethod.GET)
-	public String insertBoardForm(Model model, HttpSession session){
+	public String insertBoardForm(HttpSession session, Model model){
+		int id=(Integer)session.getAttribute("id");
+		System.out.println(openService.search(id));
+		model.addAttribute("myClass", openService.search(id)); 
 		model.addAttribute("id", session.getAttribute("id"));
 		model.addAttribute("content", "board/insertBoard.jsp");
 		return "index";

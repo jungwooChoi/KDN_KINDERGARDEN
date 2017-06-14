@@ -68,9 +68,20 @@
 						<td>글쓴이</td>
 						<td>${board.t_name}</td>
 					</tr>
+					<tr>
+						<td>구분</td>
+						<td>
+							<c:if test="${board.b_o_id!=0}">
+								<td align="center">${board.c_name}</td>
+							</c:if>
+							<c:if test="${board.b_o_id==0}">
+								<td align="center">전체 공지</td>
+							</c:if>
+						</td>
+					</tr>
 					<tr><td>게시일</td><td>${board.b_date}</td></tr>
-					<tr style="border-bottom: none;">
-						<td class="form-group" style="border-bottom: none;">
+					<tr style="border-bottom: none;" co>
+						<td class="form-group" style="border-bottom: none;" rowspan="3">
 							<label for="contents">내용</label>
 						</td>
 						<td rowspan="3">
@@ -78,6 +89,14 @@
 						<div  style="background-color: DFD0D0;">
 					   		<p>${board.b_contents}</p>
 					    </div>
+						</td>
+					</tr>
+					<tr style="border-bottom: none;">
+						<td class="form-group" style="border-bottom: none;">
+							<label for="contents">기타사항</label>
+						</td>
+						<td >
+							${board.b_etc}
 						</td>
 					</tr>
 					

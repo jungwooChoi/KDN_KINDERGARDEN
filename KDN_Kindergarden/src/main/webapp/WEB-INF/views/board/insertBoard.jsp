@@ -74,6 +74,16 @@ $(function(){
 		<form method="post" action="insertBoard.do"  >
 			<table class="table table-striped table-hover">
 					<tr><th colspan="2"><h1> 게시글 작성 </h1></th></tr>
+					<tr height="50" class="form-group"><td><label for="col-lg-2 control-label">구분</label></td>
+						<td>
+					    	<div class="col-lg-10">
+								<select class="form-control" id="b_o_id" name="b_o_id">
+									<option value="0">전체 공지</option>
+									<option value="${myClass.o_id}">${myClass.c_name}</option>
+								</select> 
+						 	</div>
+						 </td>
+					</tr> 
 					<tr height="50" class="form-group"><td><label for="col-lg-2 control-label">제목</label></td>
 					    <td>
 					    <div class="col-lg-10">

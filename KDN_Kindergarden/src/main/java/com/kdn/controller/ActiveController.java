@@ -66,7 +66,7 @@ public class ActiveController {
 	}
 	
 	@RequestMapping(value="deleteGallery.do", method=RequestMethod.GET)
-	public String delteGallery(int no){
+	public String deleteGallery(int no){
 		activeService.remove(no);
 		return "redirect:gallery.do";
 	}
