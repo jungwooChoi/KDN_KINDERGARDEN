@@ -47,12 +47,12 @@ function fSetSelectedDay(myElement){
 				url:'pop.do',
 				type:'get',
 				dataType:"html",
-				data:{'finalDate':finalDate},
+				data:{'Date':finalDate},
 				success: function(data){
-					$("#wrapper").html(data);
-				},
-				error : function(e){
+					$('#myModal').html(data);
 					
+				},
+				error : function(e){					
 					 alert('일정을 서버에서 받아올 수 없습니다. 다시 조회회세요')
 					 console.log(e);
 				}
@@ -334,7 +334,7 @@ var dispMonth=0;
 			</tbody>
 		</table>
 	</form>
-	<!-- <div class="modal" id="myModal">
+	<!-- <<div class="modal" id="myModal">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -352,7 +352,7 @@ var dispMonth=0;
 							</div>
 						</div>
 					</div>
-				</div>	 -->
+				</div> -->
 </body>
 <script language="JavaScript" for=window event=onload>
 	<!-- Begin
