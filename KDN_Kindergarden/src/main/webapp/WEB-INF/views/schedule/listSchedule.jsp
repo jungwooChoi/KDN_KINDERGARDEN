@@ -13,11 +13,17 @@
 <script type="text/javascript">
 	function getDel(date) {
 		//input 양식의 hidden으로 선언된 no(게시글 번호)에 요청된 게시글 번호를 셋팅
+		setTimeout("pagereload();", 1000);	
 		document.getElementById("date").value = date;
 		var frm = document.getElementById("frm");
 		frm.action = "deleteSchedule.do";
 		frm.submit();
+		
+		opener.location.reload();
 	}
+ 	function pagereload() {
+		opener.location.reload();
+	} 
 	function getIn(date) {
 		//input 양식의 hidden으로 선언된 no(게시글 번호)에 요청된 게시글 번호를 셋팅
 		document.getElementById("date").value = date;

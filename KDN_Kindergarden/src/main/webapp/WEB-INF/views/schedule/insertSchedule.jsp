@@ -15,9 +15,9 @@
 	
 </script>
 </head>
-<body style="overflow: hidden">
+<body style="overflow: hidden" onunload="javascript:opener.location.reload();">
 	<div>
-		<form id="frm">
+		<form method="post" action="insertSchedule.do">
 			<input type="hidden" id="date" name="date" />
 			<table class="table3">
 				<tr>
