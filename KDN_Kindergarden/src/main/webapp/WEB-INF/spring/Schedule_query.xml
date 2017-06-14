@@ -30,7 +30,7 @@
 	SELECT S_ID, TO_CHAR(s_date,'yyyy-dd-mm')s_date, S_TITLE,S_CONTENTS,S_ETC,S_T_ID,S_O_ID
 	FROM (SELECT ROWNUM ro, S_ID, S_DATE,S_TITLE,S_CONTENTS,S_ETC,S_T_ID,S_O_ID
 	FROM SCHEDULE
-	WHERE TO_CHAR(SYSDATE, 'yyyy-dd-mm') = TO_CHAR(s_date, 'yyyy-dd-mm')
+	WHERE TO_CHAR(SYSDATE, 'yyyy-mm-dd') = TO_CHAR(s_date, 'yyyy-mm-dd')
 	ORDER BY s_id)
 	WHERE ro <![CDATA[<]]>2
 	</select>

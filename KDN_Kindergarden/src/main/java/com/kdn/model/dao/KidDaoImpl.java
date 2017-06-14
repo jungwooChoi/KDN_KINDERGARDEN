@@ -45,7 +45,7 @@ public class KidDaoImpl implements KidDao {
 	public List<Kid> searchAll(PageBean bean) {
 		// TODO Auto-generated method stub
 		RowBounds rows = new RowBounds(bean.getStart()-1, bean.getInterval());
-		return session.selectList("kid.searchAll", bean, rows);
+		return session.selectList("kid.searchAll",bean, rows );
 	}
 	
 	@Override

@@ -33,7 +33,7 @@
 							<c:when test="${!empty date.s_date}">
 								<div class="metadata">
 								<center><h4>${date.s_title}</h4></center>
-									<time>${date.s_date}</time>															
+									<time >${date.s_date}</time>															
 								</div>
 								<p style="overflow: auto; overflow-y: auto; overflow-x: auto; width: 100%; height: 265px; text-align: left; font-size: 12px; line-height: 160%">
 										${date.s_contents}</p>								

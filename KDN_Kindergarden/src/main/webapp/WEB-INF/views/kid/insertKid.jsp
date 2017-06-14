@@ -38,74 +38,19 @@
       border-radius: 20px;
    }
 </style>
-<script type="text/javascript">
-   $(function(){
-		$("#nav_int_menu_li1").css("color","#4C4C4C");
-		$("#nav_int_menu_li1").css("font-weight","bold");
-      
-		//이미지 유무
-      $("#k_img").hide();
-      $("#View_area").hide();
-      $(".sellerimg").change(function(){
-         if($(this).val()=='무'){
-            $("#k_img").hide();
-            $("#View_area").hide();
-         }
-         else{
-            $("#k_img").show();
-            $("#View_area").show();
-         }
-      });
-      
-   });
-   
-   //아이디입력 버튼 클릭시 팝업창
-   $("#btnid").click(function(){
-      window.open("<%=root%>/enter/idSearch.jsp","","top=300px,left=1200px,width=500px,height=400px");
-   });
-   
-   function check(f){
-    //이미지 유무 선택 했는지 확인
-    //f.k_img.value=f.k_uploadimg.value.substring(12);
-    
-    if(f.sellerimg.value=='유'){
-         if(f.k_img.value==''){
-            alert("이미지를 업로드하세요.\n 없을 경우 이미지 없음 체크 박스를 눌러주세요");
-            return false;
-         }      
-      }
-      
-      //셀러회원일 경우 필수 옵션 체크 확인
-      if(f.sellerok.value=='seller'){
-        
-         //성별 선택 체크했는지 확인
-         var bCheck3=false;
-         for(var i=0;i<f.k_sex.length;i++){
-            //alert(sex[i].checked);
-            if(f.k_sex[i].checked)
-               bCheck3=true;
-         }
-         if(!bCheck3){
-            alert("성별을 선택하세요");
-            return false;
-         }
-         
-         //셀러 이름 넣었는지 확인
-         if(f.k_p_id.value==''){
-            alert("학부모 아이디를 입력해 주세요");
-            return false;
-         }
-      }
-   }
 
-</script>
 </head>
 <body>
 <div class="page-header" id="banner">
       <div class="row">
           <div class="col-lg-3 col-md-3 col-sm-4">
               	<a class="list-group-item"  href="insertKidForm.do">자녀 입력</a>
+<<<<<<< HEAD
               	<a class="list-group-item"  href="listKid.do">자녀 리스트</a>
+=======
+              	<a class="list-group-item"  href="listMyKids.do">자녀 리스트</a>
+            </div>
+>>>>>>> branch 'master' of https://github.com/jungwooChoi/KDN_KINDERGARDEN.git
            </div>
           
         <div class="col-lg-9">
@@ -143,14 +88,14 @@
 				   <tr>
 				      <th>생년월일&nbsp;&nbsp;<b style="color: red;">*</b></th>
 				      <td>
-				         <input type="text" name="k_birth" id="k_birth" maxlength="20" required="required" placeholder="YYYY-MM-DD"> 
+				         <input type="date" name="k_birth" id="k_birth" maxlength="20" required="required" placeholder="YYYY-MM-DD"> 
 				      </td>
 				   </tr>
 				   <tr>
 				      <th>성별&nbsp;&nbsp;<b style="color: red;">*</b></th>
 				      <td>
-				         <input type="radio" size="4" name="k_sex" value="여자" >여자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-				         <input type="radio" size="4" name="k_sex" value="남자" >남자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				         <input type="radio" size="4" name="k_sex" value="F" >여자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				         <input type="radio" size="4" name="k_sex" value="M" >남자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 				      </td>
 				   </tr>
 				   <tr>
@@ -162,10 +107,6 @@
 				   <tr>
 				      <th style="border-bottom: none;">학생 사진</th>
 				      <td style="border-bottom: none;">
-				       <!--   <input type="radio" class="sellerimg" name="s_img" size="15" value="무" checked="checked">  이미지 없음
-				         &nbsp;&nbsp;&nbsp;
-				         <input type="radio" class="sellerimg" name="s_img" size="15" value="유" >  이미지 있음
-				         &nbsp;&nbsp; -->
 				         <jsp:include page="imageView.jsp"></jsp:include>
 				         <input type="file" name="k_uploadimg" id="k_uploadimg" onchange="previewImage(this,'View_area')"> 
 				      	 <input type="hidden" name="k_img" id="k_img">

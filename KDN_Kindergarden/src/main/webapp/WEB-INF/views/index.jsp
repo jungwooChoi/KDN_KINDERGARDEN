@@ -11,6 +11,11 @@
 	<title>Kid' school - Home</title>
 	<link href='http://fonts.googleapis.com/css?family=Gochi+Hand|Arvo:400,700' rel='stylesheet' type='text/css'>
 	<link href="css/jquery.bxslider.css" rel="stylesheet" />
+<<<<<<< HEAD
+=======
+	<link href="css/bootstrap.css" rel="stylesheet">   
+	<link rel="stylesheet" href="css/style1.css" />
+>>>>>>> branch 'master' of https://github.com/jungwooChoi/KDN_KINDERGARDEN.git
 	<link rel="stylesheet" type="text/css" media="screen" href="css/grid_12.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/slider.css">
     <script src="js/jquery-1.10.1.js"></script>

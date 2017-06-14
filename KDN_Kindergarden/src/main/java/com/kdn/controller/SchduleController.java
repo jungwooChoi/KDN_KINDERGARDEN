@@ -2,6 +2,7 @@ package com.kdn.controller;
 
 import java.util.List;
 
+import javax.activation.CommandMap;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kdn.model.biz.OpenService;
 import com.kdn.model.biz.ScheduleService;
-import com.kdn.model.domain.Board;
 import com.kdn.model.domain.Open;
 import com.kdn.model.domain.PageBean;
 import com.kdn.model.domain.Schedule;
@@ -47,6 +47,20 @@ public class SchduleController {
 		//System.out.println(finalDate);
 		return "schedule/listSchedule";
 	}
+	
+	/*@RequestMapping(value="pop.do", method=RequestMethod.GET)
+	public ModelAndView pop(String finalDate){
+		
+		ModelAndView mv = new ModelAndView();
+	
+		mv.setViewName("schedule/popup/listSchedule");
+		
+		Schedule schedule = scheduleService.searchDate(finalDate);
+		mv.addObject("schedule", schedule);
+		mv.addObject("finalDate", finalDate);
+		
+		return mv;
+	}*/
 	
 	@ResponseBody
 	@RequestMapping(value="schedule.do", method=RequestMethod.GET)

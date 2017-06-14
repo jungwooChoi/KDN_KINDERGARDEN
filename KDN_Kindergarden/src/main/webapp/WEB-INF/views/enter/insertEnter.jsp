@@ -19,8 +19,11 @@
 					<a class="list-group-item" href="insertEnterForm.do">입학 신청</a> 
 			</div>
 		<div class="col-lg-9">
-				<div>
-				<h1>2017년도 입학 신청서</h1>
+				<table class="table table-striped table-hover">
+					<tr>
+						<th colspan="4"><h1>2017년도 입학 신청</h1></th>
+					</tr>
+				</table>
 				<form method="post" action="insertEnter.do" class="form-horizontal">
 					<input type="hidden" name="e_status" value="N">
 					<fieldset>
@@ -105,7 +108,6 @@
 			</div>
 			</div>
 		</div>
-	</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>

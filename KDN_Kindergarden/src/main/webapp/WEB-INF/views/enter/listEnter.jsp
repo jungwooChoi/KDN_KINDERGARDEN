@@ -38,10 +38,12 @@ function getEnter(e_id){
           		<input type="hidden" id="pageNo"  name="pageNo"  value="1"/>
 				<input type="hidden" id="e_id"  name="e_id"/>
 				
-          		<table>
+				<table class="table table-striped table-hover">
 					<tr>
-						<th colspan="3"><h1>입학 신청 리스트</h1></th>
+						<th colspan="4"><h1>입학 신청 리스트</h1></th>
 					</tr>
+				</table>
+          		<table>
 					<tr>
 						<td colspan="2" height="100" align="center">
 							<div class="form-group">
